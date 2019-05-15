@@ -2,7 +2,7 @@
   <div >
     <input v-model="content" placeholder="Schreibe deine Geschichte" />
     <input v-model="emotion" placeholder="Emotion" />
-    <button v-on:click="addStory(content,emotion)" >Add New Member</button>
+    <button v-on:click="addStory(content,emotion)" >Add</button>
 </div>
 </template>
 

@@ -1,10 +1,11 @@
 <template>
   <div class="home">
     <div>
+      <Form @add-Story="addStory"></Form>
        <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" v-for="story in stories" :key="story.id">
            <!-- <button @click="$emit('delete-member',m.id)">Del</button> -->
        </Story>
-       <Form @add-Story="addStory"></Form>
+       
    </div>
   </div>
 </template>

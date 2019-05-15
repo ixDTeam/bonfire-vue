@@ -1,15 +1,16 @@
 <template>
-  <div class='story'>
+  <div class='story' :data-id=id>
     <span class='date'></span>
     <p class='content'>{{content}}</p>
     <span class='emoji'>{{emotion}}</span>
-
-    <span class='emoji'>{{id}}</span>
-    <button @click="$emit('delete-members', id )">X</button>
+    <div class="delete" @click="$emit('delete-members', id )">X</div>
   </div>
 </template>
 
 <script>
+
+import Form from '@/components/Form.vue'
+
 export default {
   name: 'Story',
   props: {
@@ -25,7 +26,7 @@ export default {
   .story {
     position: relative;
     margin: 50px 10vw;
-    min-width: 300px;
+    max-width: 300px;
     background-color: white;
     padding: 20px;
     border: 0px;
