@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>
-      <Form @add-Story="addStory"></Form>
+     
        <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" v-for="story in stories" :key="story.id">
            <!-- <button @click="$emit('delete-member',m.id)">Del</button> -->
        </Story>
@@ -35,10 +35,7 @@ export default {
         };
     },
     methods: {
-       addStory(content, emotion) {
-           //alert('in addMember Parent');
-           db.collection("object/001/story").add({ content, emotion });
-       },
+       
        deleteMember(id) {
            //alert('in deleteMember Parent');
            db.collection("object/001/story").doc(id).delete();

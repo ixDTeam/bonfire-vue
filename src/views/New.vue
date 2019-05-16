@@ -9,6 +9,7 @@
 
 import Form from '@/components/Form.vue'
 import {db} from '@/config/db.js'
+import { Timestamp } from '@/config/db.js'
 
 
 export default {
@@ -22,8 +23,9 @@ export default {
   },
   methods: {
        addStory(content, emotion) {
-           //alert('in addMember Parent');
-           db.collection("object/001/story").add({ content, emotion });
+           var created = new Date();
+           console.log('created');
+           db.collection("object/001/story").add({ content, emotion, created });
        }
   
 }
