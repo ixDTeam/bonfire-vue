@@ -20,6 +20,12 @@ export default {
     return {
     };
   },
+  methods: {
+       addStory(content, emotion) {
+           //alert('in addMember Parent');
+           db.collection("object/001/story").add({ content, emotion });
+       }
   
+}
 }
 </script>
