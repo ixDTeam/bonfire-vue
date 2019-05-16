@@ -1,8 +1,10 @@
 <template>
-  <div >
-    <input v-model="content" placeholder="Schreibe deine Geschichte" />
-    <input v-model="emotion" placeholder="Emotion" />
-    <button v-on:click="addStory(content,emotion)" >Add</button>
+  <div class="story-form">
+    <textarea class="content input" v-model="content" placeholder="Schreibe deine Geschichte" />
+    <input class="input" v-model="emotion" placeholder="Emotion" />
+    <span>Wähle eine Emotion:</span>
+    <button></button>
+    <b-button v-on:click="addStory(content,emotion)" >Add</b-button>
 </div>
 </template>
 
@@ -27,5 +29,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
 
 </style>
