@@ -1,7 +1,8 @@
 <template>
   <b-container id="app">
     <div id="nav">
-    <router-link to="/new">New</router-link> |
+      <router-link to="/Start">Start</router-link> |
+      <router-link to="/new">New</router-link> |
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
 

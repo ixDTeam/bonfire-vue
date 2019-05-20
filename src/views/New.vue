@@ -13,7 +13,7 @@ import { Timestamp } from '@/config/db.js'
 
 
 export default {
-  name: 'new',
+  name: 'New',
   components: {
     Form
   },
@@ -27,7 +27,7 @@ export default {
            console.log('created');
            db.collection("object/001/story").add({ content, emotion, created });
        }
-  
+
 }
 }
 </script>

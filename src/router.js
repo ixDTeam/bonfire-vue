@@ -5,11 +5,23 @@ import Home from './views/Home.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/start/:id',
+      name: 'start',
+      component: () => import('./views/Start.vue'),
+      props: true
+    },
+    {
+      path: '/start',
+      name: 'start',
+      component: () => import('./views/Start.vue')
     },
     {
       path: '/new',

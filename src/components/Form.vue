@@ -2,9 +2,9 @@
 <div class="new">
 <div class="pop-up" v-if="errors.has('max_field')" show variant="danger" >Beachte bitte die beschränkte Länge deiner Geschichte.</div>
   <div class="form">
-    <textarea v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
+    <textarea autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
     <span class="char">Du hast noch {{remain_char}} Zeichen.</span>
-    
+
   </div>
 
 
@@ -21,7 +21,13 @@
     <div class="emoji">
       <span> 😂</span>
     </div>
-  </label> 
+  </label>
+  <label>
+    <input class="radio-hide" v-model="emotion" name="emotion" value=" 😂" type="radio">
+    <div class="emoji">
+      <span> 😂</span>
+    </div>
+  </label>
   <label>
     <input class="radio-hide" v-model="emotion" name="emotion" value=" 😂" type="radio">
     <div class="emoji">
@@ -39,13 +45,7 @@
     <div class="emoji">
       <span> 😂</span>
     </div>
-  </label> 
-  <label>
-    <input class="radio-hide" v-model="emotion" name="emotion" value=" 😂" type="radio">
-    <div class="emoji">
-      <span> 😂</span>
-    </div>
-  </label>  
+  </label>
   <label>
     <input class="radio-hide" v-model="emotion" name="emotion" value=" 😂" type="radio">
     <div class="emoji">
@@ -57,18 +57,18 @@
     <div class="emoji">
       <span> 😂</span>
     </div>
-  </label> 
+  </label>
   <label>
     <input class="radio-hide" v-model="emotion" name="emotion" value=" 😂" type="radio">
     <div class="emoji">
       <span> 😂</span>
     </div>
-  </label>         
+  </label>
 </div>
-      
-     
 
-     
+
+
+
 
 <div class="form submit-story">
   <button v-on:click="addStory(content,emotion)" :disabled="checkButton()"  >Geschichte abschicken</button>
@@ -110,7 +110,7 @@ export default {
       else if(this.errors.items.length != 0){
         return true;
       }
-      
+
     }
   },
   computed: {
