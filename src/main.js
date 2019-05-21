@@ -5,11 +5,8 @@ import Vue from 'vue'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router'
-<<<<<<< HEAD
-=======
 import VeeValidate from 'vee-validate'
 import * as VueGoogleMaps from 'vue2-google-maps';
->>>>>>> map
 
 import { firestorePlugin } from 'vuefire'
 import VueCookies from 'vue-cookies'
@@ -40,10 +37,10 @@ let getUser;
 let cookieID = window.$cookies.get('id');
 
 if (cookieID) {
-  console.log("Test Cookie gefunden! ID ist " +cookieID);
+  console.log("Test Cookie gefunden! ID ist " + cookieID);
   getUser = Promise.resolve({ role: "registered" });
 } else {
-  console.log(" Test Kein Cookie gefunden! ID ist " +cookieID);
+  console.log(" Test Kein Cookie gefunden! ID ist " + cookieID);
   getUser = Promise.resolve({ role: "guest" });
 }
 Vue.use(VueGoogleMaps);
