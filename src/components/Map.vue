@@ -11,7 +11,6 @@
        fullscreenControl: false,
        disableDefaultUi: false
      }"
-     style="width:100%;  height: 400px;"
    >
 
    <gmap-polyline v-if="path.length > 0" :path="path" ref="polyline">
