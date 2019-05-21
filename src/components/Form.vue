@@ -90,9 +90,21 @@ export default {
   },
   methods: {
     addStory(content,emotion) {
-        this.$emit('add-Story', content, emotion);
-        this.content = null;
-        this.emotion = null;
+
+
+      this.$getLocation()
+        .then(coordinates => {
+          console.log(coordinates);
+          var location = {
+            lat: coordinates.lat,
+            lng: coordinates.lng
+          };
+          console.log(location);
+          this.$emit('add-Story', content, emotion, location);
+          this.content = null;
+          this.emotion = null;
+        });
+
         },
     charCounter(){
       var calc_char = this.max_char-this.content.length;

@@ -8,6 +8,7 @@
 <script>
 
 import Form from '@/components/Form.vue'
+import firebase from 'firebase/app'
 import {db} from '@/config/db.js'
 
 
@@ -22,10 +23,15 @@ export default {
     };
   },
   methods: {
-       addStory(content, emotion) {
+       addStory(content, emotion, location) {
            var created = new Date();
            console.log('created');
-           db.collection("object/001/story").add({ content, emotion, created });
+           db.collection("object/001/story").add({
+             content,
+             emotion,
+             created,
+             location: new firebase.firestore.GeoPoint(location.lat, location.lng)
+           });
        }
 
 }

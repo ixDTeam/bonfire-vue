@@ -18,6 +18,8 @@ import Vuex from 'vuex'
 import store from './store'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import VueGeolocation from 'vue-browser-geolocation'
+
 
 import VueRouterUserRoles from "vue-router-user-roles";
 
@@ -32,6 +34,7 @@ Vue.use(SequentialEntrance);
 Vue.use(Vuex);
 Vue.use(VueRouterUserRoles, { router });
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
+Vue.use(VueGeolocation);
 
 
 
@@ -47,7 +50,12 @@ if (cookieID) {
   // console.log(" Test Kein Cookie gefunden! ID ist " + cookieID);
   getUser = Promise.resolve({ role: "guest" });
 }
-Vue.use(VueGoogleMaps);
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyC0p6rXwRKcXYuBp5IMBBMbrXeAO3a2BuI",
+  }
+});
 
 Vue.config.productionTip = false;
 VueCookies.config('14d');

@@ -17,7 +17,7 @@ export default {
   props: {
     content: String,
     emotion: String,
-    id: String
+    id: String,
   }
 }
 </script>

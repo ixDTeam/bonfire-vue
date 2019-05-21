@@ -1,7 +1,7 @@
 <template>
   <div class="tutorial">
     <h1>Tutorial</h1>
-    <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+    <swiper :options="swiperOption" ref="mySwiper">
     <!-- slides -->
     <swiper-slide>
       <img src="@/assets/logo.png">
