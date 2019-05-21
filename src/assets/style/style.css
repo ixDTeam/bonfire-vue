@@ -1,8 +1,21 @@
+#nav{
+    position: fixed !important;
+    z-index: 20;
+    color: white !important;
+}
+
+#app{
+    width: 100%;
+}
+
+#nav a {
+    color: white;
+}
+
 .new{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .submit-story{
