@@ -16,14 +16,12 @@
 import Story from '@/components/Story.vue'
 import Form from '@/components/Form.vue'
 import {db} from '@/config/db.js'
-import cookieCheck from '@/cookieCheck.js'
 
 export default {
   name: 'home',
   components: {
     Story,
     Form,
-    cookieCheck
   },
   data() {
         return {

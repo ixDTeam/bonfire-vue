@@ -11,7 +11,37 @@
   </b-container>
 </template>
 
+
+<script>
+
+export default {
+  computed: {
+    isGuest() {
+      return this.$user.get().role === "guest";
+    }
+  },
+  methods: {
+    toggleAuth() {
+      let user;
+      var cookieID = this.$cookies.get('id');
+      console.log("Cookie gefunden! ID ist " +this.$cookies.get('id'));
+      if (cookieID) {
+        user = {
+          role: "registered"
+        };
+      } else {
+        user = {
+          role: "guest"
+        };
+      }
+      this.$user.set(user);
+    }
+  }
+};
+</script>
+
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

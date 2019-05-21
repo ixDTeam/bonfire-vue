@@ -21,7 +21,29 @@ export default {
             access: false
         };
     },
+    computed: {
+      isGuest() {
+        return this.$user.get().role === "guest";
+      }
+    },
     methods: {
+
+      toggleAuth() {
+        let user;
+        var cookieID = this.$cookies.get('id');
+        if (cookieID) {
+          console.log("Cookie gefunden! ID ist " +cookieID);
+          user = {
+            role: "registered"
+          };
+        } else {
+          console.log("Kein Cookie gefunden! ID ist " +cookieID);
+          user = {
+            role: "guest"
+          };
+        }
+        this.$user.set(user);
+      },
 
       setPathCookie(){
         var cookieID = this.$cookies.get('id');
@@ -53,7 +75,10 @@ export default {
       }
      },
      mounted: function () {
+       this.toggleAuth();
        this.setPathCookie();
+
      }
 }
+
 </script>
