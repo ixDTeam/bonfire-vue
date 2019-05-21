@@ -3,7 +3,7 @@
     <div>
       <Map v-bind:lat="latCenter"  v-bind:lng="lngCenter">
       </Map>
-      <sequential-entrance fromLeft>
+      <b-container fluid id="feed">
         <swiper :options="swiperOption" dir="rtl" ref="mySwiper" @slideChange="changeSlide">
             <swiper-slide v-for="story in stories" :key="story.id">
               <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" > </Story>
@@ -11,7 +11,7 @@
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
            <!-- <button @click="$emit('delete-member',m.id)">Del</button> -->
-     </sequential-entrance>
+    </b-container>
    </div>
   </div>
 </template>
@@ -34,6 +34,11 @@ export default {
             stories: [],
             swiperOption: {
               slidesPerView: 2,
+              freeMode: true,
+              freeModeSticky: true,
+              freeModeMomentumRatio: 0.2,
+              freeModeMomentumBounce: true,
+              freeModeMomentumBounceRatio: 2,
           spaceBetween: 30,
               grabCursor: true,
               centeredSlides: true,

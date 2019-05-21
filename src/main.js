@@ -24,7 +24,8 @@ import VueGeolocation from 'vue-browser-geolocation'
 import VueRouterUserRoles from "vue-router-user-roles";
 
 import 'swiper/dist/css/swiper.css'
-import './assets/style.css'
+import './assets/style/style.css'
+import './assets/style/journey.css'
 
 
 Vue.use(firestorePlugin);
@@ -33,7 +34,7 @@ Vue.use(VueCookies);
 Vue.use(SequentialEntrance);
 Vue.use(Vuex);
 Vue.use(VueRouterUserRoles, { router });
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
+Vue.use(VueAwesomeSwiper)
 Vue.use(VueGeolocation);
 
 

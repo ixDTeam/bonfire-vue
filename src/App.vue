@@ -1,5 +1,5 @@
 <template>
-  <b-container id="app">
+  <div id="app">
     <div id="nav">
       <router-link to="/">Welcome</router-link> |
       <router-link to="/tutorial">Tutorial</router-link> |
@@ -10,7 +10,7 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
-  </b-container>
+  </div>
 </template>
 
 
