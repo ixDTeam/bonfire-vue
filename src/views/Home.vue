@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="welcome">
     <div>
      <Map>
        </Map>
@@ -8,12 +8,6 @@
            <!-- <button @click="$emit('delete-member',m.id)">Del</button> -->
        </Story>
      </sequential-entrance>
-
-       
-     
-
-       
-       
    </div>
   </div>
 </template>
@@ -26,7 +20,7 @@ import Map from '@/components/Map.vue'
 import {db} from '@/config/db.js'
 
 export default {
-  name: 'home',
+  name: 'welcome',
   components: {
     Story,
     Map

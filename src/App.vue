@@ -1,11 +1,13 @@
 <template>
   <b-container id="app">
     <div id="nav">
+      <router-link to="/">Welcome</router-link> |
+      <router-link to="/tutorial">Tutorial</router-link> |
+      <router-link to="/journey">Journey</router-link> |
+      <router-link to="/giveaway">Giveaway</router-link> |
       <router-link to="/Start">Start</router-link> |
       <router-link to="/new">New</router-link> |
-      <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-
     </div>
     <router-view/>
   </b-container>

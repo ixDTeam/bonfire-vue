@@ -17,9 +17,11 @@ import 'vue-sequential-entrance/vue-sequential-entrance.css'
 import Vuex from 'vuex'
 import store from './store'
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 import VueRouterUserRoles from "vue-router-user-roles";
 
-
+import 'swiper/dist/css/swiper.css'
 import './assets/style.css'
 
 
@@ -29,6 +31,8 @@ Vue.use(VueCookies);
 Vue.use(SequentialEntrance);
 Vue.use(Vuex);
 Vue.use(VueRouterUserRoles, { router });
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
+
 
 
 
@@ -37,10 +41,10 @@ let getUser;
 let cookieID = window.$cookies.get('id');
 
 if (cookieID) {
-  console.log("Test Cookie gefunden! ID ist " + cookieID);
+  // console.log("Test Cookie gefunden! ID ist " + cookieID);
   getUser = Promise.resolve({ role: "registered" });
 } else {
-  console.log(" Test Kein Cookie gefunden! ID ist " + cookieID);
+  // console.log(" Test Kein Cookie gefunden! ID ist " + cookieID);
   getUser = Promise.resolve({ role: "guest" });
 }
 Vue.use(VueGoogleMaps);

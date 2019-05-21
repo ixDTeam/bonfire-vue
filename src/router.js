@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Welcome from './views/Welcome.vue'
 
 Vue.use(Router)
 
@@ -9,8 +9,28 @@ export default new Router({
   routes: [
     {
       path: '',
-      name: 'home',
-      component: Home
+      name: 'welcome',
+      component: Welcome
+    },
+    {
+      path: '/tutorial',
+      name: 'tutorial',
+      component: () => import('./views/Tutorial.vue'),
+    },
+    {
+      path: '/journey',
+      name: 'journey',
+      component: () => import('./views/Journey.vue'),
+    },
+    {
+      path: '/giveaway',
+      name: 'giveaway',
+      component: () => import('./views/Giveaway.vue'),
+    },
+    {
+      path: '/new',
+      name: 'new',
+      component: () => import('./views/New.vue')
     },
     {
       path: '/start/:id',
@@ -22,11 +42,6 @@ export default new Router({
       path: '/start',
       name: 'start',
       component: () => import('./views/Start.vue')
-    },
-    {
-      path: '/new',
-      name: 'new',
-      component: () => import('./views/New.vue')
     },
     {
       path: '/about',
