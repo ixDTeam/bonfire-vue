@@ -5,6 +5,11 @@ import Vue from 'vue'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router'
+<<<<<<< HEAD
+=======
+import VeeValidate from 'vee-validate'
+import * as VueGoogleMaps from 'vue2-google-maps';
+>>>>>>> map
 
 import VeeValidate from 'vee-validate'
 import { firestorePlugin } from 'vuefire'
@@ -24,6 +29,7 @@ import './assets/style.css'
 
 Vue.use(firestorePlugin);
 Vue.use(VeeValidate);
+<<<<<<< HEAD
 Vue.use(VueCookies);
 Vue.use(SequentialEntrance);
 Vue.use(Vuex);
@@ -42,6 +48,9 @@ if (cookieID) {
   console.log(" Test Kein Cookie gefunden! ID ist " +cookieID);
   getUser = Promise.resolve({ role: "guest" });
 }
+=======
+Vue.use(VueGoogleMaps);
+>>>>>>> map
 
 Vue.config.productionTip = false;
 VueCookies.config('14d');
