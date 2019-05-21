@@ -1,7 +1,7 @@
 <template>
   <div class="welcome">
     <div>
-      <h1>Welcome</h1>
+      <h1>Welcome </h1>
       <button v-on:click="startTutorial">Los gehts!</button><br>
       <button v-on:click="testCookie">Cookie generieren</button>
    </div>

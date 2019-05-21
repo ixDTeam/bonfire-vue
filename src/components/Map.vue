@@ -1,16 +1,27 @@
 <template>
-  <gmap-map
-     :center="{lat: this.lat, lng: this.lng}"
-     :zoom="5"
+  <gmap-map ref="mymap"
+     :center="{lat: 50, lng: 20}"
+     :zoom="8"
+     :options="{
+       zoomControl: false,
+       mapTypeControl: false,
+       scaleControl: false,
+       streetViewControl: false,
+       rotateControl: false,
+       fullscreenControl: false,
+       disableDefaultUi: false
+     }"
      style="width:100%;  height: 400px;"
    >
+
+   <gmap-polyline v-if="path.length > 0" :path="path" ref="polyline">
+      </gmap-polyline>
    </gmap-map>
 
 
 </template>
 
 <script>
-// import gmapsInit from '../config/map';
 
 
 export default {
@@ -21,8 +32,35 @@ export default {
    },
    data: function() {
      return{
+       path: [
+        {lat: 50, lng: 20},
+        {lat: 51, lng: 23},
+      ],
+     }
+   },
+   methods: {
+     panMap() {
 
      }
-   }
+   },
+   watch: {
+      	lat: function(newVal, oldVal) { // watch it
+        this.$refs.mymap.$mapObject.panTo({lat: this.lat, lng: this.lng})
+      }
+    }
 }
 </script>
+
+
+<style>
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+</style>

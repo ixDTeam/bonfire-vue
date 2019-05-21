@@ -8,6 +8,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '/q/:id',
+      name: 'qr',
+      component: () => import('./views/QR.vue'),
+      props: true
+    },
+    {
       path: '',
       name: 'welcome',
       component: Welcome
