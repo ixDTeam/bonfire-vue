@@ -36,27 +36,27 @@ export default new Router({
     {
       path: '/new',
       name: 'new',
-      component: () => import('./views/New.vue')
+      component: () => import('./views/addStory/New.vue')
     },
     {
       path: '/tell',
       name: 'tell',
-      component: () => import('./views/Tell.vue')
+      component: () => import('./views/addStory/Tell.vue')
     },
     {
       path: '/feel',
       name: 'feel',
-      component: () => import('./views/Feel.vue')
+      component: () => import('./views/addStory/Feel.vue')
     },
     {
       path: '/where',
       name: 'where',
-      component: () => import('./views/Where.vue')
+      component: () => import('./views/addStory/Where.vue')
     },
     {
       path: '/summary',
       name: 'summary',
-      component: () => import('./views/Summary.vue')
+      component: () => import('./views/addStory/Summary.vue')
     },
     {
       path: '/start/:id',
