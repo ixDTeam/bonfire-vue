@@ -1,6 +1,5 @@
 <template>
   <div class="new">
-    <h1>New Story</h1>
     <Form @add-Story="addStory"></Form>
   </div>
 </template>

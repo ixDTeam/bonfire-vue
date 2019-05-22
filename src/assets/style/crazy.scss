@@ -1,0 +1,94 @@
+@font-face {
+    font-family: "Harmonia";
+    font-weight: 700;
+    src: url('../fonts/Harmonia-Bold.otf');
+  }
+@font-face {
+    font-family: "Harmonia";
+    font-weight: 900;
+    src: url('../fonts/Harmonia-Black.otf');
+}
+
+$bg-color: #FD74BC;
+$text-color-primary: #0A2465;
+
+@mixin fontBlack($fontsize){
+    font-family: "Harmonia";
+    font-weight: 900;
+    font-size: $fontsize;
+}
+
+
+
+h2{
+    font-size: 100px;
+}
+
+.story {
+    position: relative;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 10px;
+
+    height: 30vh;  //Story Height
+  }
+
+  #feed{
+    position: absolute;
+    bottom: 10px;
+    padding: 0px;
+  }
+
+
+  .story .content {
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .story .date {
+    font-size: 14px;
+  }
+
+  .story .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+
+/*+++++++++++++++++++/
+  FADER
+/+++++++++++++++++++*/
+
+  #fader-feed-map{
+    position: absolute;
+    bottom: 0px;
+
+    height: 40vh;
+    width: 100%;
+
+    background: linear-gradient(to top, rgba(255,255,255,1) 50%,rgba(255,255,255,1) 65%,rgba(255,255,255,0.1) 85%, rgba(255,255,255,0) 97%)
+  }
+
+/*+++++++++++++++++++/
+  MAP STYLE
+/+++++++++++++++++++*/
+
+  .vue-map-container{
+    position: absolute;
+    width: 100%;
+    height: 75vh;
+  }
+
+  a[href^="http://maps.google.com/maps"]{display:none !important}
+  a[href^="https://maps.google.com/maps"]{display:none !important}
+  .gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+  }
+.gmnoprint div {
+    background:none !important;
+}

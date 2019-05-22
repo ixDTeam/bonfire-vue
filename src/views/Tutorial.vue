@@ -1,16 +1,16 @@
 <template>
   <div class="tutorial">
-    <h1>Tutorial</h1>
     <swiper :options="swiperOption" ref="mySwiper">
     <!-- slides -->
-    <swiper-slide>
-      <img src="@/assets/logo.png">
+    <swiper-slide class="tutorial-page">
       <h2>Headline</h2>
       <p>Lorem ipsum ist super cool.</p>
     </swiper-slide>
-    <swiper-slide>I'm Slide 2</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide><button v-on:click="startJourney">Los gehts!</button></swiper-slide>
+    <swiper-slide class="tutorial-page">I'm Slide 2</swiper-slide>
+    <swiper-slide class="tutorial-page">I'm Slide 3</swiper-slide>
+    <swiper-slide class="tutorial-page">
+      <button v-on:click="startJourney">Los gehts!</button>
+    </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
     <div class="swiper-button-prev" slot="button-prev"></div>

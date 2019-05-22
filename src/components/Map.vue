@@ -1,7 +1,13 @@
 <template>
+<<<<<<< HEAD
   <gmap-map ref="mymap"
      :center="{lat: 50, lng: 20}"
      :zoom="8"
+=======
+  <gmap-map
+     :center="{lat: this.lat, lng: this.lng}"
+     :zoom="5"
+>>>>>>> style2
      :options="{
        zoomControl: false,
        mapTypeControl: false,
