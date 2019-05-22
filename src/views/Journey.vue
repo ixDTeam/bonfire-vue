@@ -3,6 +3,8 @@
     <div>
       <Map v-bind:lat="latCenter"  v-bind:lng="lngCenter">
       </Map>
+      <div id="fader-feed-map">
+      </div>
       <b-container fluid id="feed">
         <swiper :options="swiperOption" dir="rtl" ref="mySwiper" @slideChange="changeSlide">
             <swiper-slide v-for="story in stories" :key="story.id">
@@ -33,14 +35,8 @@ export default {
         return {
             stories: [],
             swiperOption: {
-              slidesPerView: 2,
-              freeMode: true,
-              freeModeSticky: true,
-              freeModeMomentumRatio: 0.2,
-              freeModeMomentumBounce: true,
-              freeModeMomentumBounceRatio: 2,
-          spaceBetween: 30,
-              grabCursor: true,
+              slidesPerView: 1.2,
+              spaceBetween: 10,
               centeredSlides: true,
             pagination: {
               el: '.swiper-pagination',

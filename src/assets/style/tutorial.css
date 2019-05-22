@@ -1,0 +1,14 @@
+.tutorial{
+    height: 100vh;
+    background-color: #FD74BC;
+
+    font-family: 'Harmonia';
+}
+
+.tutorial-page{
+    padding-top: 20vh;
+}
+
+.swiper-button-disabled{
+    display: none;
+}

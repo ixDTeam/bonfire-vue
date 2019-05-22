@@ -1,0 +1,48 @@
+#new-story{
+    width: 100%;
+    height: 100vh;
+    border: 0px;
+    padding: 32px;
+
+    font-size: 50px;
+    font-family: 'Harmonia';
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    color: #0A2465;
+    background-color: #FD74BC;
+}
+
+.form{
+    background-color: #FD74BC;
+}
+
+#remain-char{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+    color: #0A2465;
+    font-family: 'Harmonia';
+}
+
+.new{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.pop-up{
+    font-family: 'Harmonia';
+    color: #0A2465;
+
+    max-width: 80%;
+    padding: 2px 5px 2px 5px;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

@@ -25,7 +25,10 @@ import VueRouterUserRoles from "vue-router-user-roles";
 
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
-import './assets/style/journey.css'
+import './assets/style/new.css'
+import './assets/style/tutorial.css'
+
+import './assets/style/crazy.scss'
 
 
 Vue.use(firestorePlugin);
