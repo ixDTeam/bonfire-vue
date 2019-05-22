@@ -22,6 +22,7 @@ import VueGeolocation from 'vue-browser-geolocation'
 
 
 import VueRouterUserRoles from "vue-router-user-roles";
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
@@ -40,7 +41,7 @@ Vue.use(VueRouterUserRoles, { router });
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueGeolocation);
 
-
+Vue.component(VueCountdown.name, VueCountdown);
 
 
 let user;
