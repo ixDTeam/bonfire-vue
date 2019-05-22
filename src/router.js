@@ -39,6 +39,21 @@ export default new Router({
       component: () => import('./views/New.vue')
     },
     {
+      path: '/tell',
+      name: 'tell',
+      component: () => import('./views/Tell.vue')
+    },
+    {
+      path: '/feel',
+      name: 'feel',
+      component: () => import('./views/Feel.vue')
+    },
+    {
+      path: '/where',
+      name: 'where',
+      component: () => import('./views/Where.vue')
+    },
+    {
       path: '/start/:id',
       name: 'start',
       component: () => import('./views/Start.vue'),

@@ -89,8 +89,6 @@ export default {
   },
   methods: {
     addStory(content,emotion) {
-
-
       this.$getLocation()
         .then(coordinates => {
           console.log(coordinates);
