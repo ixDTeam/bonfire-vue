@@ -26,6 +26,7 @@ import VueRouterUserRoles from "vue-router-user-roles";
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
 
+
 import './assets/style/crazy.scss'
 
 
