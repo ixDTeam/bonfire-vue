@@ -1,13 +1,8 @@
 <template>
-<<<<<<< HEAD
-  <gmap-map ref="mymap"
-     :center="{lat: 50, lng: 20}"
-     :zoom="8"
-=======
+
   <gmap-map
      :center="{lat: this.lat, lng: this.lng}"
      :zoom="5"
->>>>>>> style2
      :options="{
        zoomControl: false,
        mapTypeControl: false,
@@ -58,7 +53,7 @@ export default {
 </script>
 
 
-<<<<<<< HEAD
+
 [
   {
     "elementType": "geometry",
@@ -224,17 +219,3 @@ export default {
     ]
   }
 ]
-=======
-<style>
-
-a[href^="http://maps.google.com/maps"]{display:none !important}
-a[href^="https://maps.google.com/maps"]{display:none !important}
-
-.gmnoprint a, .gmnoprint span, .gm-style-cc {
-    display:none;
-}
-.gmnoprint div {
-    background:none !important;
-}
-</style>
->>>>>>> master
