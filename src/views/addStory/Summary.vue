@@ -54,8 +54,17 @@ export default {
           topic,
           content,
           emotion,
-          created,
+          created: new firebase.firestore.Timestamp.fromDate(new Date()),
           location: new firebase.firestore.GeoPoint(location.lat, location.lng)
+        })
+        .then(function(docRef) {
+            console.log(docRef.id);
+            $cookies.set('ownStoryID', docRef.id);
+            $cookies.set('ownStoryTime', new Date.now());
+
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
         });
         this.$router.replace({path: 'journey'});
     } else {
