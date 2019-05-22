@@ -1,8 +1,14 @@
 <template>
+<<<<<<< HEAD
 
   <gmap-map
      :center="{lat: this.lat, lng: this.lng}"
      :zoom="5"
+=======
+  <gmap-map ref="mymap"
+     :center="{lat: 50, lng: 20}"
+     :zoom="8"
+>>>>>>> master
      :options="{
        zoomControl: false,
        mapTypeControl: false,
@@ -12,8 +18,12 @@
        fullscreenControl: false,
        disableDefaultUi: false
      }"
+<<<<<<< HEAD
      
    >
+=======
+     >
+>>>>>>> master
 
    <gmap-polyline v-if="path.length > 0" :path="path" ref="polyline">
       </gmap-polyline>

@@ -7,6 +7,8 @@
       <router-link to="/giveaway">Giveaway</router-link> |
       <router-link to="/Start">Start</router-link> |
       <router-link to="/new">New</router-link> |
+      <router-link to="/tell">Tell</router-link> |
+      <router-link to="/feel">Feel</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
