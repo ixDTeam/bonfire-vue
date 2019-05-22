@@ -1,5 +1,5 @@
 <template>
-  <div class="tutorial">
+  <div class="tutorial fullscreen color-bg pad-t">
     <swiper :options="swiperOption" ref="mySwiper">
     <!-- slides -->
     <swiper-slide class="tutorial-page">
@@ -9,7 +9,7 @@
     <swiper-slide class="tutorial-page">I'm Slide 2</swiper-slide>
     <swiper-slide class="tutorial-page">I'm Slide 3</swiper-slide>
     <swiper-slide class="tutorial-page">
-      <button v-on:click="startJourney">Los gehts!</button>
+      <button class="button" v-on:click="startJourney">Los gehts!</button>
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>

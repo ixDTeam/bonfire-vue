@@ -17,6 +17,7 @@
 
 //>>>COLORS
 $bg-color: #FD74BC;
+
 $text-color-primary: #0A2465;
 $text-color-contrast: #ffff;
 
@@ -31,11 +32,89 @@ $fader-height: 50vh;
     font-size: $fontsize;
 }
 
+.color-bg{
+    background-color: $bg-color;
+}
+
+.fullscreen{
+    width: 100vw;
+    height: 100vh;
+}
+
+.pad-t{
+    padding-top: 80px;
+}
+
+h1{
+    @include font('Harmonia', 900, 50px);
+    color: $text-color-primary;
+}
+
+.back-button{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border: none;
+    appearance: none;
+    background-color: transparent;
+    @include font('Harmonia', 700, 20px);
+    color: $text-color-primary;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.button{
+    width: 200px;
+    height: 60px;
+    background: $text-color-primary;
+    color: $text-color-contrast;
+    border-radius: 20px;
+    border: 0px;
+
+    margin-top: 30px;
+    padding-top: 5px;
+
+    z-index: 20;
+
+    @include font("Harmonia", 700, 18px);
+
+    box-shadow: 0px 2px 6px lighten(#000000,20);
+    cursor: pointer;
+
+    &.sec{
+        box-shadow: none;
+        background: none;
+        color: $text-color-primary;
+    }
+}
+
+.bg-animation{
+    background-image: linear-gradient(-40deg,  lighten($bg-color,2) 30%, $bg-color 30%);
+    animation: gradient 15000ms ease-in-out infinite 100ms;
+    background-size: 200% 200%;
+
+
+    @keyframes gradient {
+        0% { background-position: 100% 100%; }
+        50% { background-position: 80% 40%; }
+        100% { background-position: 100% 100%; }
+      }
+
+}
+
+
+
 /*+++++++++++++++++++/
-  NEW Style
+  Welcome Style
 /+++++++++++++++++++*/
 
 
+
+/*+++++++++++++++++++/
+  Journey Style
+/+++++++++++++++++++*/
+
+//>>>Journey
 .story {
     position: relative;
     width: 100%;
@@ -175,13 +254,18 @@ $fader-height: 50vh;
     background:none !important;
 }
 
+//>>Topic Selection
+
+
+
+
 /*+++++++++++++++++++/
   Tutorial Style
 /+++++++++++++++++++*/
 
 .tutorial{
     height: 100vh;
-    background-color: #FD74BC;
+    background-color: $bg-color;
 
     font-family: 'Harmonia';
 }
@@ -195,35 +279,53 @@ $fader-height: 50vh;
 }
 
 /*+++++++++++++++++++/
-  New Style
+  Tell Style
 /+++++++++++++++++++*/
+
+//>>>Topic Selection
 
 #new-story{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     border: 0px;
     padding: 32px;
+   
 
-    font-size: 50px;
-    font-family: 'Harmonia';
-    font-weight: 900;
-
+    @include font('Harmonia', 900, 50px);
     line-height: 1.2;
 
-    color: #0A2465;
-    background-color: #FD74BC;
+    color: $text-color-primary;
+    background-color: $bg-color;
+
+    caret-color: $text-color-primary;
+    &::placeholder{
+        color: rgba( $text-color-primary, .4 )
+    }
+    &:focus{
+        outline: none;
+    }
+    &::selection {
+        background: $text-color-primary;
+        color: $bg-color;
+      }
 }
 
+
+
 .form{
-    background-color: #FD74BC;
+    padding-top: 40px;
+    background-color: $bg-color;
+    position: relative;
+    height: 80vh;
+    z-index: 0;
 }
 
 #remain-char{
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
 
-    color: #0A2465;
+    color: $text-color-primary;
     font-family: 'Harmonia';
 }
 
@@ -237,38 +339,41 @@ $fader-height: 50vh;
 
 .pop-up{
     font-family: 'Harmonia';
-    color: #0A2465;
+    color: $text-color-primary;
 
     max-width: 80%;
     padding: 2px 5px 2px 5px;
 
     position: absolute;
-    top: 0px;
-    left: 0px;
+    bottom: 30px;
+    left: 20px;
 }
 
 //>>>Emoji Selection
 
+.feel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .emoji{
-    font-size: 40px;
+    font-size: 50px;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
 
+    background-color: lighten($bg-color, 5);
+    border-radius: 15px;
+    width: 70px;
+    height: 70px;
 
-
-    width: 60px;
-    height: 60px;
-
-    background: #FFFFFF;
-    border: 1px solid #BDBDBD;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.40);
-    border-radius: 10px;
 }
 
 
 .grid-9x9{
+    margin-top: 5vh;
     max-width: 250px;
     display: flex;
     flex-wrap: wrap;
@@ -279,7 +384,7 @@ $fader-height: 50vh;
 }
 
 .grid-9x9 label{
-    margin-top: 8%;
+    margin-top: 3%;
     width: 33.3%;
     text-align: -webkit-center;
     cursor: pointer;
@@ -298,10 +403,16 @@ $fader-height: 50vh;
 }
 
 .radio-hide:checked + .emoji{
-    border: 2px solid #4A90E2;
-    box-shadow: 0 1px 13px 0 rgba(74,144,226,0.70);
-    border-radius: 10px;
+    box-shadow: 0 1px 13px 0 lighten($text-color-primary, 5);
+    border-color: $text-color-primary;
+    border-width: 1px;
+    background-color: $text-color-primary;
+    animation: emoji-whoop 300ms ease-in-out;
 
-    transition: box-shadow 100ms;
-    transition-timing-function: ease-in;
+
+    @keyframes emoji-whoop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.6); }
+        100% { transform: scale(1); }
+      }
 }

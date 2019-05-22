@@ -1,16 +1,19 @@
 <template>
-  <div class="tell">
+  <div class="tell fullscreen color-bg">
     <!-- <Form @add-Story="addStory"></Form> -->
-    <div class="pop-up" v-if="errors.has('max_field')" show variant="danger">Du hast nicht so viele Zeichen.</div>
+    
+       <button class="back-button" v-on:click="backStep()">Back</button>
       <div class="form" >
         <textarea id="new-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
-        <div class="form submit-story">
-          <button v-on:click="backStep()">Back</button>
-          </div>
-          <button v-on:click="nextStep('feel')" :disabled="checkButton()"  >Next</button>
-          </div>
+
+
+
+          
         <span class="char" id="remain-char">{{remain_char}}</span>
+        <div class="pop-up" v-if="errors.has('max_field')" show variant="danger">Du hast nicht so viele Zeichen.</div>
+         <button class="button" v-on:click="nextStep('feel')" :disabled="checkButton()"  >Next</button>
       </div>
+     
   </div>
 </template>
 
@@ -64,4 +67,6 @@ export default {
      }
    }
 }
+
+
 </script>

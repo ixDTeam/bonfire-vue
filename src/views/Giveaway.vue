@@ -1,5 +1,5 @@
 <template>
-  <div class="giveaway">
+  <div class="giveaway fullscreen color-bg pad-t">
     <h1>Giveaway</h1>
 
   </div>
