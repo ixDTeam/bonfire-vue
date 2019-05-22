@@ -10,7 +10,7 @@ const store = new Vuex.Store({
    sTopic: 0,
    sContent: '',
    sEmotion: 0,
-   sLocation: ''
+   sLocation: {}
  },
  actions: {
 
@@ -57,7 +57,7 @@ const store = new Vuex.Store({
   getEmotion: state => {
     return state.sEmotion;
   },
-  getLocations: state => {
+  getLocation: state => {
     return state.sLocation;
   }
  },

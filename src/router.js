@@ -54,6 +54,11 @@ export default new Router({
       component: () => import('./views/Where.vue')
     },
     {
+      path: '/summary',
+      name: 'summary',
+      component: () => import('./views/Summary.vue')
+    },
+    {
       path: '/start/:id',
       name: 'start',
       component: () => import('./views/Start.vue'),
