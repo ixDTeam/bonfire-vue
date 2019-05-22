@@ -2,7 +2,7 @@
 <div class="new">
 <div class="pop-up" v-if="errors.has('max_field')" show variant="danger">Du hast nicht so viele Zeichen.</div>
   <div class="form" >
-    <textarea id="new-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
+    <textarea id="new-story" autofocus v-validate="'max:100|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
     <span class="char" id="remain-char">{{remain_char}}</span>
   </div>
 
@@ -82,8 +82,8 @@ export default {
     return {
       content: '',
       emotion: null,
-      max_char: 10,
-      remain_char: 10,
+      max_char: 100,
+      remain_char: 100,
       status: false,
     };
   },

@@ -1,10 +1,10 @@
 <template>
-  <div class="where">
+  <div class="where fullscreen color-bg pad-t">
     <h1>We need your location</h1>
     <p>Erklräung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
-    <button v-on:click="backStep()">Back</button><br>
-    <button v-on:click="askLocation()">Ok Next</button><br>
-    <button v-on:click="nextStep('where')">Ne Lass mal</button>
+    <button class="back-button" v-on:click="backStep()">Back</button><br>
+    <button class="button" v-on:click="askLocation()">Ok Next</button><br>
+    <button class="button sec" v-on:click="nextStep('where')">Ne Lass mal</button>
     </div>
   </div>
 </template>

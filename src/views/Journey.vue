@@ -6,7 +6,7 @@
       <div id="fader-feed-map">
       </div>
       <b-container fluid id="feed">
-        <swiper :options="swiperOption" dir="rtl" ref="mySwiper" @slideChange="changeSlide">
+        <swiper id="story-swiper" :options="swiperOption" dir="rtl" ref="mySwiper" @slideChange="changeSlide">
             <swiper-slide v-for="story in stories" :key="story.id">
               <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" > </Story>
             </swiper-slide>
@@ -36,7 +36,7 @@ export default {
             stories: [],
             swiperOption: {
               slidesPerView: 1.2,
-              spaceBetween: 10,
+              spaceBetween: 2,
               centeredSlides: true,
             pagination: {
               el: '.swiper-pagination',

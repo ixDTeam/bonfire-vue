@@ -26,8 +26,7 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
-import './assets/style/new.css'
-import './assets/style/tutorial.css'
+
 
 import './assets/style/crazy.scss'
 

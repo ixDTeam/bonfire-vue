@@ -8,32 +8,171 @@
     font-weight: 900;
     src: url('../fonts/Harmonia-Black.otf');
 }
-
-$bg-color: #FD74BC;
-$text-color-primary: #0A2465;
-
-@mixin fontBlack($fontsize){
+@font-face {
     font-family: "Harmonia";
-    font-weight: 900;
+    font-weight: 400;
+    src: url('../fonts/Harmonia-Regular.otf');
+}
+
+
+//>>>COLORS
+$bg-color: #FD74BC;
+
+$text-color-primary: #0A2465;
+$text-color-contrast: #ffff;
+
+//>>>STORY MAP RATIO
+$story-height: 40vh;
+$map-height: 70vh;
+$fader-height: 50vh;
+
+@mixin font($font, $weight, $fontsize){
+    font-family: $font;
+    font-weight: $weight;
     font-size: $fontsize;
 }
 
-
-
-h2{
-    font-size: 100px;
+.color-bg{
+    background-color: $bg-color;
 }
 
+.fullscreen{
+    width: 100vw;
+    height: 100vh;
+}
+
+.pad-t{
+    padding-top: 80px;
+}
+
+h1{
+    @include font('Harmonia', 900, 50px);
+    color: $text-color-primary;
+}
+
+.back-button{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border: none;
+    appearance: none;
+    background-color: transparent;
+    @include font('Harmonia', 700, 20px);
+    color: $text-color-primary;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.button{
+    width: 200px;
+    height: 60px;
+    background: $text-color-primary;
+    color: $text-color-contrast;
+    border-radius: 20px;
+    border: 0px;
+
+    margin-top: 30px;
+    padding-top: 5px;
+
+    z-index: 20;
+
+    @include font("Harmonia", 700, 18px);
+
+    box-shadow: 0px 2px 6px lighten(#000000,20);
+    cursor: pointer;
+
+    &.sec{
+        box-shadow: none;
+        background: none;
+        color: $text-color-primary;
+    }
+}
+
+.bg-animation{
+    background-image: linear-gradient(-40deg,  lighten($bg-color,2) 30%, $bg-color 30%);
+    animation: gradient 15000ms ease-in-out infinite 100ms;
+    background-size: 200% 200%;
+
+
+    @keyframes gradient {
+        0% { background-position: 100% 100%; }
+        50% { background-position: 80% 40%; }
+        100% { background-position: 100% 100%; }
+      }
+
+}
+
+
+
+/*+++++++++++++++++++/
+  Welcome Style
+/+++++++++++++++++++*/
+
+
+
+/*+++++++++++++++++++/
+  Journey Style
+/+++++++++++++++++++*/
+
+//>>>Journey
 .story {
     position: relative;
     width: 100%;
-    background-color: white;
+    background-color: $bg-color;
     padding: 20px;
-    border: 1px;
-    border-style: solid;
-    border-radius: 10px;
+    border-radius: 25px;
+    height: $story-height;  //Story Height
+    margin-top: 20px;
+    margin-bottom: 30px;
 
-    height: 30vh;  //Story Height
+    color: $text-color-primary;
+
+    overflow: visible;
+
+    @include font("Harmonia", 400, 14px);
+
+    .content {
+        margin-top: 20px;
+        text-align: left;
+        @include font("Harmonia", 700, 20px);
+      }
+
+    .created {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+    }
+
+    .headline{
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+    }
+
+    .location{
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .delete{
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        cursor: pointer;
+    }
+    .emoji{
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        top: -15px;
+        background: transparent;
+        border: 0px;
+        box-shadow: none;
+        font-size: 50px;
+    }
   }
 
   #feed{
@@ -41,47 +180,69 @@ h2{
     bottom: 10px;
     padding: 0px;
   }
-
-
-  .story .content {
-    font-size: 20px;
-    font-weight: 900;
+  .swiper-slide{
+      .story{
+        background: #834B90;
+        opacity: 1;
+        z-index: 0;
+        margin-left: -30px;
+        transition: 300ms;
+      }
   }
-
-  .story .date {
-    font-size: 14px;
+  .swiper-slide-next{
+      .story{
+          transform: scale(0.8) translateX(60px);
+      }
   }
+  .swiper-slide-prev{
+    .story{
+        transform: scale(0.8) translateX(-60px);
+    }
+}
+  .swiper-slide-active{
+      .story{
+        background: $bg-color;
+        opacity: 1;
+        transform: scale(1);
+        z-index: 10;
+        transition: 300ms;
+        box-shadow:0px 0px 11px 2px #0000005c;
+      }
+    
+}
 
-  .story .delete {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+  //>>Pagination Dots
+  .swiper-pagination-bullet{
+      background: $text-color-contrast;
+    
   }
+  .swiper-pagination-bullet-active{
+    background: $bg-color;
+}
+  
 
 
-/*+++++++++++++++++++/
-  FADER
-/+++++++++++++++++++*/
+
+  //>>FADER
 
   #fader-feed-map{
     position: absolute;
     bottom: 0px;
 
-    height: 40vh;
+    height: $fader-height;
     width: 100%;
 
-    background: linear-gradient(to top, rgba(255,255,255,1) 50%,rgba(255,255,255,1) 65%,rgba(255,255,255,0.1) 85%, rgba(255,255,255,0) 97%)
+    background: linear-gradient(to top, $text-color-primary 50%,$text-color-primary 65%,rgba(255,255,255,0.1) 85%, rgba(255,255,255,0) 97%)
   }
 
-/*+++++++++++++++++++/
-  MAP STYLE
-/+++++++++++++++++++*/
+
+  //>>MAP STYLE
+
 
   .vue-map-container{
     position: absolute;
     width: 100%;
-    height: 75vh;
+    height: $map-height;
   }
 
   a[href^="http://maps.google.com/maps"]{display:none !important}
@@ -91,4 +252,167 @@ h2{
   }
 .gmnoprint div {
     background:none !important;
+}
+
+//>>Topic Selection
+
+
+
+
+/*+++++++++++++++++++/
+  Tutorial Style
+/+++++++++++++++++++*/
+
+.tutorial{
+    height: 100vh;
+    background-color: $bg-color;
+
+    font-family: 'Harmonia';
+}
+
+.tutorial-page{
+    padding-top: 20vh;
+}
+
+.swiper-button-disabled{
+    display: none;
+}
+
+/*+++++++++++++++++++/
+  Tell Style
+/+++++++++++++++++++*/
+
+//>>>Topic Selection
+
+#new-story{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 32px;
+   
+
+    @include font('Harmonia', 900, 50px);
+    line-height: 1.2;
+
+    color: $text-color-primary;
+    background-color: $bg-color;
+
+    caret-color: $text-color-primary;
+    &::placeholder{
+        color: rgba( $text-color-primary, .4 )
+    }
+    &:focus{
+        outline: none;
+    }
+    &::selection {
+        background: $text-color-primary;
+        color: $bg-color;
+      }
+}
+
+
+
+.form{
+    padding-top: 40px;
+    background-color: $bg-color;
+    position: relative;
+    height: 80vh;
+    z-index: 0;
+}
+
+#remain-char{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    color: $text-color-primary;
+    font-family: 'Harmonia';
+}
+
+.new{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.pop-up{
+    font-family: 'Harmonia';
+    color: $text-color-primary;
+
+    max-width: 80%;
+    padding: 2px 5px 2px 5px;
+
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+}
+
+//>>>Emoji Selection
+
+.feel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emoji{
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    background-color: lighten($bg-color, 5);
+    border-radius: 15px;
+    width: 70px;
+    height: 70px;
+
+}
+
+
+.grid-9x9{
+    margin-top: 5vh;
+    max-width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+
+    margin-bottom: 20px;
+}
+
+.grid-9x9 label{
+    margin-top: 3%;
+    width: 33.3%;
+    text-align: -webkit-center;
+    cursor: pointer;
+}
+.grid-9x9 label span{
+    padding-top: 7px;
+}
+
+
+.radio-hide{
+    display: none;
+}
+
+.radio-hide:hover{
+    cursor: pointer;
+}
+
+.radio-hide:checked + .emoji{
+    box-shadow: 0 1px 13px 0 lighten($text-color-primary, 5);
+    border-color: $text-color-primary;
+    border-width: 1px;
+    background-color: $text-color-primary;
+    animation: emoji-whoop 300ms ease-in-out;
+
+
+    @keyframes emoji-whoop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.6); }
+        100% { transform: scale(1); }
+      }
 }

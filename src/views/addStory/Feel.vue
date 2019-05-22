@@ -1,7 +1,8 @@
 <template>
-  <div class="feel">
+  <div class="feel fullscreen color-bg pad-t">
+  <h1>Wähle deine Emotion aus</h1>
     <!-- <Form @add-Story="addStory"></Form> -->
-    <div class="form grid-9x9">
+    <div class="grid-9x9">
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="1" type="radio">
         <div class="emoji">
@@ -57,8 +58,8 @@
         </div>
       </label>
     </div>
-    <button v-on:click="backStep()">Back</button>
-    <button v-on:click="nextStep('where')" :disabled="checkButton()">Next</button>
+    <button class="back-button" v-on:click="backStep()">Back</button>
+    <button class="button" v-on:click="nextStep('where')" :disabled="checkButton()">Next</button>
     </div>
   </div>
 </template>
