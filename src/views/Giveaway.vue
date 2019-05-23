@@ -75,9 +75,9 @@ export default {
           if(position < maxPosition){
             console.log('Es git neues')
             this.$cookies.set('step', 3);
-            this.$router.replace({path: 'journey'});
+            // this.$router.replace({path: 'journey'});
             this.checkStory = false;
-          } else {
+          } else if (position >= maxPosition){
             this.checkStory = true;
           }
         })

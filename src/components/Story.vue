@@ -19,7 +19,7 @@ export default {
   name: 'Story',
   props: {
     content: String,
-    emotion: String,
+    emotion: Number,
     id: String,
   }
 }

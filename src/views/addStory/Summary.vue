@@ -23,6 +23,7 @@
 
 import firebase from 'firebase/app'
 import {db} from '@/config/db.js'
+import VueRouter from 'vue-router'
 
 
 
@@ -49,6 +50,8 @@ export default {
   methods: {
     addStory() {
       if(this.$cookies.get('id')){
+        let self = this;
+        var check = false;
         var created = new Date();
         var topic = this.topic;
         var content = this.content;
@@ -65,17 +68,25 @@ export default {
         .then(function(docRef) {
             console.log(docRef.id);
             $cookies.set('ownStoryID', docRef.id);
+
+            var nowDate = new Date();
+            $cookies.set('ownStoryTime', nowDate);
+            $cookies.set('step', 2);
+            self.$router.replace({path: 'giveaway'});
+            check = true;
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
         });
+
+        if(check){
+          console.log(check);
+          this.$router.replace({path: 'giveaway'});
+        }
+
     } else {
       alert('Leider hast du keine Berechtigung eine Geschichte zu schreiben!')
     }
-    var nowDate = new Date();
-    $cookies.set('ownStoryTime', nowDate);
-    $cookies.set('step', 2);
-    this.nextStep('giveaway')
 
   },
 

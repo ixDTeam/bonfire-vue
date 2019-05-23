@@ -95,7 +95,8 @@ export default {
     },
      nextStep(n){
        this.$router.push({path: n});
-       this.$store.commit('setEmotion', this.emotion);
+       let emotion = parseInt(this.emotion, 10);
+       this.$store.commit('setEmotion', emotion);
        console.log("Store wurde aktualisiert auf "+ this.$store.getters.getEmotion);
      },
      backStep(){
