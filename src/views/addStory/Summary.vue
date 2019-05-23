@@ -11,9 +11,9 @@
         
       </div>
       <div class="summary-line">
-          <span>{{topic}}</span>
-          <span>{{emotion}}</span>
-          <span>{{location}}</span>
+          <span>Goofy Professor</span>
+          <span>😅</span> 
+          <span class="city">Osnabrück</span>
         </div>
       <button class="button button-main" v-on:click="addStory()">Publish</button>
   </div>
@@ -40,6 +40,7 @@ export default {
       max_char: 10,
       remain_char: 10,
       status: false,
+      locationName: this.$store.getters.getLocationName
     };
   },
   computed: {
@@ -85,6 +86,7 @@ export default {
      backStep(){
        this.$router.back();
      }
+     
    }
 }
 </script>

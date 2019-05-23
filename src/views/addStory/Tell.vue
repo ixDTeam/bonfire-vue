@@ -10,13 +10,8 @@
 
 
         <span class="char" id="remain-char">{{remain_char}}</span>
-<<<<<<< HEAD
-        <div class="pop-up" v-if="errors.has('max_field')" show variant="danger">Du hast nicht so viele Zeichen.</div>
-         <button class="button button-main" v-on:click="nextStep('feel')" :disabled="checkButton()"  >Next</button>
-=======
         <div class="pop-up" v-if="checkButton()" show variant="danger">Du hast nicht so viele Zeichen.</div>
-         <button class="button" v-on:click="nextStep('feel')" :disabled="checkButton()"  >Next</button>
->>>>>>> master
+         <button class="button button-main" v-on:click="nextStep('feel')" :disabled="checkButton()"  >Next</button>
       </div>
 
   </div>

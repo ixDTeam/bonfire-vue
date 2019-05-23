@@ -9,7 +9,7 @@
     <swiper-slide class="tutorial-page">I'm Slide 2</swiper-slide>
     <swiper-slide class="tutorial-page">I'm Slide 3</swiper-slide>
     <swiper-slide class="tutorial-page">
-      <button class="button" v-on:click="startJourney">Los gehts!</button>
+      <button class="button button-main" v-on:click="startJourney">Los gehts!</button>
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>

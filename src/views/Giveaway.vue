@@ -1,10 +1,13 @@
 <template>
   <div class="giveaway">
-    <div>
+    <div class="color-bg fullscreen pad-t">
       <h1>Giveaway</h1>
-      <countdown :time="time" :interval="100" tag="p">
-        <template slot-scope="props">{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }} minutes, {{ props.seconds }} seconds.</template>
-      </countdown>
+      <div class="countdown">
+        <countdown :time="time" :interval="100" tag="span">
+          <template slot-scope="props">{{ props.days }}</template>
+        </countdown>
+        <span>Tage</span>
+      </div>
       <p v-if="checkStory">Your Story was not passed on</p>
       <p v-if="!checkStory">Deine Story wurde weitergegeben!</p>
    </div>

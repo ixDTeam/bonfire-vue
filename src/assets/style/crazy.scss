@@ -50,6 +50,12 @@ h1{
     color: $text-color-primary;
 }
 
+textarea{
+    &:focus{
+        outline: none;
+    }
+}
+
 .back-button{
     position: absolute;
     left: 20px;
@@ -78,8 +84,9 @@ h1{
 
     @include font("Harmonia", 700, 18px);
 
-    box-shadow: 0px 2px 6px lighten(#000000,20);
+    box-shadow: 0px 2px 8px rgba(lighten(#000000,20),.3);
     cursor: pointer;
+    transition: 300ms;
 
     &.sec{
         box-shadow: none;
@@ -94,13 +101,23 @@ h1{
         right: 0;
         margin-left: auto;
         margin-right: auto;
+      
     }
 
-    &.disabled{
+    &:disabled{
         box-shadow: none;
         cursor: inherit;
-        background: darken($bg-color, $amount: 50);
+        background: darken($bg-color,6);
+        color: lighten($bg-color,10);
+       
     }
+    &:focus{
+        outline: none;
+    }
+
+
+
+    
 }
 
 .bg-animation{
@@ -124,6 +141,32 @@ h1{
 /+++++++++++++++++++*/
 
 
+/*+++++++++++++++++++/
+  Tutorial Style
+/+++++++++++++++++++*/
+
+.tutorial{
+    height: 100vh;
+    background-color: $bg-color;
+
+    font-family: 'Harmonia';
+
+    .swiper-pagination-bullet-active{
+        background: $text-color-primary;
+    }
+
+    .button-main{
+        position: relative;
+    }
+}
+
+.tutorial-page{
+    padding-top: 20vh;
+}
+
+.swiper-button-disabled{
+    display: none;
+}
 
 /*+++++++++++++++++++/
   Journey Style
@@ -274,24 +317,6 @@ h1{
 
 
 
-/*+++++++++++++++++++/
-  Tutorial Style
-/+++++++++++++++++++*/
-
-.tutorial{
-    height: 100vh;
-    background-color: $bg-color;
-
-    font-family: 'Harmonia';
-}
-
-.tutorial-page{
-    padding-top: 20vh;
-}
-
-.swiper-button-disabled{
-    display: none;
-}
 
 /*+++++++++++++++++++/
   Tell Style
@@ -432,6 +457,23 @@ h1{
       }
 }
 
+/*+++++++++++++++++++/
+  Where Style
+/+++++++++++++++++++*/
+
+.input-location{
+    background: $bg-color;
+    border: none;
+    color: $text-color-primary;
+    @include font('Harmonia', 900, 50px);
+    padding-left: 32px;
+    width: 100%;
+    line-height: 1.2;
+    &::placeholder{
+        color: rgba( $text-color-primary, .4 );
+        
+    }
+}
 
 /*+++++++++++++++++++/
   Summary Style
@@ -440,13 +482,28 @@ h1{
 .summary-line{
     width: 100%;
     display:flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 
     @include font('Harmonia', 700, 22px);
     color: $text-color-primary;
+    .city{
+        flex-basis: 100%
+    }
 }
 
 .form.summary{
-    height: 70vh;
+    height: 65vh;
 }
+
+.dot{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+/*+++++++++++++++++++/
+  Giveaway Style
+/+++++++++++++++++++*/
 

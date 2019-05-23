@@ -2,7 +2,7 @@
   <div class="welcome fullscreen bg-animation pad-t">
     <div>
       <h1>Herzlich Willkommen</h1>
-      <button class="button" v-on:click="startTutorial">Los gehts!</button><br>
+      <button class="button button-main" v-on:click="startTutorial">Los gehts!</button><br>
       <button class="button sec" v-on:click="testCookie">Cookie generieren</button>
    </div>
   </div>
