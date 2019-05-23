@@ -38,6 +38,7 @@ export default {
       this.$router.push({path: n});
       this.topic = v;
       this.$store.commit('setTopic', v);
+      this.$cookies.set('step', 1);
       console.log("Store wurde aktualisiert auf "+ this.$store.getters.getTopic);
     },
     backStep(){

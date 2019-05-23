@@ -23,12 +23,12 @@ export default {
         this.$store.commit('setAccess', true);
         this.$store.commit('setID', cookieID);
         this.$cookies.set('access', true);
-        this.$cookies.set('step', 0);
+
         console.log("Cookie gefunden! ID ist " +this.$cookies.get('id'));
         console.log("Access gegeben " +this.$store.getters.getAccess);
         console.log("Store wurde aktualisiert auf "+ this.$store.getters.getID)
         console.log("Step fetgelegt "+ this.$cookies.get('step'))
-        }
+      }
       },
       startTutorial: function(){
         if(this.$store.getters.getAccess){
@@ -39,7 +39,7 @@ export default {
         this.$cookies.set('id', '001');
       }
     },
-    beforeMount() {
+    created() {
       this.checkCookie();
     }
 }

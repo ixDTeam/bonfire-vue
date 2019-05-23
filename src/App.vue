@@ -25,6 +25,25 @@ export default {
     }
   },
   methods: {
+    checkState(){
+      var step;
+      var devMode = 0;
+      devMode = this.$cookies.get('devMode');
+      step = this.$cookies.get('step');
+      if (devMode == 0){
+        if (step == 0){
+          this.$router.push({path: '/'})
+        }
+        else if(step == 1){
+          this.$router.push({path: 'new'})
+        } else if (step == 2){
+          this.$router.push({path: 'giveaway'})
+        } else if (step == 3){
+          this.$router.push({path: 'journey'})
+        }
+      }
+    },
+
     toggleAuth() {
       let user;
       var cookieID = this.$cookies.get('id');
@@ -40,6 +59,9 @@ export default {
       }
       this.$user.set(user);
     }
+  },
+  created() {
+    this.checkState();
   }
 };
 </script>
