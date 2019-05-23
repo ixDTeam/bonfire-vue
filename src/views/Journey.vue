@@ -6,7 +6,7 @@
       <div id="fader-feed-map">
       </div>
       <b-container fluid id="feed">
-        <swiper id="story-swiper" :options="swiperOption" dir="rtl" ref="mySwiper" @slideChange="changeSlide">
+        <swiper id="story-swiper" :options="swiperOption" ref="mySwiper" @slideChange="changeSlide">
             <swiper-slide v-for="story in stories" :key="story.id">
               <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" > </Story>
             </swiper-slide>
@@ -31,11 +31,11 @@ export default {
     Map
   },
   data() {
-    // let StoryID = this.$cookies.get('ownStoryID');
-    // let ownStoryIndex = this.$cookie.get('storyIndex');
+    var lStoryID = $cookies.get('ownStoryID');
+    var lownStoryIndex = $cookies.get('storyIndex');
+
         return {
             stories: [],
-            ownStoryID: '',
             swiperOption: {
               slidesPerView: 1.2,
               spaceBetween: 2,
@@ -49,13 +49,13 @@ export default {
         swiperSlides: [1, 2, 3, 4, 5],
         latCenter: 30,
         lngCenter: 10,
-        ownStoryID: Number,
-        ownStoryIndex: Number
+        ownStoryID: lStoryID,
+        ownStoryIndex: lownStoryIndex
         };
     },
     firestore() {
         return {
-            stories: db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'desc')
+            stories: db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
         };
     },
     computed: {
@@ -66,32 +66,8 @@ export default {
     methods: {
 
       scrollToStory() {
-        // let value = this.ownStoryID;
-        // console.log(this.StoryID)
-        // let index = parseInt(this.StoryID, 10);
-        // // console.log(value)
-        // //   function isStory(v) {
-        // //     return v.id == value;
-        // //   }
-        // //   let position = this.stories.findIndex(isStory) + 1;
-        //   console.log(index);
-        // 
-        // this.$bind('storie', db.collection("object/"+id+"/story").orderBy('created', 'asc')).then(story => {
-        //     maxPosition = story.length;
-        //     position = story.findIndex(isStory) + 1;
-        //     this.$cookies.set('storyIndex', position);
-        //     console.log(maxPosition);
-        //     console.log(position);
-        //     if(position < maxPosition){
-        //       console.log('Es git neues')
-        //       this.$cookies.set('step', 3);
-        //       // this.$router.replace({path: 'journey'});
-        //       this.checkStory = false;
-        //     } else if (position >= maxPosition){
-        //       this.checkStory = true;
-        //     }
-        //   })
-
+        console.log(this.ownStoryIndex);
+        this.swiper.slideTo(this.ownStoryIndex -1);
         },
 
        deleteMember(id) {
@@ -105,10 +81,10 @@ export default {
          this.lngCenter = location.longitude;
        }
      },
-     beforeupdated: function () {
+     beforeUpdate: function() {
        this.changeSlide();
      },
-     mounted: function() {
+     mounted: function(){
        this.scrollToStory();
      }
 }

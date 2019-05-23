@@ -30,7 +30,7 @@ export default {
       var devMode = 0;
       devMode = this.$cookies.get('devMode');
       step = this.$cookies.get('step');
-      if (devMode == 0){
+      if (devMode == 0 || !devMode){
         if (step == 0){
           this.$router.push({path: '/'})
         }

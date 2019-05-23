@@ -35,7 +35,7 @@ export default {
   },
   firestore() {
       return {
-          story: db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
+          story: db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'desc')
       };
   },
   computed:{

@@ -4,9 +4,6 @@
      :zoom="8"
      :options="mapStyle"
      >
-
-   <gmap-polyline v-if="path.length > 0" :path="path" ref="polyline">
-      </gmap-polyline>
    </gmap-map>
 
 
@@ -119,14 +116,14 @@ export default {
    }
  },
    methods: {
-     panMap() {
-       this.$refs.mymap.$mapObject.panTo({lat: this.lat, lng: this.lng})
-     }
+     // panMap() {
+     //   this.$refs.mymap.$mapObject.panTo({lat: this.lat, lng: this.lng})
+     // }
    },
    watch: {
       	lat: function(newVal, oldVal) { // watch it
         this.$refs.mymap.$mapPromise.then((map) => {
-          this.$refs.mymap.$mapObject.panTo({lat: this.lat, lng: this.lng})
+          map.panTo({lat: this.lat, lng: this.lng})
         })
       }
     }
