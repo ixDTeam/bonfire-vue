@@ -1,12 +1,24 @@
 <template>
   <div class="giveaway">
-    <div>
-      <h1>Giveaway</h1>
-      <countdown :time="time" :interval="100" tag="p">
-        <template slot-scope="props">{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }} minutes, {{ props.seconds }} seconds.</template>
-      </countdown>
-      <p v-if="checkStory">Your Story was not passed on</p>
-      <p v-if="!checkStory">Deine Story wurde weitergegeben!</p>
+    <div class="color-bg fullscreen pad-t">
+      <h1>Gib es weiter</h1>
+      <div class="giveaway-alert fail" v-if="checkStory">Your Story was not passed on yet!</div>
+      <div class="giveaway-alert success" v-if="!checkStory">Deine Story wurde weitergegeben!</div>
+      <div class="countdown">
+        <countdown :time="time" :interval="100" tag="span">
+          <template slot-scope="props">{{ props.days }}</template>
+        </countdown>
+        <span class="description">Tage</span>
+      </div>
+      <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
+      
+        <div class="story" v-on:click="toggleStory" v-bind:class="{ show: storyShow }">
+          <p class='content'>{{story.content}}</p>
+          <span class="headline">Freaky Friday</span>
+          <span class="created">vor 2 Tagen</span>
+          <span class="location">Osnabrück</span>
+          <span class="emoji"></span>
+        </div>
    </div>
   </div>
 </template>
@@ -30,12 +42,17 @@ export default {
         storie: {},
         counting: false,
         time: result - now,
-        checkStory: false
+        checkStory: false,
+        storyShow: false,
       };
   },
   firestore() {
       return {
+<<<<<<< HEAD
           story: db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'desc')
+=======
+          story: db.collection("object/"+this.$cookies.get('id')+"/story").doc(this.$cookies.get('ownStoryID'))
+>>>>>>> style2
       };
   },
   computed:{
@@ -48,6 +65,11 @@ export default {
     }
   },
   methods: {
+   toggleStory: function(){
+     this.storyShow = !this.storyShow;
+   }
+  },
+  mounted: function(){
 
   },
   watch: {

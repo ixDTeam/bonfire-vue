@@ -59,7 +59,7 @@
       </label>
     </div>
     <button class="back-button" v-on:click="backStep()">Back</button>
-    <button class="button" v-on:click="nextStep('where')" :disabled="checkButton()">Next</button>
+    <button class="button button-main" v-on:click="nextStep('where')" :disabled="checkButton()">Next</button>
     </div>
   </div>
 </template>

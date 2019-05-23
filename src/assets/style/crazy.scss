@@ -50,6 +50,12 @@ h1{
     color: $text-color-primary;
 }
 
+textarea{
+    &:focus{
+        outline: none;
+    }
+}
+
 .back-button{
     position: absolute;
     left: 20px;
@@ -78,14 +84,40 @@ h1{
 
     @include font("Harmonia", 700, 18px);
 
-    box-shadow: 0px 2px 6px lighten(#000000,20);
+    box-shadow: 0px 2px 8px rgba(lighten(#000000,20),.3);
     cursor: pointer;
+    transition: 300ms;
 
     &.sec{
         box-shadow: none;
         background: none;
         color: $text-color-primary;
     }
+
+    &.button-main{
+        position: fixed;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+      
+    }
+
+    &:disabled{
+        box-shadow: none;
+        cursor: inherit;
+        background: darken($bg-color,6);
+        color: lighten($bg-color,10);
+       
+    }
+    &:focus{
+        outline: none;
+    }
+
+
+
+    
 }
 
 .bg-animation{
@@ -109,6 +141,32 @@ h1{
 /+++++++++++++++++++*/
 
 
+/*+++++++++++++++++++/
+  Tutorial Style
+/+++++++++++++++++++*/
+
+.tutorial{
+    height: 100vh;
+    background-color: $bg-color;
+
+    font-family: 'Harmonia';
+
+    .swiper-pagination-bullet-active{
+        background: $text-color-primary;
+    }
+
+    .button-main{
+        position: relative;
+    }
+}
+
+.tutorial-page{
+    padding-top: 20vh;
+}
+
+.swiper-button-disabled{
+    display: none;
+}
 
 /*+++++++++++++++++++/
   Journey Style
@@ -259,24 +317,6 @@ h1{
 
 
 
-/*+++++++++++++++++++/
-  Tutorial Style
-/+++++++++++++++++++*/
-
-.tutorial{
-    height: 100vh;
-    background-color: $bg-color;
-
-    font-family: 'Harmonia';
-}
-
-.tutorial-page{
-    padding-top: 20vh;
-}
-
-.swiper-button-disabled{
-    display: none;
-}
 
 /*+++++++++++++++++++/
   Tell Style
@@ -416,3 +456,139 @@ h1{
         100% { transform: scale(1); }
       }
 }
+
+/*+++++++++++++++++++/
+  Where Style
+/+++++++++++++++++++*/
+
+.input-location{
+    background: $bg-color;
+    border: none;
+    color: $text-color-primary;
+    @include font('Harmonia', 900, 50px);
+    padding-left: 32px;
+    width: 100%;
+    line-height: 1.2;
+    &::placeholder{
+        color: rgba( $text-color-primary, .4 );
+        
+    }
+}
+
+/*+++++++++++++++++++/
+  Summary Style
+/+++++++++++++++++++*/
+
+.summary-line{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include font('Harmonia', 700, 22px);
+    color: $text-color-primary;
+    .city{
+        flex-basis: 100%
+    }
+}
+
+.form.summary{
+    height: 65vh;
+}
+
+.dot{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+/*+++++++++++++++++++/
+  Giveaway Style
+/+++++++++++++++++++*/
+
+.countdown{
+    position: relative;
+    width: 100px;
+    height:140px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    border-radius: 25px;
+
+    background-color: lighten($bg-color, 5);
+    text-align: center;
+
+    color: $text-color-primary;
+
+    @include font('Harmonia', 900, 90px);
+
+    .description{
+        position: absolute;
+        font-size: 20px;
+
+        bottom: 5px;
+        left: 0;
+        right: 0;
+    }
+
+    animation: pulse 1000ms ease-in-out infinite;
+
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+
+}
+
+.giveaway-alert{
+    background-color: $text-color-primary;
+
+    @include font('Harmonia', 700, 20px);
+    color: $bg-color;
+    padding: 10px 15px 8px 15px;
+
+    transform: rotate(-2deg);
+
+    &.success{
+        transform: rotate(0deg);
+        color: $text-color-primary;
+        background-color: $bg-color;
+    }
+}
+
+.giveaway{
+    overflow: hidden;
+    .story{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $text-color-primary;
+        color: $text-color-contrast;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 85%;
+        bottom: 0px;
+        transition: 500ms;
+        &.show{
+            bottom: 0px;
+            top: 54%;
+        }
+    }
+
+    .instruction{
+        margin-top: 20px;
+        padding: 0px 10px 0px 10px;
+        @include font('Harmonia', 700, 20px);
+        line-height: 1.2;
+        color: $text-color-primary;
+    }
+}
+    

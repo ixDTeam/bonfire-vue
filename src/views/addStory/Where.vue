@@ -1,14 +1,14 @@
 <template>
   <div class="where fullscreen color-bg pad-t">
-    <h1>We need your location</h1>
-    <p>Erklräung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
-    <button class="back-button" v-on:click="backStep()">Back</button><br>
+    <button class="back-button" v-on:click="backStep()">Back</button>
+    <h1 v-if="allowLocation">We need your location</h1>
+    <p v-if="allowLocation">Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
+    
 
-        <textarea v-if="!allowLocation" v-model="city" placeholder="Your City"></textarea><br>
-        <button :disabled="disableButton " class="button" v-on:click="askLocation()">Next</button><br>
-        <button  v-if="allowLocation" class="button sec" v-on:click="noLocation()">Ne Lass mal</button>
-
-    </div>
+    <p v-if="!allowLocation">Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
+    <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
+    <button :disabled="disableButton " class="button button-main" v-on:click="askLocation()">Next</button><br>
+    <button  v-if="allowLocation" class="button sec" v-on:click="noLocation()">Ne Lass mal</button>
   </div>
 </template>
 
@@ -83,6 +83,7 @@ export default {
          var addressObj = {
             city: this.city,
         }
+        //this.$store.commit('setLocationName', this.city);
         this.$geocoder.send(addressObj, response => {
           console.log(response.results[0].geometry.formatted_adress);
           console.log(response.results[0].geometry.location);
