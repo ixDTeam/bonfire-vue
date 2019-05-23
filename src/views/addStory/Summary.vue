@@ -64,20 +64,22 @@ export default {
         .then(function(docRef) {
             console.log(docRef.id);
             $cookies.set('ownStoryID', docRef.id);
-            $cookies.set('ownStoryTime', new Date.now());
-
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
         });
-        this.$router.replace({path: 'journey'});
     } else {
       alert('Leider hast du keine Berechtigung eine Geschichte zu schreiben!')
     }
+    var nowDate = new Date();
+    $cookies.set('ownStoryTime', nowDate);
+    $cookies.set('step', 2);
+    this.nextStep('giveaway')
+
   },
 
     nextStep(n){
-      this.$router.push({path: n});
+      this.$router.replace({path: n});
       console.log("Store wurde aktualisiert auf "+ this.$store.getters.getContent);
     },
      backStep(){

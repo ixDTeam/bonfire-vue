@@ -28,7 +28,7 @@
         </div>
       </label>
       <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="5" type="radio">
+        <input class="radio-hide" checked v-model="emotion" name="emotion" value="5" type="radio">
         <div class="emoji">
           <span>😂</span>
         </div>
@@ -66,16 +66,12 @@
 
 <script>
 
-import Form from '@/components/Form.vue'
 import firebase from 'firebase/app'
 import {db} from '@/config/db.js'
-
-
 
 export default {
   name: 'Feel',
   components: {
-    Form
   },
   data() {
     return {
@@ -90,7 +86,12 @@ export default {
     checkContent(){
     },
     checkButton(){
-
+      if(this.emotion){
+        return false;
+      }
+      else {
+        return true;
+      }
     },
      nextStep(n){
        this.$router.push({path: n});

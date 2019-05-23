@@ -51,7 +51,7 @@ export default {
     },
     firestore() {
         return {
-            stories: db.collection("object/"+this.$cookies.get('id')+"/story")
+            stories: db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'desc')
         };
     },
     computed: {
@@ -60,17 +60,28 @@ export default {
       }
     },
     methods: {
-       deleteMember(id) {
-           //alert('in deleteMember Parent');
-           db.collection("object/001/story").doc(id).delete();
-       },
 
+      scrollToStory() {
+          function isStory(value) {
+            return value.id == this.$cookies.get('ownStoryID');
+          }
+          position = this.stories.findIndex(isStory) + 1;
+          console.log(position);
+        },
+
+       deleteMember(id) {
+           db.collection("object/"+this.$cookies.get('id')+"/story").doc(id).delete();
+       },
        changeSlide(){
          let n = this.swiper.realIndex;
          var location = this.stories[n].location;
          this.latCenter = location.latitude;
          this.lngCenter = location.longitude;
        }
+     },
+     updated: function () {
+       this.changeSlide();
+       this.scrollToStory();
      }
 }
 
