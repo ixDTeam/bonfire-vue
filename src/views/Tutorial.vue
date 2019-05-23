@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     startJourney: function(){
-        this.$router.push({path: 'journey'})
+        this.$router.push({path: 'new'})
     }
   },
   mounted() {
