@@ -105,9 +105,9 @@ export default {
          this.lngCenter = location.longitude;
        }
      },
-     beforeupdated: function () {
-       this.changeSlide();
-     },
+    //  beforeupdated: function () {
+    //    this.changeSlide();
+    //  },
      mounted: function() {
        this.scrollToStory();
      }

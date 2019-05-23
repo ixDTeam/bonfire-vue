@@ -507,3 +507,88 @@ textarea{
   Giveaway Style
 /+++++++++++++++++++*/
 
+.countdown{
+    position: relative;
+    width: 100px;
+    height:140px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    border-radius: 25px;
+
+    background-color: lighten($bg-color, 5);
+    text-align: center;
+
+    color: $text-color-primary;
+
+    @include font('Harmonia', 900, 90px);
+
+    .description{
+        position: absolute;
+        font-size: 20px;
+
+        bottom: 5px;
+        left: 0;
+        right: 0;
+    }
+
+    animation: pulse 1000ms ease-in-out infinite;
+
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+
+}
+
+.giveaway-alert{
+    background-color: $text-color-primary;
+
+    @include font('Harmonia', 700, 20px);
+    color: $bg-color;
+    padding: 10px 15px 8px 15px;
+
+    transform: rotate(-2deg);
+
+    &.success{
+        transform: rotate(0deg);
+        color: $text-color-primary;
+        background-color: $bg-color;
+    }
+}
+
+.giveaway{
+    overflow: hidden;
+    .story{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $text-color-primary;
+        color: $text-color-contrast;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 85%;
+        bottom: 0px;
+        transition: 500ms;
+        &.show{
+            bottom: 0px;
+            top: 54%;
+        }
+    }
+
+    .instruction{
+        margin-top: 20px;
+        padding: 0px 10px 0px 10px;
+        @include font('Harmonia', 700, 20px);
+        line-height: 1.2;
+        color: $text-color-primary;
+    }
+}
+    
