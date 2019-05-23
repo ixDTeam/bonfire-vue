@@ -1,17 +1,21 @@
 <template>
-  <div class="summary">
-      <div class="form" >
+  <div class="summary fullscreen color-bg">
+  <button class="back-button" v-on:click="backStep()">Back</button>
+      <div class="form summary">
         <textarea id="new-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" placeholder="Schreibe deine Geschichte"></textarea>
-        <span>{{topic}}</span><br>
-        <span>{{emotion}}</span><br>
-        <span>{{location}}</span><br>
-        <div class="form submit-story">
-          <button v-on:click="backStep()">Back</button>
-          </div>
-          <button v-on:click="addStory()">Publish</button>
-        </div>
+          
+
+          
+
         <span class="char" id="remain-char">{{remain_char}}</span>
+        
       </div>
+      <div class="summary-line">
+          <span>{{topic}}</span>
+          <span>{{emotion}}</span>
+          <span>{{location}}</span>
+        </div>
+      <button class="button button-main" v-on:click="addStory()">Publish</button>
   </div>
 </template>
 
