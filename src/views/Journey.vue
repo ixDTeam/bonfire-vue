@@ -12,7 +12,6 @@
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
-           <!-- <button @click="$emit('delete-member',m.id)">Del</button> -->
     </b-container>
    </div>
   </div>
@@ -32,8 +31,11 @@ export default {
     Map
   },
   data() {
+    // let StoryID = this.$cookies.get('ownStoryID');
+    // let ownStoryIndex = this.$cookie.get('storyIndex');
         return {
             stories: [],
+            ownStoryID: '',
             swiperOption: {
               slidesPerView: 1.2,
               spaceBetween: 2,
@@ -46,7 +48,9 @@ export default {
           },
         swiperSlides: [1, 2, 3, 4, 5],
         latCenter: 30,
-        lngCenter: 10
+        lngCenter: 10,
+        ownStoryID: Number,
+        ownStoryIndex: Number
         };
     },
     firestore() {
@@ -62,16 +66,38 @@ export default {
     methods: {
 
       scrollToStory() {
-          function isStory(value) {
-            return value.id == this.$cookies.get('ownStoryID');
-          }
-          position = this.stories.findIndex(isStory) + 1;
-          console.log(position);
+        // let value = this.ownStoryID;
+        // console.log(this.StoryID)
+        // let index = parseInt(this.StoryID, 10);
+        // // console.log(value)
+        // //   function isStory(v) {
+        // //     return v.id == value;
+        // //   }
+        // //   let position = this.stories.findIndex(isStory) + 1;
+        //   console.log(index);
+        // 
+        // this.$bind('storie', db.collection("object/"+id+"/story").orderBy('created', 'asc')).then(story => {
+        //     maxPosition = story.length;
+        //     position = story.findIndex(isStory) + 1;
+        //     this.$cookies.set('storyIndex', position);
+        //     console.log(maxPosition);
+        //     console.log(position);
+        //     if(position < maxPosition){
+        //       console.log('Es git neues')
+        //       this.$cookies.set('step', 3);
+        //       // this.$router.replace({path: 'journey'});
+        //       this.checkStory = false;
+        //     } else if (position >= maxPosition){
+        //       this.checkStory = true;
+        //     }
+        //   })
+
         },
 
        deleteMember(id) {
            db.collection("object/"+this.$cookies.get('id')+"/story").doc(id).delete();
        },
+
        changeSlide(){
          let n = this.swiper.realIndex;
          var location = this.stories[n].location;
@@ -79,8 +105,10 @@ export default {
          this.lngCenter = location.longitude;
        }
      },
-     updated: function () {
+     beforeupdated: function () {
        this.changeSlide();
+     },
+     mounted: function() {
        this.scrollToStory();
      }
 }
