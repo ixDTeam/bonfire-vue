@@ -1,11 +1,15 @@
 <template>
-  <div class="new color-bg fullscreen pad-t">
+  <div class="new color-bg fullscreen">
     <!-- <Form @add-Story="addStory"></Form> -->
-    <h1> Wähle ein Thema </h1><br>
-    <button class="back-button" v-on:click="backStep()" >Back</button>
-    <button class="button" v-on:click="nextStep('tell', 1)" >Topic 1</button>
-    <button class="button" v-on:click="nextStep('tell', 2)" >Topic 2</button>
-    <button class="button" v-on:click="nextStep('tell', 3)" >Topic 3</button>
+    <button class="back-button" v-on:click="backStep()">Back</button>
+    <div class="topic">
+      <p class="text-block">Schreibe etwas über deinen
+        <span class="link" v-on:click="nextStep('tell', 1)">Professor</span> <br>
+        oder das
+        <span class="link" v-on:click="nextStep('tell', 2)" >Essen in der Mensa</span> <br>
+        oder deine
+        <span class="link" v-on:click="nextStep('tell', 3)" >letzte Klausur</span> <br>
+      </p>
     </div>
   </div>
 </template>
