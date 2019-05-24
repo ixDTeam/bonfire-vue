@@ -2,8 +2,13 @@
   <div class="giveaway">
     <div class="color-bg fullscreen pad-t">
       <h1>Gib es weiter</h1>
+<<<<<<< HEAD
       <div class="giveaway-alert fail" v-if="!checkStory">Your Story was not passed on yet!</div>
       <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
+=======
+      <div class="giveaway-alert fail" v-if="checkStory">Your Story was not passed on yet!</div>
+      <div class="giveaway-alert success" v-if="!checkStory">Deine Story wurde weitergegeben!</div>
+>>>>>>> style2
       <div class="countdown">
         <countdown :time="time" :interval="100" tag="span">
           <template slot-scope="props">{{ props.days }}</template>
