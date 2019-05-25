@@ -81,17 +81,10 @@ export default {
          this.lngCenter = location.longitude;
        }
      },
-<<<<<<< HEAD
      beforeUpdate: function() {
        this.changeSlide();
      },
      mounted: function(){
-=======
-    //  beforeupdated: function () {
-    //    this.changeSlide();
-    //  },
-     mounted: function() {
->>>>>>> style2
        this.scrollToStory();
      }
 }
