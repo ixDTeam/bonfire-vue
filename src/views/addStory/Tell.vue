@@ -4,7 +4,7 @@
 
        <button class="back-button" v-on:click="backStep()">Back</button>
       <div class="form" >
-        <textarea id="new-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
+        <textarea id="new-story" autofocus v-validate="'max:240|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
 
 
 
@@ -34,9 +34,9 @@ export default {
     return {
       content: this.$store.getters.getContent,
       emotion: null,
-      max_char: 10,
+      max_char: 240,
       min_char: 4,
-      remain_char: 10,
+      remain_char: 240,
       status: false,
     };
   },

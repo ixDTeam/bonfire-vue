@@ -38,7 +38,7 @@ export default {
           },
           pagination: {
               el: '.swiper-pagination',
-              dynamicBullets: true
+              dynamicBullets: false
         }
       }
   }
