@@ -45,9 +45,17 @@ $fader-height: 50vh;
     padding-top: 80px;
 }
 
+.pad-l{
+    padding-left: 32px;
+}
+.pad-r{
+    padding-right: 32px;
+}
+
 h1{
     @include font('Harmonia', 900, 50px);
     color: $text-color-primary;
+    text-align: left;
 }
 
 textarea{
@@ -58,8 +66,8 @@ textarea{
 
 .back-button{
     position: absolute;
-    left: 20px;
-    top: 20px;
+    left: 32px;
+    top: 24px;
     border: none;
     appearance: none;
     background-color: transparent;
@@ -77,8 +85,15 @@ textarea{
     border-radius: 20px;
     border: 0px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin-top: 30px;
     padding-top: 5px;
+
+    margin-left: auto;
+    margin-right: auto;
 
     z-index: 20;
 
@@ -92,6 +107,15 @@ textarea{
         box-shadow: none;
         background: none;
         color: $text-color-primary;
+    }
+
+    &.fixed{
+        position: fixed;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     &.button-main{
@@ -341,16 +365,10 @@ textarea{
         font-size: 50px;
         font-weight: 900;  
         text-decoration: underline;
-        text-decoration-style: dashed;
+        text-decoration-style: solid;
 
 
-        animation: wiggle 1000ms ease-in-out infinite;
-
-        @keyframes wiggle {
-            0% { text-decoration-style: dashed; }
-            50% { text-decoration-style: solid; }
-            100% { text-decoration-style: dashed; }
-          }
+       
     }
 }
 
@@ -502,6 +520,14 @@ textarea{
     &::placeholder{
         color: rgba( $text-color-primary, .4 );
         
+    }
+}
+
+.where{
+    p{
+        @include font('Harmonia', 700, 20px);
+        color: $text-color-primary;
+        text-align: left;
     }
 }
 
