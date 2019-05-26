@@ -58,8 +58,8 @@
         </div>
       </label>
     </div>
-    <button class="back-button" v-on:click="backStep()">Back</button>
-    <button class="button button-main" v-on:click="nextStep('where')" :disabled="checkButton()">Next</button>
+    <div class="back-button" v-on:click="backStep()">Back</div>
+    <div class="button button-main" v-on:click="nextStep('where')" :disabled="checkButton()">Next</div>
     </div>
   </div>
 </template>

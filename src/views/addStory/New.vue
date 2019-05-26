@@ -1,7 +1,7 @@
 <template>
   <div class="new color-bg fullscreen">
     <!-- <Form @add-Story="addStory"></Form> -->
-    <button class="back-button" v-on:click="backStep()">Back</button>
+    <div class="back-button" v-on:click="backStep()">Back</div>
     <div class="topic">
       <p class="text-block">Schreibe etwas über deinen
         <span class="link" v-on:click="nextStep('tell', 1)">Professor</span> <br>
