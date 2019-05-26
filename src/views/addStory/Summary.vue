@@ -8,6 +8,64 @@
       <span class="d-r">😅</span> 
       <span class="d-l">{{remain_char}}</span>
     </div>
+    <div class="emoji-edit hide">  
+      <div class="grid-9x9">
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="1" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="2" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="3" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="4" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" checked v-model="emotion" name="emotion" value="5" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="6" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="7" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="8" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+      <label>
+        <input class="radio-hide" v-model="emotion" name="emotion" value="9" type="radio">
+        <div class="emoji">
+          <span>😂</span>
+        </div>
+      </label>
+    </div>
+    </div>
     <button class="button button-main" v-on:click="addStory()">Publish</button>
   </div>
 </template>

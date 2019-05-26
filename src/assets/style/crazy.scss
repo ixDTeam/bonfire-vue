@@ -573,6 +573,13 @@ $card-font-size-s: 16px;
     position: relative;
     color: $text-color-contrast;
     @include font('Harmonia', 700, $card-font-size-s);
+
+    position: absolute;
+    top: 80px;
+
+    &.hide{
+        top: -350px;
+    }
 }
 
 .d-r{
@@ -621,6 +628,14 @@ $card-font-size-s: 16px;
         background: $text-color-primary;
         color: $bg-color;
       }
+}
+
+.emoji-edit{
+    position: absolute;
+    top: 150px;
+    &.hide{
+        display: none;
+    }
 }
 
 
