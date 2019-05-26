@@ -7,8 +7,9 @@
     </div>
     
     
-
-    <p v-if="!allowLocation">Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
+    <div v-if="!allowLocation" class="pad-l pad-r">
+      <p>Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
+    </div>
    
     <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
     <div :disabled="disableButton " class="button" v-on:click="askLocation()">Next</div>
