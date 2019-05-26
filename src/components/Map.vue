@@ -4,16 +4,16 @@
     <div class="zbtn plus" v-on:click='zoomIn()'>+</div>
     <div class="zbtn minus" v-on:click='zoomOut()'>-</div>
   </div>
-  
+
   <gmap-map ref="mymap"
      :center="{lat: 50, lng: 20}"
-     :zoom="5"
+     :zoom="this.lZoom"
      :options="mapStyle"
      >
-     
 
-  <GmapMarker
-    :position="{lat: this.lat, lng: this.lng}"
+
+  <GmapMarker v-for="story in stories" :key="story.id"
+    :position="{lat: story.location._lat, lng: story.location._long}"
     :clickable="true"
     :draggable="false"
   />
@@ -31,9 +31,13 @@ export default {
    props: {
      lat: Number,
      lng: Number,
+     stories: Array
    },
    data: function() {
      return{
+       lZoom: 5,
+       maxZoom: 11,
+       minZoom: 2,
        path: [
         {lat: 50, lng: 20},
         {lat: 51, lng: 23},
@@ -227,23 +231,29 @@ export default {
    }
  },
    methods: {
+
+     something() {
+        this.$refs.mymap.$mapPromise.then((data) => {
+          console.log(this.stories);
+        })
+      },
      // panMap() {
      //   this.$refs.mymap.$mapObject.panTo({lat: this.lat, lng: this.lng})
      // }
      zoomIn(){
-       if(this.$refs.mymap.zoom < 8){
-        this.$refs.mymap.zoom++;
-        console.log('Zoom In', this.$refs.mymap.zoom);
+       if(this.lZoom < this.maxZoom){
+        this.lZoom++;
+        console.log('Zoom In', this.lZoom);
        }
        else console.log('Limit erreicht');
      },
      zoomOut(){
-       if(this.$refs.mymap.zoom > 4){
-         this.$refs.mymap.zoom--;
-         console.log('Zoom Out', this.$refs.mymap.zoom);
+       if(this.lZoom > this.minZoom){
+         this.lZoom--;
+         console.log('Zoom Out', this.lZoom);
        }
        else console.log('Limit erreicht');
-       
+
      }
    },
    watch: {
@@ -255,171 +265,3 @@ export default {
     }
 }
 </script>
-
-
-
-[
-  {
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#0a2465"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.country",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.land_parcel",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.locality",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "weight": 6.5
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.locality",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#ffffff"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.locality",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#092465"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.neighborhood",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.neighborhood",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.province",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#ffffff"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#3653a1"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "visibility": "simplified"
-      }
-    ]
-  },
-  {
-    "featureType": "transit",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#3653a1"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  }
-]

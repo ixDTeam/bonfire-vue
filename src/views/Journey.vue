@@ -1,7 +1,7 @@
 <template>
   <div class="Journey">
     <div>
-      <Map v-bind:lat="latCenter"  v-bind:lng="lngCenter">
+      <Map v-bind:stories="stories" v-bind:lat="latCenter"  v-bind:lng="lngCenter">
       </Map>
       <div id="fader-feed-map">
       </div>
