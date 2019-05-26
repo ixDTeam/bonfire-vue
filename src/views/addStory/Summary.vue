@@ -1,6 +1,6 @@
 <template>
   <div class="summary fullscreen color-bg">
-  <button class="back-button" v-on:click="backStep()">Back</button>
+  <div class="back-button" v-on:click="backStep()">Back</div>
       <div class="form summary">
         <textarea id="new-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" placeholder="Schreibe deine Geschichte"></textarea>
           
