@@ -1,14 +1,18 @@
 <template>
-  <div class="where fullscreen color-bg pad-t pad-l">
-    <button class="back-button" v-on:click="backStep()">Back</button>
-    <h1 v-if="allowLocation">We need your location</h1>
-    <p v-if="allowLocation">Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
+  <div class="where fullscreen color-bg pad-t">
+    <div class="back-button" v-on:click="backStep()">Back</div>
+    <div v-if="allowLocation" class="pad-l pad-r">
+      <h1>We need your location</h1>
+      <p>Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
+    </div>
+    
     
 
     <p v-if="!allowLocation">Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
+   
     <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
-    <button :disabled="disableButton " class="button" v-on:click="askLocation()">Next</button><br>
-    <button  v-if="allowLocation" class="button sec" v-on:click="noLocation()">Ne Lass mal</button>
+    <div :disabled="disableButton " class="button" v-on:click="askLocation()">Next</div>
+    <div  v-if="allowLocation" class="button sec fixed" v-on:click="noLocation()">Ne Lass mal</div>
   </div>
 </template>
 
