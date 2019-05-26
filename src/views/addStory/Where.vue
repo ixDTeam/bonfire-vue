@@ -1,5 +1,5 @@
 <template>
-  <div class="where fullscreen color-bg pad-t">
+  <div class="where fullscreen color-bg pad-t pad-l">
     <button class="back-button" v-on:click="backStep()">Back</button>
     <h1 v-if="allowLocation">We need your location</h1>
     <p v-if="allowLocation">Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
@@ -7,7 +7,7 @@
 
     <p v-if="!allowLocation">Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
     <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
-    <button :disabled="disableButton " class="button button-main" v-on:click="askLocation()">Next</button><br>
+    <button :disabled="disableButton " class="button" v-on:click="askLocation()">Next</button><br>
     <button  v-if="allowLocation" class="button sec" v-on:click="noLocation()">Ne Lass mal</button>
   </div>
 </template>
