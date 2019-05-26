@@ -1,20 +1,14 @@
 <template>
   <div class="summary fullscreen color-bg flex column v-center pad-t">
-  <div class="back-button" v-on:click="backStep()">Back</div>
-      <div class="summary-card">
-        <textarea id="summary-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" placeholder="Schreibe deine Geschichte"></textarea>
-         <span class="t-r">Goofy Professor</span>
-         <span class="t-l">Osnabrück</span>
-         <span class="d-r">😅</span> 
-        <span class="d-l">{{remain_char}}</span>
-        
-      </div>
-      <div class="summary-line">
-         
-          
-          
-        </div>
-      <button class="button button-main" v-on:click="addStory()">Publish</button>
+    <div class="back-button" v-on:click="backStep()">Back</div>
+    <div class="summary-card">
+      <textarea id="summary-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" placeholder="Schreibe deine Geschichte"></textarea>
+      <span class="t-r">Goofy Professor</span>
+      <span class="t-l">Osnabrück</span>
+      <span class="d-r">😅</span> 
+      <span class="d-l">{{remain_char}}</span>
+    </div>
+    <button class="button button-main" v-on:click="addStory()">Publish</button>
   </div>
 </template>
 

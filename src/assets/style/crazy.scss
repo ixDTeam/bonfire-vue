@@ -549,65 +549,64 @@ textarea{
   Summary Style
 /+++++++++++++++++++*/
 
-.summary-line{
-    width: 100%;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+$card-height: 60vh;
+$card-width: 90%;
 
-    @include font('Harmonia', 700, 22px);
-    color: $text-color-primary;
-    .city{
-        flex-basis: 100%
-    }
-}
+$card-space-left: 20px;
+$card-space-right: 20px;
+$card-space-bottom: 20px;
+$card-space-top: 20px;
+
+$card-font-size-l: 35px;
+$card-font-size-s: 16px;
+
+
 
 
 .summary-card{
-    height: 60vh;
-    width: 90%;
+    height: $card-height;
+    width: $card-width;
     background-color: $text-color-primary;
     z-index: 10;
     border-radius: 30px;
-    padding-top: 20px;
+    padding-top: $card-space-top;
     position: relative;
     color: $text-color-contrast;
-    @include font('Harmonia', 700, 16px);
+    @include font('Harmonia', 700, $card-font-size-s);
 }
 
 .d-r{
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: $card-space-bottom;
+    right: $card-space-right;
 }
 .d-l{
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: $card-space-bottom;
+    left: $card-space-left;
 }
 
 .t-r{
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: $card-space-top;
+    right: $card-space-right;
 }
 .t-l{
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: $card-space-top;
+    left: $card-space-left;
 }
 
 #summary-story{
     width: 100%;
     height: 100%;
     border: 0px;
-    padding: 32px;
+    padding: calc( #{$card-space-top} + 10px) $card-space-right $card-space-bottom $card-space-left;
     background-color: transparent;
     z-index: 20;
    
 
-    @include font('Harmonia', 900, 50px);
+    @include font('Harmonia', 900, $card-font-size-l);
     line-height: 1.2;
 
     color: $text-color-contrast;
