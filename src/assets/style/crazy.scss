@@ -50,6 +50,9 @@ $fader-height: 50vh;
     &.h-center{
         justify-content: center;
     }
+    &.h-left{
+        justify-content: left;
+    }
     &.v-center{
         align-items: center;
     }
@@ -714,7 +717,8 @@ $card-font-size-s: 16px;
 
     @include font('Harmonia', 700, 20px);
     color: $bg-color;
-    padding: 10px 15px 8px 15px;
+    padding: 10px 15px 8px 0px;
+    text-align: left;
 
     transform: rotate(-2deg);
 
