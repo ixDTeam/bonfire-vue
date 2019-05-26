@@ -1,9 +1,16 @@
 <template>
+  <div>
+    <div class="map-zoom-button">
+    <div class="zbtn plus" v-on:click='zoomIn()'>+</div>
+    <div class="zbtn minus" v-on:click='zoomOut()'>-</div>
+  </div>
+  
   <gmap-map ref="mymap"
      :center="{lat: 50, lng: 20}"
      :zoom="5"
      :options="mapStyle"
      >
+     
 
   <GmapMarker
     :position="{lat: this.lat, lng: this.lng}"
@@ -13,7 +20,7 @@
 
    </gmap-map>
 
-
+</div>
 </template>
 
 <script>
@@ -32,7 +39,7 @@ export default {
         {lat: 51, lng: 23},
       ],
       mapStyle: {
-        zoomControl: true,
+        zoomControl: false,
         draggable: false,
         mapTypeControl: false,
         scaleControl: false,
@@ -223,6 +230,21 @@ export default {
      // panMap() {
      //   this.$refs.mymap.$mapObject.panTo({lat: this.lat, lng: this.lng})
      // }
+     zoomIn(){
+       if(this.$refs.mymap.zoom < 8){
+        this.$refs.mymap.zoom++;
+        console.log('Zoom In', this.$refs.mymap.zoom);
+       }
+       else console.log('Limit erreicht');
+     },
+     zoomOut(){
+       if(this.$refs.mymap.zoom > 4){
+         this.$refs.mymap.zoom--;
+         console.log('Zoom Out', this.$refs.mymap.zoom);
+       }
+       else console.log('Limit erreicht');
+       
+     }
    },
    watch: {
       	lat: function(newVal, oldVal) { // watch it

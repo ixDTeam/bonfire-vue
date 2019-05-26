@@ -333,6 +333,31 @@ textarea{
 
   //>>MAP STYLE
 
+  .map-zoom-button{
+      position: absolute;
+      z-index: 100;
+      top: 32px;
+      right: 8px;
+    .zbtn{
+        margin: 10px 0px;
+        width: 40px;
+        height: 40px;
+        background-color: $text-color-primary;
+        @include font('Harmonia', 900, 30px);
+        color: $text-color-contrast;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px $text-color-primary;
+        cursor: pointer;
+        user-select: none;
+        transition: 100ms ease;
+        &:active{
+            color: darken($text-color-contrast, 20);
+            background-color: darken($text-color-primary, 2);
+            box-shadow: 0px 0px 1px $text-color-primary;
+        }
+    }
+  }
+
 
   .vue-map-container{
     position: absolute;
@@ -348,6 +373,7 @@ textarea{
 .gmnoprint div {
     background:none !important;
 }
+
 
 //>>Topic Selection
 
