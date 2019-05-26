@@ -243,15 +243,6 @@ export default {
    }
  },
    methods: {
-
-     something() {
-        this.$refs.mymap.$mapPromise.then((data) => {
-          console.log(this.stories);
-        })
-      },
-     // panMap() {
-     //   this.$refs.mymap.$mapObject.panTo({lat: this.lat, lng: this.lng})
-     // }
      zoomIn(){
        if(this.lZoom < this.maxZoom){
         this.lZoom++;
