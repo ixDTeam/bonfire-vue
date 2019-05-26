@@ -11,11 +11,14 @@
      :options="mapStyle"
      >
 
+ <gmap-polyline v-bind:path.sync="locations" v-bind:options="{ strokeColor:'#008000'}">
+        </gmap-polyline>
 
   <GmapMarker v-for="story in stories" :key="story.id"
     :position="{lat: story.location._lat, lng: story.location._long}"
     :clickable="true"
     :draggable="false"
+    :animation="google.maps.Animation.DROP"
   />
 
    </gmap-map>
@@ -25,15 +28,24 @@
 
 <script>
 
+import {gmapApi} from 'vue2-google-maps'
+
 
 export default {
    name: 'Map',
    props: {
      lat: Number,
      lng: Number,
-     stories: Array
+     stories: Array,
+     locations: Array
    },
+
+   computed: {
+   google: gmapApi,
+
+ },
    data: function() {
+
      return{
        lZoom: 5,
        maxZoom: 11,

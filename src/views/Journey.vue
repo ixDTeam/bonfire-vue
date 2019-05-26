@@ -1,7 +1,7 @@
 <template>
   <div class="Journey">
     <div>
-      <Map v-bind:stories="stories" v-bind:lat="latCenter"  v-bind:lng="lngCenter">
+      <Map v-bind:locations="storiesLocation" v-bind:stories="stories" v-bind:lat="latCenter"  v-bind:lng="lngCenter">
       </Map>
       <div id="fader-feed-map">
       </div>
@@ -36,6 +36,7 @@ export default {
 
         return {
             stories: [],
+            storiesLocation: [],
             swiperOption: {
               slidesPerView: 1.2,
               spaceBetween: 2,
@@ -54,8 +55,10 @@ export default {
         };
     },
     firestore() {
+      var stories = db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
+
         return {
-            stories: db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
+          stories
         };
     },
     computed: {
@@ -64,6 +67,12 @@ export default {
       }
     },
     methods: {
+
+      setLocations(){
+
+
+
+      },
 
       scrollToStory() {
         console.log(this.ownStoryIndex);
@@ -82,11 +91,26 @@ export default {
        }
      },
      beforeUpdate: function() {
-       this.changeSlide();
      },
      mounted: function(){
        this.scrollToStory();
-     }
+
+     },
+     watch: {
+        	stories: function(newVal, oldVal) { // watch it
+            let self = this;
+            var stories = db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
+            stories.get().then(function(querySnapshot) {
+              self.storiesLocation = [];
+              querySnapshot.forEach(function (documentSnapshot) {
+              var data = documentSnapshot.data().location;
+              // var location =
+              self.storiesLocation.push({lat: documentSnapshot.data().location._lat, lng: documentSnapshot.data().location._long});
+              });
+            });
+
+        }
+      }
 }
 
 </script>
