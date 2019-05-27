@@ -1,24 +1,17 @@
 <template>
   <div class="giveaway">
     <div class="color-bg fullscreen pad-t">
-      <div class="flex column pad-l pad-r h-left" v-if="checkStory">
-        <h1>Danke!</h1>
-        <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
+      <h1>Gib es weiter</h1>
+      <div class="giveaway-alert fail" v-if="!checkStory">Your Story was not passed on yet!</div>
+      <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
+      <div class="countdown">
+        <countdown :time="time" :interval="100" tag="span">
+          <template slot-scope="props">{{ props.days }}</template>
+        </countdown>
+        <span class="description">Tage</span>
       </div>
-      
-      <div class="flex column pad-l pad-r" v-if="!checkStory">
-        <h1>Gib es weiter</h1>
-        <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
-        <div class="countdown" >
-          <countdown :time="time" :interval="100" tag="span">
-            <template slot-scope="props">{{ props.days }}</template>
-          </countdown>
-          <span class="description">Tage</span>
-        </div>
-      </div>
-      
-      
-      
+      <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
+
         <div class="story" v-on:click="toggleStory" v-bind:class="{ show: storyShow }">
           <p class='content'>{{story.content}}</p>
           <span class="headline">Freaky Friday</span>
@@ -56,6 +49,7 @@ export default {
   firestore() {
       return {
           story: db.collection("object/"+this.$cookies.get('id')+"/story").doc(this.$cookies.get('ownStoryID'))
+
       };
   },
   computed:{

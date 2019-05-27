@@ -19,6 +19,7 @@
     :clickable="true"
     :draggable="false"
     :animation="google.maps.Animation.DROP"
+    :icon="customIcon"
   />
 
    </gmap-map>
@@ -54,8 +55,17 @@ export default {
         {lat: 50, lng: 20},
         {lat: 51, lng: 23},
       ],
+      customIcon: {
+        path: 'M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0',
+        fillColor: 'white',
+        fillOpacity: 1,
+        scale: 0.1,
+        strokeColor: 'black',
+        strokeWeight: 3
+      },
       mapStyle: {
         zoomControl: false,
+
         draggable: false,
         mapTypeControl: false,
         scaleControl: false,
