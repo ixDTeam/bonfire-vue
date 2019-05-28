@@ -32,13 +32,39 @@ $fader-height: 50vh;
     font-size: $fontsize;
 }
 
+body{
+    height: 100vh;
+    overflow: hidden !important;
+}
+
 .color-bg{
     background-color: $bg-color;
+    &.bg-animation{
+        background-image: linear-gradient(-40deg,  lighten($bg-color,2) 30%, $bg-color 30%);
+        animation: gradient 15000ms ease-in-out infinite 100ms;
+        background-size: 200% 200%;
+    }
+    
 }
+.color-primary{
+    background-color: $text-color-primary;
+    &.bg-animation{
+        background-image: linear-gradient(-40deg,  lighten($text-color-primary,3) 30%, $text-color-primary 30%);
+        animation: gradient 15000ms ease-in-out infinite 100ms;
+        background-size: 200% 200%;
+    }
+}
+
+@keyframes gradient {
+    0% { background-position: 100% 100%; }
+    50% { background-position: 80% 40%; }
+    100% { background-position: 100% 100%; }
+  }
 
 .fullscreen{
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 .flex{
@@ -68,9 +94,17 @@ $fader-height: 50vh;
 .pad-r{
     padding-right: 32px;
 }
+.pad-b{
+    padding-buttom: 32px;
+}
 
 h1{
     @include font('Harmonia', 900, 50px);
+    color: $text-color-primary;
+    text-align: left;
+}
+h2{
+    @include font('Harmonia', 900, 30px);
     color: $text-color-primary;
     text-align: left;
 }
@@ -98,8 +132,8 @@ textarea{
 }
 
 .button{
-    width: 200px;
     height: 60px;
+    min-width: 200px;
     background: $text-color-primary;
     color: $text-color-contrast;
     border-radius: 20px;
@@ -110,7 +144,7 @@ textarea{
     align-items: center;
 
     margin-top: 30px;
-    padding-top: 5px;
+    padding: 5px 20px 0px 20px;
 
     margin-left: auto;
     margin-right: auto;
@@ -139,12 +173,10 @@ textarea{
     }
 
     &.button-main{
-        position: fixed;
-        bottom: 40px;
-        left: 0;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
+        min-width: 200px;
+        margin-top: auto;
+        align-self: center;
+        margin-bottom: 32px;
       
     }
 
@@ -164,25 +196,66 @@ textarea{
     
 }
 
-.bg-animation{
-    background-image: linear-gradient(-40deg,  lighten($bg-color,2) 30%, $bg-color 30%);
-    animation: gradient 15000ms ease-in-out infinite 100ms;
-    background-size: 200% 200%;
 
-
-    @keyframes gradient {
-        0% { background-position: 100% 100%; }
-        50% { background-position: 80% 40%; }
-        100% { background-position: 100% 100%; }
-      }
-
-}
 
 
 
 /*+++++++++++++++++++/
   Welcome Style
 /+++++++++++++++++++*/
+
+
+
+.welcome-intro{
+    padding-left: 32px;
+    
+}
+
+.welcome-headline{
+    position: relative;
+    width: 100%;
+    z-index: 20;
+    text-shadow: 0px 2px 8px rgba($text-color-primary,0.4);
+    h2{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .number{
+        position: absolute;
+        top: 60px;
+        left: 65px;
+        display: flex;
+        flex-direction: column;
+        color: $bg-color;
+        @include font('Harmonia', 700, 20px);
+        line-height: 1;
+        #number-user{
+            font-size: 130px;
+            font-weight: 900;
+            line-height: 0.7;
+        }
+        .number-description{
+            font-size:60px;
+        }
+    }
+}
+
+.welcome{
+    .button-main{
+        background-color: $bg-color;
+        align-self: center;
+        margin-top: auto;
+        position: relative;
+    }
+    h2{
+        color: $bg-color;
+    }
+}
+
+
+
+
 
 
 /*+++++++++++++++++++/
@@ -769,3 +842,143 @@ $countdown-fsize: 75px;
 
 }
     
+/*+++++++++++++++++++/
+  Poster Style
+/+++++++++++++++++++*/
+
+$distance: 22px;
+
+$top-height: 30%;
+
+.poster{
+
+    width: 100%;
+    height: 100%;
+    background-color: $bg-color;
+    
+
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $top-height;
+        font-size: 50px;
+        position: relative;
+        @include font('Harmonia', 700, 50px);
+        line-height: 1;
+        color: $text-color-primary;
+    }
+
+    .bottom{
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - #{$top-height});
+        padding: $distance;
+        background-color: $text-color-primary;
+        color: $bg-color;
+        align-items: left;
+        overflow-y: scroll;
+        @include font('Harmonia', 700, 14px);
+    }
+
+    .b{
+        @include font('Harmonia', 700, 14px);
+        color: $text-color-primary;
+        position: absolute;
+        bottom: $distance;
+    }
+    .r{
+        position: absolute;
+        right: $distance;
+        text-align: right;
+    }
+    .l{
+        position: absolute;
+        left: $distance;
+        text-align: left;
+    }
+}
+
+.poster-countdown{
+    position: absolute;
+    bottom:16px;
+    right: 16px;
+    text-align: right;
+    color: $text-color-primary;
+    line-height: 1;
+
+    @include font('Harmonia', 700, 14px);
+}
+
+.poster-headline{
+    text-align: left;
+    @include font('Harmonia', 900, 18px);
+
+}
+
+.poster-content{
+    text-align: left;
+    @include font('Harmonia', 900, 35px);
+    line-height: 1.2;
+}
+
+.poster-logo{
+    width: 100%;
+    background-color: $text-color-primary;
+    padding: 30px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+/*+++++++++++++++++++/
+  Add Poster Style
+/+++++++++++++++++++*/
+
+.add-poster{
+
+    .drag-target{
+        padding: 15px 25px;
+        border-radius: 0px 0px 20px 20px;
+        color: $bg-color;
+        background-color: rgba( $bg-color, .4 );
+        @include font('Harmonia', 700, 20px);
+    }
+
+    .story{
+        width: 90%;
+        margin-top: auto;;
+    }
+
+    #rect1{
+        margin-top: auto;
+        opacity: 0;
+        animation: swoosh 1000ms infinite 1000ms ease-in-out;
+    }
+
+    #rect2{
+        opacity: 0;
+        animation: swoosh 1000ms infinite 1100ms ease-in-out;
+    }
+
+    #rect3{
+        opacity: 0;
+        animation: swoosh 1000ms infinite 1200ms ease-in-out;
+    }
+
+    @keyframes swoosh {
+        0% { 
+            transform: translateY(0px); 
+            opacity: 0;
+        }
+        30% { 
+            opacity: 1;
+        }
+     
+        100% { 
+            transform: translateY(-60px); 
+            opacity: 0;
+        }
+      }
+}

@@ -1,16 +1,18 @@
 <template>
-<div class="poster">
-  <div>
+<div class="fullscreen">
+
     <h1 v-if="this.error">Das Plakat kennen wir leider nicht finden.<br> Magst du den QR-Code erneut einscannen?</h1>
     <h1 v-if="!poster.occupied && !this.error">Hier hängt noch nichts! Erzähl deine Geschichte! Lass dir dazu ein Geschenk schenken!</h1>
-    <div v-if="poster.occupied && !this.error" class="countdown">
-      <countdown :time="time" :interval="100" tag="span">
-        <template slot-scope="props">{{ props.days }}</template>
-      </countdown>
-      <span class="description">Tage</span>
-    </div>
-    <Poster v-if="poster.occupied" :key="poster.id" v-bind:content="poster.content" v-bind:emotion="poster.emotion" v-bind:id="poster.id"> </Poster>
-  </div>
+
+     <!--<div v-if="poster.occupied && !this.error" class="countdown">
+       <countdown class="poster-countdown" :time="time" :interval="100" tag="span">
+         <template slot-scope="props">{{ props.days }}</template>
+       </countdown>
+      </div>-->
+
+    <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :time="time" :id="poster.id">
+      
+    </Poster>
 </div>
 </template>
 
@@ -37,7 +39,7 @@ export default {
       posterAccess: false,
       error: true,
       time: 0,
-      maxDays : 3,
+      maxDays : 0,
     };
   },
   computed: {
