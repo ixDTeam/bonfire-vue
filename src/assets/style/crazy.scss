@@ -34,7 +34,7 @@ $fader-height: 50vh;
 
 body{
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .color-bg{
@@ -211,6 +211,7 @@ textarea{
 
 .welcome-headline{
     position: relative;
+    width: 100%;
     z-index: 20;
     text-shadow: 0px 2px 8px rgba($text-color-primary,0.4);
     h2{
@@ -247,14 +248,6 @@ textarea{
     }
     h2{
         color: $bg-color;
-    }
-    .story{
-        &.blur{
-            position: absolute;
-            filter: blur(10px);
-            z-index: 10;
-            opacity: 0.8;
-        }
     }
 }
 

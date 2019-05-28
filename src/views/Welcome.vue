@@ -9,15 +9,6 @@
         </div>
       </div>
 
-      <div class='story blur' id="story-1">
-        <span class='date'></span>
-        <p class='content'>Whoo nice! You are able to open the developer console. Rocket science!!! Do you have other talents? Maybe breathing. Yes probably you are a very good breather!</p>
-        <span class='headline'>Goofy Student</span>
-        <span class='created'>vor 3 Tagen</span>
-        <span class='location'>Osnabrück</span>
-        <span class='emoji'>😎</span>
-      </div>
-
      
       
     </div>
