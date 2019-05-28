@@ -16,6 +16,7 @@
          mode="out-in">
       <router-view></router-view>
     </transition>
+    <notifications group="foo" />
   </div>
 </template>
 

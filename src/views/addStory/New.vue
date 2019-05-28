@@ -54,3 +54,12 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.topic .link:hover{
+  transition: all 0.5;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fd8dc8 0%);
+}
+
+</style>

@@ -67,6 +67,7 @@ export default {
        this.allowLocation = false;
      },
      askLocation() {
+       var self = this
        if (this.allowLocation){
          this.$getLocation()
            .then(coordinates => {
@@ -90,12 +91,20 @@ export default {
         }
         //this.$store.commit('setLocationName', this.city);
         this.$geocoder.send(addressObj, response => {
-          console.log(response.results[0].formatted_address);
-          console.log(response.results[0].geometry.location);
-          this.$store.commit('setLocationName', response.results[0].formatted_address);
-          this.$store.commit('setLocation', response.results[0].geometry.location);
-          this.$router.push({path: 'summary'});
-         });
+          console.log(response);
+          if(response.results == 0) {
+            console.log("Mhhhh");
+            alert("Leider haben wir deine Stadt nicht gefunden. Versuche es erneut.");
+          } else {
+            console.log(response.results[0].formatted_address);
+            console.log(response.results[0].geometry.location);
+            this.$store.commit('setLocationName', response.results[0].formatted_address);
+            this.$store.commit('setLocation', response.results[0].geometry.location);
+            this.$router.push({path: 'summary'});
+          }
+
+
+        })
        }
       }
    }

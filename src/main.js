@@ -27,6 +27,7 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 import Geocoder from "@pderas/vue2-geocoder";
 import VueDragDrop from 'vue-drag-drop';
 import NProgress from 'vue-nprogress'
+import Notifications from 'vue-notification'
 
 import '../node_modules/nprogress/nprogress.css'
 
@@ -53,12 +54,13 @@ Vue.use(VueAwesomeSwiper)
 Vue.use(VueGeolocation);
 Vue.use(VueDragDrop);
 Vue.use(Geocoder, {
-  defaultCountryCode: 'DE', // e.g. 'CA'
+  // defaultCountryCode: 'DE', // e.g. 'CA'
   defaultLanguage: 'de', // e.g. 'en'
   defaultMode: 'adress', // or 'lat-lng'
   googleMapsApiKey: 'AIzaSyC0p6rXwRKcXYuBp5IMBBMbrXeAO3a2BuI'
 });
 Vue.component(VueCountdown.name, VueCountdown);
+Vue.use(Notifications);
 
 let user;
 let getUser;

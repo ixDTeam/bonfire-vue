@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="map-zoom-button">
-    <div class="zbtn plus" v-on:click='zoomIn()'>+</div>
+    <div class="zbtn plus"  v-on:click='zoomIn()'>+</div>
     <div class="zbtn minus" v-on:click='zoomOut()'>-</div>
   </div>
 
@@ -59,7 +59,7 @@ export default {
    data: function() {
 
      return{
-       lZoom: 5,
+       lZoom: 8,
        maxZoom: 11,
        minZoom: 2,
        path: [
@@ -277,14 +277,18 @@ export default {
         this.lZoom++;
         console.log('Zoom In', this.lZoom);
        }
-       else console.log('Limit erreicht');
+       else {
+          console.log('Limit erreicht');
+       }
      },
      zoomOut(){
        if(this.lZoom > this.minZoom){
          this.lZoom--;
          console.log('Zoom Out', this.lZoom);
        }
-       else console.log('Limit erreicht');
+       else {
+        console.log('Limit erreicht');
+       }
 
      }
    },
