@@ -771,29 +771,30 @@ $countdown-fsize: 75px;
   Poster Style
 /+++++++++++++++++++*/
 
-$poster-height: 60vh;
-$poster-width: 90%;
+$top-height: 30%;
 
-$poster-space-left: 20px;
-$poster-space-right: 20px;
-$poster-space-bottom: 20px;
-$poster-space-top: 20px;
+.poster{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-color;
+    
 
-$poster-font-size-l: 35px;
-$poster-font-size-s: 16px;
-
-.story{
-    &.poster{
-        height: $poster-height;
-        width: $poster-width;
-        background-color: $text-color-primary;
-        z-index: 10;
-        border-radius: 30px;
-        padding-top: $poster-space-top;
-        position: relative;
-        color: $text-color-contrast;
-        @include font('Harmonia', 700, $poster-font-size-s);
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $top-height;
+        font-size: 50px;
     }
 
-
+    .bottom{
+        height: calc(100% - #{$top-height});
+        padding: 32px;
+        background-color: $text-color-primary;
+        color: $bg-color;
+        @include font('Harmonia', 700, 20px);
+    }
 }
+

@@ -1,13 +1,14 @@
 <template>
-
-  <div class='story poster' :data-id=id>
-    <span class='date'></span>
-    <p class='content'>{{content}}</p>
-    <span class='headline'>Goofy Professor</span>
-    <span class='created'>vor 3 Tagen</span>
-    <span class='location'>Osnabrück</span>
-    <span class='emoji'>{{emotion}}</span>
-    <div class="delete" @click="$emit('delete-members', id )">X</div>
+  <div class='poster' :data-id=id>
+    <div class="top">
+      <span class='poster-emoji'>{{emotion}}</span>
+    </div>
+    <div class="bottom">
+      <p class='poster-content'>{{content}}</p>
+      <span class='poster-headline'>Goofy Professor</span>
+      <span class='poster-location'>Osnabrück</span>
+    </div>
+    
   </div>
 
 </template>
