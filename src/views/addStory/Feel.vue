@@ -1,5 +1,5 @@
 <template>
-  <div class="feel fullscreen color-bg pad-t">
+  <div class="feel fullscreen color-bg pad-t pad-b">
   <h1 class="pad-l pad-r">Wähle deine Emotion aus</h1>
     <!-- <Form @add-Story="addStory"></Form> -->
     <div class="grid-9x9">

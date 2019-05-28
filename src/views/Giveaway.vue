@@ -2,7 +2,7 @@
   <div class="giveaway">
     <div class="color-bg fullscreen">
 
-    <div class="flex column pad-t pad-l pad-r h-left" v-if="checkStory">
+    <div class="flex fullscreen column pad-t pad-l pad-r h-left" v-if="checkStory">
         <h1>Danke!</h1>
         <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
         <div class="button button-main">Sieh dir alle Storys an</div>

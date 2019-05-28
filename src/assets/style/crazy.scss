@@ -94,6 +94,9 @@ body{
 .pad-r{
     padding-right: 32px;
 }
+.pad-b{
+    padding-buttom: 32px;
+}
 
 h1{
     @include font('Harmonia', 900, 50px);
@@ -171,11 +174,9 @@ textarea{
 
     &.button-main{
         min-width: 200px;
-        position: fixed;
-        bottom: 40px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-top: auto;
         align-self: center;
+        margin-bottom: 32px;
       
     }
 
