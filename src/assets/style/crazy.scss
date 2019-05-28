@@ -590,8 +590,6 @@ $card-font-size-l: 35px;
 $card-font-size-s: 16px;
 
 
-
-
 .summary-card{
     height: $card-height;
     width: $card-width;
@@ -672,15 +670,19 @@ $card-font-size-s: 16px;
   Giveaway Style
 /+++++++++++++++++++*/
 
+$countdown-h: 120px;
+$countdown-w: 80px;
+$countdown-fsize: 75px;
+
 .countdown{
     position: relative;
-    width: 100px;
-    height:140px;
+    width: $countdown-w;
+    height:$countdown-h;
 
     margin-left: auto;
     margin-right: auto;
 
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 30px;
 
     border-radius: 25px;
@@ -690,7 +692,7 @@ $card-font-size-s: 16px;
 
     color: $text-color-primary;
 
-    @include font('Harmonia', 900, 90px);
+    @include font('Harmonia', 900, $countdown-fsize);
 
     .description{
         position: absolute;
@@ -699,6 +701,19 @@ $card-font-size-s: 16px;
         bottom: 5px;
         left: 0;
         right: 0;
+    }
+
+    &.vertical{
+        width: 200px;
+        height: 100px;
+        text-align: left;
+        padding-left: 20px;
+        .description{
+            position: absolute;
+            font-size: 40px;
+            left: 80px;
+            top: 25px;
+        }
     }
 
     animation: pulse 1000ms ease-in-out infinite;
@@ -737,24 +752,17 @@ $card-font-size-s: 16px;
         margin-right: auto;
         background-color: $text-color-primary;
         color: $text-color-contrast;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 85%;
-        bottom: 0px;
         transition: 500ms;
-        &.show{
-            bottom: 0px;
-            top: 54%;
-        }
     }
 
+
     .instruction{
-        margin-top: 20px;
+        margin-top: 0px;
         padding: 0px 10px 0px 10px;
-        @include font('Harmonia', 700, 20px);
+        @include font('Harmonia', 700, 16px);
         line-height: 1.2;
         color: $text-color-primary;
     }
+
 }
     
