@@ -74,6 +74,9 @@ h1{
     color: $text-color-primary;
     text-align: left;
 }
+p{
+    text-align: left;
+}
 
 textarea{
     &:focus{
@@ -758,7 +761,7 @@ $countdown-fsize: 75px;
 
     .instruction{
         margin-top: 0px;
-        padding: 0px 10px 0px 10px;
+        padding: 0px 10px 0px 0px;
         @include font('Harmonia', 700, 16px);
         line-height: 1.2;
         color: $text-color-primary;
