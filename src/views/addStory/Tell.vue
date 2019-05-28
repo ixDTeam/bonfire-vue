@@ -1,5 +1,5 @@
 <template>
-  <div class="tell fullscreen color-bg">
+  <div class="tell fullscreen color-bg flex h-center">
     <!-- <Form @add-Story="addStory"></Form> -->
 
        <div class="back-button" v-on:click="backStep()">Back</div>
