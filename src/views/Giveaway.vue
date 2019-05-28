@@ -5,6 +5,7 @@
     <div class="flex column pad-t pad-l pad-r h-left" v-if="checkStory">
         <h1>Danke!</h1>
         <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
+        <div class="button button-main">Sieh dir alle Storys an</div>
     </div>
 
     <div class="flex column pad-l pad-r" v-if="!checkStory">
@@ -16,16 +17,16 @@
         </div>
         <h1>Gib es weiter</h1>
         <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
-        
-    </div>
-
-        <div class="story" v-on:click="toggleStory" v-bind:class="{ show: storyShow }">
+        <div class="story" v-bind:class="{ show: storyShow }">
           <p class='content'>{{story.content}}</p>
           <span class="headline">Freaky Friday</span>
           <span class="created">vor 2 Tagen</span>
           <span class="location">Osnabrück</span>
           <span class="emoji"></span>
         </div>
+    </div>
+
+        
    </div>
   </div>
 </template>
