@@ -25,6 +25,9 @@ export default {
   computed: {
     isGuest() {
       return this.$user.get().role === "guest";
+    },
+    routeName(){
+      return this.$route.name;
     }
   },
   methods: {
@@ -33,8 +36,8 @@ export default {
       var devMode = 0;
       devMode = this.$cookies.get('devMode');
       step = this.$cookies.get('step');
-      console.log(this.$route.name)
-      if(this.$route.name != "accessPoster"){
+      console.log(this.routeName)
+      if(this.routeName != "accessPoster" && this.routeName != "addPoster" && this.routeName){
         if (devMode == 0 || !devMode){
           if (step == 0){
             this.$router.push({path: '/'})
@@ -66,7 +69,7 @@ export default {
       this.$user.set(user);
     }
   },
-  created() {
+  mounted() {
     this.checkState();
   }
 };
