@@ -1,10 +1,25 @@
 <template>
-  <div class="welcome fullscreen bg-animation pad-t">
-    <div>
-      <h1>Herzlich Willkommen</h1>
-      <button class="button button-main" v-on:click="startTutorial">Los gehts!</button><br>
-      <button class="button sec" v-on:click="testCookie">Cookie generieren</button>
-   </div>
+  <div class="welcome fullscreen flex column">
+    <div class="pad-t fullscreen welcome-intro color-primary bg-animation">
+      <div class="welcome-headline">
+        <h2>Share your thoughts <br> like</h2>
+        <div class="number">
+          <span id="number-user">322</span>
+          <span class="number-description">Students</span>
+        </div>
+      </div>
+
+      <div class='story blur'>
+        <span class='date'></span>
+        <p class='content'>Whoo nice! You are able to open the developer console. Rocket science!!! Do you have other talents? Maybe breathing. Yes probably you are a very good breather!</p>
+        <span class='headline'>Goofy Student</span>
+        <span class='created'>vor 3 Tagen</span>
+        <span class='location'>Osnabrück</span>
+        <span class='emoji'>😎</span>
+      </div>
+
+    </div>
+    <button class="button button-main" v-on:click="startTutorial">Los gehts!</button>
   </div>
 </template>
 
