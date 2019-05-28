@@ -1,5 +1,5 @@
 <template>
-  <div class="where fullscreen color-bg pad-t">
+  <div class="where fullscreen color-bg pad-t flex column">
     <div class="back-button" v-on:click="backStep()">Back</div>
     <div v-if="allowLocation" class="pad-l pad-r">
       <h1>We need your location</h1>
