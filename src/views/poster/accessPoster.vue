@@ -1,6 +1,5 @@
 <template>
-<div class="poster">
-  <div>
+<div class="poster color-bg fullscreen flex v-center column">
     <h1 v-if="this.error">Das Plakat kennen wir leider nicht finden.<br> Magst du den QR-Code erneut einscannen?</h1>
     <h1 v-if="!poster.occupied && !this.error">Hier hängt noch nichts! Erzähl deine Geschichte! Lass dir dazu ein Geschenk schenken!</h1>
     <div v-if="poster.occupied && !this.error" class="countdown">
@@ -10,7 +9,6 @@
       <span class="description">Tage</span>
     </div>
     <Poster v-if="poster.occupied" :key="poster.id" v-bind:content="poster.content" v-bind:emotion="poster.emotion" v-bind:id="poster.id"> </Poster>
-  </div>
 </div>
 </template>
 

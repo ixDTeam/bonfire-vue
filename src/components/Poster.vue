@@ -1,5 +1,6 @@
 <template>
-  <div class='story' :data-id=id>
+
+  <div class='story poster' :data-id=id>
     <span class='date'></span>
     <p class='content'>{{content}}</p>
     <span class='headline'>Goofy Professor</span>
@@ -8,6 +9,7 @@
     <span class='emoji'>{{emotion}}</span>
     <div class="delete" @click="$emit('delete-members', id )">X</div>
   </div>
+
 </template>
 
 <script>

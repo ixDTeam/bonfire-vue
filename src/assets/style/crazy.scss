@@ -767,3 +767,33 @@ $countdown-fsize: 75px;
 
 }
     
+/*+++++++++++++++++++/
+  Poster Style
+/+++++++++++++++++++*/
+
+$poster-height: 60vh;
+$poster-width: 90%;
+
+$poster-space-left: 20px;
+$poster-space-right: 20px;
+$poster-space-bottom: 20px;
+$poster-space-top: 20px;
+
+$poster-font-size-l: 35px;
+$poster-font-size-s: 16px;
+
+.story{
+    &.poster{
+        height: $poster-height;
+        width: $poster-width;
+        background-color: $text-color-primary;
+        z-index: 10;
+        border-radius: 30px;
+        padding-top: $poster-space-top;
+        position: relative;
+        color: $text-color-contrast;
+        @include font('Harmonia', 700, $poster-font-size-s);
+    }
+
+
+}
