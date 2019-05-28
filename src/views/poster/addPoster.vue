@@ -1,19 +1,31 @@
 <template>
-<div class="qr">
-  <div>
-
-    <drop class="drop"
-			:class="{ over }"
-			@dragover="over = true"
-			@dragleave="over = false"
-			@drop="postStory">
-				<h1>Drag to here</h1>
-		</drop>
-    <drag class="drag" :transfer-data="{ example: 'styling' }">
-      <Poster :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id"> </Poster>
-    </drag>
+  <div class="add-poster fullscreen color-primary flex column v-center">
+    <div class="drag-target">
+      <span>Place your Story here</span>
+    </div>
+        <svg id="rect1" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-171.000000, -213.000000)" fill="#FD74BC">
+                    <polygon id="Triangle" points="192 213.5 213 237.5 171 237.5"></polygon>
+                </g>
+            </g>
+        </svg>
+        <svg id="rect2" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-171.000000, -213.000000)" fill="#FD74BC">
+                    <polygon id="Triangle" points="192 213.5 213 237.5 171 237.5"></polygon>
+                </g>
+            </g>
+        </svg>
+        <svg id="rect3" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-171.000000, -213.000000)" fill="#FD74BC">
+                    <polygon id="Triangle" points="192 213.5 213 237.5 171 237.5"></polygon>
+                </g>
+            </g>
+        </svg>
+      <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id"> </Story>
   </div>
-</div>
 </template>
 
 <script>
@@ -21,13 +33,13 @@ import firebase from 'firebase/app'
 import {
   db
 } from '@/config/db.js'
-import Poster from '@/components/Poster.vue'
+import Story from '@/components/Story.vue'
 import { Drag, Drop } from 'vue-drag-drop';
 
 export default {
   name: 'addPoster',
   components: {
-    Poster,
+    Story,
     Drag,
     Drop
   },
