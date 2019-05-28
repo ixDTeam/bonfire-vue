@@ -6,20 +6,30 @@
   </div>
 
   <gmap-map ref="mymap"
-     :center="{lat: 50, lng: 20}"
+     :center="{lat: lat, lng: lng}"
      :zoom="this.lZoom"
      :options="mapStyle"
      >
 
  <gmap-polyline v-bind:path.sync="locations" v-bind:options="{ strokeColor:'#008000'}"></gmap-polyline>
 
+ <GmapMarker
+   :position="{lat: lat, lng: lng}"
+   :clickable="false"
+   :draggable="false"
+   :icon="customIconBig"
+ />
   <GmapMarker v-for="story in stories" :key="story.id"
     :position="{lat: story.location._lat, lng: story.location._long}"
-    :clickable="true"
+    :clickable="false"
     :draggable="false"
     :animation="google.maps.Animation.DROP"
     :icon="customIcon"
   />
+
+
+
+
 
    </gmap-map>
 
@@ -37,7 +47,9 @@ export default {
      lat: Number,
      lng: Number,
      stories: Array,
-     locations: Array
+     locations: Array,
+     panLat: Number,
+     panLng: Number
    },
 
    computed: {
@@ -59,6 +71,14 @@ export default {
         fillColor: 'white',
         fillOpacity: 1,
         scale: 0.1,
+        strokeColor: 'black',
+        strokeWeight: 3
+      },
+      customIconBig: {
+        path: 'M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0',
+        fillColor: 'red',
+        fillOpacity: 1,
+        scale: 0.2,
         strokeColor: 'black',
         strokeWeight: 3
       },
@@ -269,12 +289,14 @@ export default {
      }
    },
    watch: {
-      	lat: function(newVal, oldVal) { // watch it
+      	panLat: { // watch it
           immediate: true,
-        this.$refs.mymap.$mapPromise.then((map) => {
-          map.panTo({lat: this.lat, lng: this.lng});
-        })
+          handler() {
+            this.$refs.mymap.$mapPromise.then((map) => {
+              map.panTo({lat: this.panLat, lng: this.panLng});
+          })
+        }
       }
     }
-}
+  }
 </script>

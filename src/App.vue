@@ -12,9 +12,10 @@
       <router-link to="/feel">Feel</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-
-    <router-view/>
-
+    <transition  name="fade"
+         mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -63,7 +64,17 @@ export default {
 
 <style>
 
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.3s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+  transform: translateY(5%);
+}
+
 #app {
+      background-color: #FD74BC;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

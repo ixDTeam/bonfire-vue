@@ -5,7 +5,7 @@
     <span class='headline'>Goofy Professor</span>
     <span class='created'>vor 3 Tagen</span>
     <span class='location'>Osnabrück</span>
-    <span class='emoji'>{{emotion}}</span>
+    <Emotion :emotion="emotion"></Emotion>
     <div class="delete" @click="$emit('delete-members', id )">X</div>
   </div>
 </template>
@@ -13,10 +13,13 @@
 <script>
 
 
-
+import Emotion from '@/components/Emotion.vue'
 
 export default {
   name: 'Story',
+  components: {
+    Emotion
+  },
   props: {
     content: String,
     emotion: Number,

@@ -1,7 +1,7 @@
 <template>
   <div class="Journey">
     <div>
-      <Map v-bind:locations="storiesLocation" v-bind:stories="stories" v-bind:lat="latCenter"  v-bind:lng="lngCenter">
+      <Map  v-bind:locations="storiesLocation" v-bind:stories="stories" v-bind:lat="latCenter" :panLat="panLat" :panLng="panLng"  v-bind:lng="lngCenter">
       </Map>
       <div id="fader-feed-map">
       </div>
@@ -33,7 +33,6 @@ export default {
   data() {
     var lStoryID = $cookies.get('ownStoryID');
     var lownStoryIndex = $cookies.get('storyIndex');
-
         return {
             stories: [],
             storiesLocation: [],
@@ -50,13 +49,14 @@ export default {
         swiperSlides: [1, 2, 3, 4, 5],
         latCenter: 50,
         lngCenter: 30,
+        panLat: 50,
+        panLng: 30,
         ownStoryID: lStoryID,
         ownStoryIndex: lownStoryIndex
         };
     },
     firestore() {
       var stories = db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
-
         return {
           stories
         };
@@ -78,33 +78,39 @@ export default {
        },
 
        changeSlide(){
-         let n = this.swiper.realIndex;
-         var location = this.stories[n].location;
-         this.latCenter = location.latitude;
-         this.lngCenter = location.longitude;
-       }
+             let n = this.swiper.realIndex;
+             var location = this.stories[n].location;
+             this.panLat = location.latitude;
+             this.panLng = location.longitude;
+         }
      },
      mounted: function(){
-       this.scrollToStory();
-
+      this.scrollToStory();
      },
      watch: {
 
-          realIndex: {
-            handler: function () {
-              console.log("Test");
-              let n = this.swiper.realIndex;
-              var location = this.stories[n].location;
-              this.latCenter = location.latitude;
-              this.lngCenter = location.longitude;
-            }
-          },
+          // swiper.realIndex: {
+          //   handler: function () {
+          //     console.log("Test");
+          //     let n = this.swiper.realIndex;
+          //     var location = this.stories[n].location;
+          //     this.latCenter = location.latitude;
+          //     this.lngCenter = location.longitude;
+          //   }
+          // },
 
         	stories: function(newVal, oldVal) {
             immediate: true; // watch it
             let self = this;
             var stories = db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
             stories.get().then(function(querySnapshot) {
+
+              let n = self.swiper.realIndex;
+              var location = self.stories[n].location;
+              console.log(location)
+              self.latCenter = location.latitude;
+              self.lngCenter = location.longitude;
+
               self.storiesLocation = [];
               querySnapshot.forEach(function (documentSnapshot) {
               var data = documentSnapshot.data().location;
