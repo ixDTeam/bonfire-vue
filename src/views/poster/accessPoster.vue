@@ -10,7 +10,9 @@
        </countdown>
       </div>-->
 
-    <Poster v-if="poster.occupied" :key="poster.id" v-bind:content="poster.content" v-bind:emotion="poster.emotion" v-bind:id="poster.id"> </Poster>
+    <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :time="time" :id="poster.id">
+      
+    </Poster>
 </div>
 </template>
 
@@ -37,7 +39,7 @@ export default {
       posterAccess: false,
       error: true,
       time: 0,
-      maxDays : 3,
+      maxDays : 0,
     };
   },
   computed: {
