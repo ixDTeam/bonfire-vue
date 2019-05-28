@@ -9,18 +9,20 @@
 
     <div class="flex column pad-l pad-r" v-if="!checkStory">
         <div class="countdown vertical" >
-          <countdown :time="time" :interval="100" tag="span">
-            <template slot-scope="props">{{ props.days }}</template>
+          <countdown @progress="handleCountdownProgress" :emit-events="true" :time="time" :interval="1000" tag="span">
+            <template slot-scope="props">{{ props.seconds }}</template>
           </countdown>
-          <span class="description">Tage</span>
+          <span class="description">Sekunden</span>
         </div>
-        <h1>Gib es weiter</h1>
-        <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
-        
-    </div>
+        <div v-if="time > 0">
+          <h1>Gib es weiter</h1>
+          <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
+        </div>
+        <h1 v-if="time <= 0">Leider zu spät!</h1>
 
+    </div>
         <div class="story" v-on:click="toggleStory" v-bind:class="{ show: storyShow }">
-          <p class='content'>{{story.content}}</p>
+          <p class='content' ref="text" v-html="localContent">{{localContent}}</p>
           <span class="headline">Freaky Friday</span>
           <span class="created">vor 2 Tagen</span>
           <span class="location">Osnabrück</span>
@@ -40,17 +42,18 @@ export default {
   components: {
   },
   data: function(){
-    var result = new Date($cookies.get('ownStoryTime'));
-    var now = new Date();
-    result.setDate(result.getDate() + 7);
-
     return {
         story: {},
         storie: [],
         counting: false,
-        time: result - now,
+        time: Number,
         checkStory: false,
         storyShow: false,
+        destructionState: 6,
+        maxSeconds: 60,
+        localContent: 'Placeholder',
+        maxItems: Number,
+        totalSeconds: 0,
       };
   },
   firestore: {
@@ -59,16 +62,17 @@ export default {
   },
   computed:{
 
-    getCounter: function () {
-      // var now = new Date();
-      var result = new Date($cookies.get('ownStoryTime'));
-
-      console.log(result)
-      result.setDate(result.getDate() + 7);
-      return result;
-    }
   },
   methods: {
+
+    handleCountdownProgress(data) {
+
+      this.totalSeconds = data.totalSeconds
+      if(data.totalSeconds < 60){ // Nur noch eine Minute
+
+      }
+    },
+
    toggleStory: function(){
      this.storyShow = !this.storyShow;
    },
@@ -82,6 +86,57 @@ export default {
 
   },
   watch: {
+
+    totalSeconds: {
+      immediate: true, // watch it
+      handler: function (totalSeconds, oldTotalseconds) {
+
+               var destruction = 0;
+               console.log("JAAAAA MACH ENGLISCH")
+               if(totalSeconds == 0){
+                 destruction = 10;
+               }
+
+               for (var loop = 0; loop < destruction; loop++){
+               function getRandomInt(min, max) {
+                   min = Math.ceil(min);
+                   max = Math.floor(max);
+                   return Math.floor(Math.random() * (max - min + 1)) + min;
+               }
+               var id = getRandomInt(1, 10)
+               console.log(id);
+               console.log(document.getElementById("Text_"+id));
+
+               document.getElementById("Text_"+id).classList.add("blocked");
+             }
+           }
+         },
+
+
+    story: function(story, oldstory){
+        var postedTime = new firebase.firestore.Timestamp(story.created.seconds, story.created.nanoseconds);
+        console.log(postedTime);
+        var postedTimeDate = postedTime.toDate();
+        console.log(postedTimeDate);
+        var now = new Date();
+        postedTimeDate.setSeconds(postedTimeDate.getSeconds() + this.maxSeconds);
+        this.time = postedTimeDate - now;
+        console.log(this.time);
+
+
+        console.log(this.story.content);
+        var lcontent = this.story.content
+        var regex = /\S+/g;
+        var id = 0;
+        var result = lcontent.replace(regex, function(a, b, c) {
+            return "<span id=Text_" + (++id) + ">" + a + "</span>";
+        });
+        this.maxItems = id;
+        this.localContent = result;
+
+
+      },
+
     storie: function(){
 
       let check = false;
@@ -112,3 +167,14 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.content span{
+  transition: all 1s;
+}
+.content .blocked {
+  background-color: black;
+  color: black;
+}
+</style>

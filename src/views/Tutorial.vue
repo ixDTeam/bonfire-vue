@@ -9,7 +9,7 @@
     <swiper-slide class="tutorial-page">I'm Slide 2</swiper-slide>
     <swiper-slide class="tutorial-page">I'm Slide 3</swiper-slide>
     <swiper-slide class="tutorial-page">
-      <button class="button button-main" v-on:click="startJourney">Los gehts!</button>
+      <button :disabled="!allowAccess" class="button button-main" v-on:click="startJourney">Los gehts!</button>
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -46,11 +46,16 @@ export default {
   computed: {
       swiper() {
         return this.$refs.mySwiper.swiper
+      },
+      allowAccess(){
+        return this.$store.getters.getAccess
       }
   },
   methods: {
     startJourney: function(){
-        this.$router.push({path: 'new'})
+      if(this.allowAccess){
+          this.$router.push({path: 'new'})
+      }
     }
   },
   mounted() {

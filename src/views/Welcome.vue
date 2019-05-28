@@ -31,9 +31,7 @@ export default {
       }
       },
       startTutorial: function(){
-        if(this.$store.getters.getAccess){
           this.$router.push({path: 'tutorial'})
-        }
       },
       testCookie: function(){
         this.$cookies.set('id', '001');

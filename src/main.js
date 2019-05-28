@@ -26,6 +26,9 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import Geocoder from "@pderas/vue2-geocoder";
 import VueDragDrop from 'vue-drag-drop';
+import NProgress from 'vue-nprogress'
+
+import '../node_modules/nprogress/nprogress.css'
 
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
@@ -33,6 +36,12 @@ import './assets/style/style.css'
 
 import './assets/style/crazy.scss'
 
+
+const progressOptions = {
+  latencyThreshold: 200, // Number of ms before progressbar starts showing, default: 100,
+  router: true, // Show progressbar when navigating routes, default: true
+  http: false // Show progressbar when doing Vue.http, default: true
+};
 
 Vue.use(firestorePlugin);
 Vue.use(VeeValidate);
@@ -49,21 +58,12 @@ Vue.use(Geocoder, {
   defaultMode: 'adress', // or 'lat-lng'
   googleMapsApiKey: 'AIzaSyC0p6rXwRKcXYuBp5IMBBMbrXeAO3a2BuI'
 });
-
 Vue.component(VueCountdown.name, VueCountdown);
-
 
 let user;
 let getUser;
 let cookieID = window.$cookies.get('id');
 
-if (cookieID) {
-  // console.log("Test Cookie gefunden! ID ist " + cookieID);
-  getUser = Promise.resolve({ role: "registered" });
-} else {
-  // console.log(" Test Kein Cookie gefunden! ID ist " + cookieID);
-  getUser = Promise.resolve({ role: "guest" });
-}
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -74,11 +74,8 @@ Vue.use(VueGoogleMaps, {
 Vue.config.productionTip = false;
 VueCookies.config('14d');
 
-getUser.then(user => {
-  Vue.prototype.$user.set(user);
   new Vue({
     router,
     store,
     render: h => h(App)
   }).$mount('#app')
-});

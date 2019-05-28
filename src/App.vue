@@ -37,9 +37,9 @@ export default {
       devMode = this.$cookies.get('devMode');
       step = this.$cookies.get('step');
       console.log(this.routeName)
-      if(this.routeName != "accessPoster" && this.routeName != "addPoster" && this.routeName){
+      if(this.routeName != "accessPoster" && this.routeName != "addPoster"){
         if (devMode == 0 || !devMode){
-          if (step == 0){
+          if (step == 0 || step == undefined){
             this.$router.push({path: '/'})
           }
           else if(step == 1){
@@ -51,27 +51,13 @@ export default {
           }
         }
       }
-    },
-
-    toggleAuth() {
-      let user;
-      var cookieID = this.$cookies.get('id');
-      console.log("Cookie gefunden! ID ist " +this.$cookies.get('id'));
-      if (cookieID) {
-        user = {
-          role: "registered"
-        };
-      } else {
-        user = {
-          role: "guest"
-        };
-      }
-      this.$user.set(user);
     }
   },
   mounted() {
-    this.checkState();
-  }
+    this.checkState()
+  },
+
+
 };
 </script>
 
@@ -95,5 +81,9 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+[v-cloak] {
+  display: none;
 }
 </style>

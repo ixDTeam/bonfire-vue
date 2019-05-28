@@ -48,8 +48,8 @@ export default {
             }
           },
         swiperSlides: [1, 2, 3, 4, 5],
-        latCenter: Number,
-        lngCenter: Number,
+        latCenter: 50,
+        lngCenter: 30,
         ownStoryID: lStoryID,
         ownStoryIndex: lownStoryIndex
         };
@@ -67,12 +67,6 @@ export default {
       }
     },
     methods: {
-
-      setLocations(){
-
-
-
-      },
 
       scrollToStory() {
         console.log(this.ownStoryIndex);
@@ -96,11 +90,14 @@ export default {
      },
      watch: {
 
-          realIndex: function(){
-            let n = this.swiper.realIndex;
-            var location = this.stories[n].location;
-            this.latCenter = location.latitude;
-            this.lngCenter = location.longitude;
+          realIndex: {
+            handler: function () {
+              console.log("Test");
+              let n = this.swiper.realIndex;
+              var location = this.stories[n].location;
+              this.latCenter = location.latitude;
+              this.lngCenter = location.longitude;
+            }
           },
 
         	stories: function(newVal, oldVal) {
