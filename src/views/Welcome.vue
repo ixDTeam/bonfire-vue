@@ -1,6 +1,6 @@
 <template>
-  <div class="welcome fullscreen flex column">
-    <div class="pad-t fullscreen welcome-intro color-primary bg-animation">
+  <div class="welcome fullscreen flex column color-primary bg-animation">
+    <div class="pad-t welcome-intro">
       <div class="welcome-headline">
         <h2>Share your thoughts <br> like</h2>
         <div class="number">
@@ -19,7 +19,7 @@
       </div>
 
      
-
+      
     </div>
     <button class="button button-main" v-on:click="startTutorial">Los gehts!</button>
   </div>

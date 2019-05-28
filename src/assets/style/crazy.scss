@@ -32,6 +32,11 @@ $fader-height: 50vh;
     font-size: $fontsize;
 }
 
+body{
+    height: 100vh;
+    overflow: hidden;
+}
+
 .color-bg{
     background-color: $bg-color;
     &.bg-animation{
@@ -59,6 +64,7 @@ $fader-height: 50vh;
 .fullscreen{
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 .flex{
@@ -235,17 +241,19 @@ textarea{
 .welcome{
     .button-main{
         background-color: $bg-color;
-        z-index: 20;
+        align-self: center;
+        margin-top: auto;
+        position: relative;
     }
     h2{
         color: $bg-color;
-        z-index: 20;
     }
     .story{
         &.blur{
             position: absolute;
             filter: blur(10px);
             z-index: 10;
+            opacity: 0.8;
         }
     }
 }
