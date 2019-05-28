@@ -4,6 +4,8 @@
       <h1>Gib es weiter</h1>
       <div class="giveaway-alert fail" v-if="!checkStory">Your Story was not passed on yet!</div>
       <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
+      <div class="button button-main" v-on:click="nextStep('journey')" v-if="checkStory">Next</div>
+
       <div class="countdown">
         <countdown :time="time" :interval="100" tag="span">
           <template slot-scope="props">{{ props.days }}</template>
@@ -34,29 +36,29 @@ export default {
   },
   data: function(){
     var result = new Date($cookies.get('ownStoryTime'));
-     var now = new Date();
+    var now = new Date();
     result.setDate(result.getDate() + 7);
 
     return {
         story: {},
-        storie: {},
+        storie: [],
         counting: false,
         time: result - now,
         checkStory: false,
         storyShow: false,
       };
   },
-  firestore() {
-      return {
-          story: db.collection("object/"+this.$cookies.get('id')+"/story").doc(this.$cookies.get('ownStoryID'))
-
-      };
+  firestore: {
+   storie: db.collection("object/"+$cookies.get('id')+"/story").orderBy('created', 'asc'),
+   story: db.collection("object/"+$cookies.get('id')+"/story").doc($cookies.get('ownStoryID'))
   },
   computed:{
 
     getCounter: function () {
       // var now = new Date();
       var result = new Date($cookies.get('ownStoryTime'));
+
+      console.log(result)
       result.setDate(result.getDate() + 7);
       return result;
     }
@@ -64,13 +66,18 @@ export default {
   methods: {
    toggleStory: function(){
      this.storyShow = !this.storyShow;
+   },
+   nextStep(n){
+     if (this.checkStory){
+          this.$router.push({path: n});
+     }
    }
   },
   mounted: function(){
 
   },
   watch: {
-    story: function(){
+    storie: function(){
 
       let check = false;
       let id = this.$cookies.get('id');
@@ -82,22 +89,20 @@ export default {
         return value.id == ownStoryID;
       }
 
-      this.$bind('storie', db.collection("object/"+id+"/story").orderBy('created', 'asc')).then(story => {
-          maxPosition = story.length;
-          position = story.findIndex(isStory) + 1;
-          this.$cookies.set('storyIndex', position);
-          console.log(maxPosition);
-          console.log(position);
-          if(position < maxPosition){
-            console.log('Es git neues')
-            this.$cookies.set('step', 3);
-            // this.$router.replace({path: 'journey'});
-            this.checkStory = false;
-          } else if (position >= maxPosition){
-            this.checkStory = true;
-          }
-        })
-
+      console.log(this.storie);
+      maxPosition = this.storie.length;
+      position = this.storie.findIndex(isStory) + 1;
+      this.$cookies.set('storyIndex', position);
+      console.log(maxPosition);
+      console.log(position);
+      if(position < maxPosition){
+        console.log('Es gibt neues')
+        this.$cookies.set('step', 3);
+        // this.$router.replace({path: 'journey'});
+        this.checkStory = true;
+      } else if (position >= maxPosition){
+        this.checkStory = false;
+      }
     }
   }
 }

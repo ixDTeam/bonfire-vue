@@ -11,8 +11,7 @@
      :options="mapStyle"
      >
 
- <gmap-polyline v-bind:path.sync="locations" v-bind:options="{ strokeColor:'#008000'}">
-        </gmap-polyline>
+ <gmap-polyline v-bind:path.sync="locations" v-bind:options="{ strokeColor:'#008000'}"></gmap-polyline>
 
   <GmapMarker v-for="story in stories" :key="story.id"
     :position="{lat: story.location._lat, lng: story.location._long}"
@@ -271,6 +270,7 @@ export default {
    },
    watch: {
       	lat: function(newVal, oldVal) { // watch it
+          immediate: true,
         this.$refs.mymap.$mapPromise.then((map) => {
           map.panTo({lat: this.lat, lng: this.lng});
         })

@@ -5,12 +5,12 @@
       <h1>We need your location</h1>
       <p>Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
     </div>
-    
-    
+
+
     <div v-if="!allowLocation" class="pad-l pad-r">
       <p>Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
     </div>
-   
+
     <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
     <div :disabled="disableButton " class="button" v-on:click="askLocation()">Next</div>
     <div  v-if="allowLocation" class="button sec fixed" v-on:click="noLocation()">Ne Lass mal</div>
@@ -90,8 +90,9 @@ export default {
         }
         //this.$store.commit('setLocationName', this.city);
         this.$geocoder.send(addressObj, response => {
-          console.log(response.results[0].geometry.formatted_adress);
+          console.log(response.results[0].formatted_address);
           console.log(response.results[0].geometry.location);
+          this.$store.commit('setLocationName', response.results[0].formatted_address);
           this.$store.commit('setLocation', response.results[0].geometry.location);
           this.$router.push({path: 'summary'});
          });

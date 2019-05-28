@@ -14,6 +14,18 @@ export default new Router({
       props: true
     },
     {
+      path: '/p/:id',
+      name: 'accessPoster',
+      component: () => import('./views/poster/accessPoster.vue'),
+      props: true
+    },
+    {
+      path: '/p/:id/add',
+      name: 'addPoster',
+      component: () => import('./views/poster/addPoster.vue'),
+      props: true
+    },
+    {
       path: '',
       name: 'welcome',
       component: Welcome

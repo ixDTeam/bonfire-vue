@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  
+
     <div id="nav">
       <router-link to="/">Welcome</router-link> |
       <router-link to="/tutorial">Tutorial</router-link> |
@@ -33,16 +33,19 @@ export default {
       var devMode = 0;
       devMode = this.$cookies.get('devMode');
       step = this.$cookies.get('step');
-      if (devMode == 0 || !devMode){
-        if (step == 0){
-          this.$router.push({path: '/'})
-        }
-        else if(step == 1){
-          this.$router.push({path: 'new'})
-        } else if (step == 2){
-          this.$router.push({path: 'giveaway'})
-        } else if (step == 3){
-          this.$router.push({path: 'journey'})
+      console.log(this.$route.name)
+      if(this.$route.name != "accessPoster"){
+        if (devMode == 0 || !devMode){
+          if (step == 0){
+            this.$router.push({path: '/'})
+          }
+          else if(step == 1){
+            this.$router.push({path: 'new'})
+          } else if (step == 2){
+            this.$router.push({path: 'giveaway'})
+          } else if (step == 3){
+            this.$router.push({path: 'journey'})
+          }
         }
       }
     },

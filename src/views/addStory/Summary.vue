@@ -5,10 +5,10 @@
       <textarea id="summary-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" placeholder="Schreibe deine Geschichte"></textarea>
       <span class="t-r">Goofy Professor</span>
       <span class="t-l">Osnabrück</span>
-      <span class="d-r">😅</span> 
+      <span class="d-r">😅</span>
       <span class="d-l">{{remain_char}}</span>
     </div>
-    <div class="emoji-edit hide">  
+    <div class="emoji-edit hide">
       <div class="grid-9x9">
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="1" type="radio">
@@ -108,13 +108,15 @@ export default {
         var content = this.content;
         var emotion = this.emotion;
         var location = this.location;
+        var locationName = this.locationName;
         console.log(location);
         db.collection("object/"+this.$cookies.get('id')+"/story").add({
           topic,
           content,
           emotion,
           created: new firebase.firestore.Timestamp.fromDate(new Date()),
-          location: new firebase.firestore.GeoPoint(location.lat, location.lng)
+          location: new firebase.firestore.GeoPoint(location.lat, location.lng),
+          locationName
         })
         .then(function(docRef) {
             console.log(docRef.id);
@@ -148,7 +150,7 @@ export default {
      backStep(){
        this.$router.back();
      }
-     
+
    }
 }
 </script>

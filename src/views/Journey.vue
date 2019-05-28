@@ -48,8 +48,8 @@ export default {
             }
           },
         swiperSlides: [1, 2, 3, 4, 5],
-        latCenter: 30,
-        lngCenter: 10,
+        latCenter: Number,
+        lngCenter: Number,
         ownStoryID: lStoryID,
         ownStoryIndex: lownStoryIndex
         };
@@ -90,14 +90,21 @@ export default {
          this.lngCenter = location.longitude;
        }
      },
-     beforeUpdate: function() {
-     },
      mounted: function(){
        this.scrollToStory();
 
      },
      watch: {
-        	stories: function(newVal, oldVal) { // watch it
+
+          realIndex: function(){
+            let n = this.swiper.realIndex;
+            var location = this.stories[n].location;
+            this.latCenter = location.latitude;
+            this.lngCenter = location.longitude;
+          },
+
+        	stories: function(newVal, oldVal) {
+            immediate: true; // watch it
             let self = this;
             var stories = db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
             stories.get().then(function(querySnapshot) {
@@ -108,7 +115,6 @@ export default {
               self.storiesLocation.push({lat: documentSnapshot.data().location._lat, lng: documentSnapshot.data().location._long});
               });
             });
-
         }
       }
 }
