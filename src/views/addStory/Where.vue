@@ -12,7 +12,7 @@
     </div>
 
     <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
-    <div :disabled="disableButton " class="button" v-on:click="askLocation()">Next</div>
+    <div :disabled="disableButton " class="button button-main button-where" v-on:click="askLocation()">Next</div>
     <div  v-if="allowLocation" class="button sec fixed" v-on:click="noLocation()">Ne Lass mal</div>
   </div>
 </template>

@@ -25,7 +25,6 @@ import VueRouterUserRoles from "vue-router-user-roles";
 import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import Geocoder from "@pderas/vue2-geocoder";
-import VueDragDrop from 'vue-drag-drop';
 
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
@@ -42,7 +41,6 @@ Vue.use(Vuex);
 Vue.use(VueRouterUserRoles, { router });
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueGeolocation);
-Vue.use(VueDragDrop);
 Vue.use(Geocoder, {
   defaultCountryCode: 'DE', // e.g. 'CA'
   defaultLanguage: 'de', // e.g. 'en'

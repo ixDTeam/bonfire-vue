@@ -34,14 +34,11 @@ import {
   db
 } from '@/config/db.js'
 import Story from '@/components/Story.vue'
-import { Drag, Drop } from 'vue-drag-drop';
 
 export default {
   name: 'addPoster',
   components: {
     Story,
-    Drag,
-    Drop
   },
   data() {
     return {
