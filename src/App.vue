@@ -1,17 +1,7 @@
 <template>
   <div id="app">
 
-    <div id="nav">
-      <router-link to="/">Welcome</router-link> |
-      <router-link to="/tutorial">Tutorial</router-link> |
-      <router-link to="/journey">Journey</router-link> |
-      <router-link to="/giveaway">Giveaway</router-link> |
-      <router-link to="/Start">Start</router-link> |
-      <router-link to="/new">New</router-link> |
-      <router-link to="/tell">Tell</router-link> |
-      <router-link to="/feel">Feel</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    
     <transition  name="fade"
          mode="out-in">
       <router-view></router-view>
