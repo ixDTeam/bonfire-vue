@@ -35,6 +35,10 @@ export default {
     checkState(){
       var step;
       var devMode = 0;
+
+      var cookieID = this.$cookies.get('id');
+      this.$store.commit('setID', cookieID);
+
       devMode = this.$cookies.get('devMode');
       step = this.$cookies.get('step');
       console.log(this.routeName)
