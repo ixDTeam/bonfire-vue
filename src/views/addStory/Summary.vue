@@ -6,7 +6,6 @@
       <span class="t-r">{{topic}}</span>
       <span class="t-l">{{locationName}}</span>
       <span class="d-r"><Emotion :emotion="emotion"></Emotion></span>
-      <span class="d-l">{{remain_char}}</span>
     </div>
     <div class="emoji-edit hide">
       <div class="grid-9x9">

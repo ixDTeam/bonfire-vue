@@ -1,6 +1,6 @@
 <template>
   <div class="add-poster fullscreen color-primary flex column v-center">
-    <div class="drag-target">
+    <div v-bind:class="{ moving: moving }" class="drag-target">
       <span v-on:click="postStory">Place your Story here</span>
     </div>
         <svg id="rect1" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -24,9 +24,9 @@
                 </g>
             </g>
         </svg>
-        <swiper @slideChange="postStory" :options="swiperOption" ref="mySwiper" id="story-poster">
+        <swiper @touchStart="isMoving" @touchEnd="notMoving" @slideChange="postStory" :options="swiperOption" ref="mySwiper" id="story-poster">
           <swiper-slide>
-            <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :created="story.created"> </Story>
+            <Story v-bind:class="{ moving: moving }" :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :created="story.created"> </Story>
           </swiper-slide>
           <swiper-slide>
             <div>
@@ -57,6 +57,7 @@ export default {
       posterID: this.id,
       ownStoryID: String,
       posterAccess: false,
+      moving: false,
       swiperOption: {
         direction: 'vertical',
           navigation: {
@@ -77,6 +78,15 @@ export default {
     };
   },
   methods: {
+    isMoving(){
+      console.log("Touch");
+      this.moving = true;
+    },
+
+    notMoving(){
+      console.log("No Touch");
+      this.moving = false;
+    },
 
       postStory() {
 
@@ -118,3 +128,22 @@ export default {
   }
 }
 </script>
+
+<style>
+.drag-target {
+  padding: 15px 25px 15px 25px;
+  transition: all 0.5s;
+}
+.drag-target.moving{
+  padding: 45px 25px 15px 25px;
+}
+
+.story{
+  transition: all 0.5s;
+  transform: scale(1);
+}
+
+.story.moving{
+  transform: scale(0.8);
+}
+</style>
