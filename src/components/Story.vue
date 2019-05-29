@@ -1,6 +1,7 @@
 <template>
   <div class='story' :data-id=id>
     <span class='date'></span>
+    <div class="your-story">Your Story</div>
     <p class='content'>{{content}}</p>
     <span class='headline'>{{topic}}</span>
     <span class='created'>{{completeDate}}</span>
