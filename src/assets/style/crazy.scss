@@ -345,19 +345,22 @@ textarea{
     .created {
         position: absolute;
         top: 15px;
-        left: 20px;
+        right: 20px;
     }
 
     .headline{
         position: absolute;
-        bottom: 15px;
+        top: 15px;
         left: 20px;
     }
 
     .location{
         position: absolute;
-        top: 15px;
+        bottom: 15px;
         right: 20px;
+        svg{
+            margin-bottom: 3px;
+        }
     }
 
     .delete{
