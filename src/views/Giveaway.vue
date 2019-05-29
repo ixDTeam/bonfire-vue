@@ -9,11 +9,11 @@
     </div>
 
     <div class="flex column pad-l pad-r" v-if="!checkStory">
-        <div class="countdown vertical" >
-          <countdown @progress="handleCountdownProgress" :emit-events="true" :time="time" :interval="1000" tag="span">
+        <div class="countdown vertical seconds" >
+          <countdown tag="div" class="countdown-timer" @progress="handleCountdownProgress" :emit-events="true" :time="time" :interval="1000">
             <template slot-scope="props">{{ props.seconds }}</template>
           </countdown>
-          <span class="description">Sekunden</span>
+          <span class="description">seconds</span>
         </div>
         <h1>Gib es weiter</h1>
         <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>

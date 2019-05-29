@@ -120,11 +120,14 @@ textarea{
 
 .back-button{
     position: absolute;
-    left: 32px;
-    top: 24px;
+    left: 0px;
+    top: 32px;
+    text-align: left;
+    padding-left: 32px;
+    width: 100%;
     border: none;
     appearance: none;
-    background-color: transparent;
+    background-color: $bg-color;
     @include font('Harmonia', 700, 20px);
     color: $text-color-primary;
     z-index: 20;
@@ -177,6 +180,10 @@ textarea{
         margin-top: auto;
         align-self: center;
         margin-bottom: 32px;
+
+        &.button-where{
+            margin-bottom: 120px;
+        }
       
     }
 
@@ -279,10 +286,29 @@ textarea{
 
 .tutorial-page{
     padding-top: 20vh;
+    padding-left: 32px;
 }
 
 .swiper-button-disabled{
     display: none;
+}
+
+.swiper-path{
+    stroke: lighten($bg-color, 6);
+}
+
+.swiper-button-next{
+    background-image: none;
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
+.swiper-button-prev{
+    background-image: none;
+    &:hover{
+        transform: scale(1.2);
+    }
 }
 
 /*+++++++++++++++++++/
@@ -523,10 +549,23 @@ textarea{
       }
 }
 
+.header{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    min-height: 60px;
+
+    padding-top: 32px;
+    background-color: $bg-color;
+}
+
 
 
 .form{
     padding-top: 40px;
+    padding-bottom: 50px;
     background-color: $bg-color;
     position: relative;
     height: 80vh;
@@ -535,8 +574,10 @@ textarea{
 
 #remain-char{
     position: absolute;
-    bottom: 30px;
-    right: 30px;
+    top: 32px;
+    right: 32px;
+
+    z-index: 100;
 
     color: $text-color-primary;
     font-family: 'Harmonia';
@@ -796,6 +837,23 @@ $countdown-fsize: 75px;
             left: 80px;
             top: 25px;
         }
+
+        &.seconds{
+           width: auto;
+           padding-right: 20px;
+           .description{
+               margin-left: 10px;
+               position: relative;
+               top: inherit;
+               left: inherit;
+           }
+           .countdown-timer{
+               position: relative;
+           }
+           div{
+               display: inline;
+           }
+        }
     }
 
     animation: pulse 1000ms ease-in-out infinite;
@@ -830,11 +888,14 @@ $countdown-fsize: 75px;
     overflow: hidden;
     .story{
         width: 90%;
+        margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
         background-color: $text-color-primary;
         color: $text-color-contrast;
         transition: 500ms;
+        word-break: break-all;
+        width: 100%;
     }
 
 

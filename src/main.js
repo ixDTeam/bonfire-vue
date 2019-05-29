@@ -26,7 +26,6 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import Geocoder from "@pderas/vue2-geocoder";
 
-
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
 
