@@ -4,10 +4,8 @@
     <div class="back-button" v-on:click="backStep()">Back</div>
     <div class="topic">
       <p class="text-block">Schreibe etwas über deinen
-        <span class="link" v-on:click="nextStep('tell', 1)">Professor</span> <br>
-        oder das
-        <span class="link" v-on:click="nextStep('tell', 2)" >Essen in der Mensa</span> <br>
-        oder deine
+        <span class="link" v-on:click="nextStep('tell', 1)">Professor</span>, das
+        <span class="link" v-on:click="nextStep('tell', 2)" >Essen in der Mensa</span> oder die
         <span class="link" v-on:click="nextStep('tell', 3)" >letzte Klausur</span> <br>
       </p>
     </div>
