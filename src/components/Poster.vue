@@ -12,8 +12,9 @@
       <span class='poster-headline'>{{topic}}</span>
       <p class='poster-content'>{{content}}</p>
       <div class="poster-logo">
+      <button class="poster-path-button" >Show story journey</button>
 
-        <svg width="143px" height="19px" viewBox="0 0 143 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg class="hs-logo" width="143px" height="19px" viewBox="0 0 143 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="iPhone-8-Copy-6" transform="translate(-116.000000, -624.000000)" fill="#FD74BC">
                     <g id="Group-2" transform="translate(116.000000, 624.000000)">

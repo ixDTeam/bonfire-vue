@@ -945,6 +945,17 @@ $distance: 22px;
 
 $top-height: 30%;
 
+.poster-path-button{
+    float: left;
+    @include font('Harmonia', 700, 20px);
+    padding-left: 8px;
+    color: $text-color-primary;
+    background-color: $bg-color;
+    border: none;
+    box-shadow: 0px 2px 6px rgba($bg-color, 0.3);
+}
+
+
 .poster{
 
     width: 100%;
@@ -1020,12 +1031,15 @@ $top-height: 30%;
 .poster-logo{
     width: 100%;
     background-color: $text-color-primary;
-    padding: 30px;
     position: fixed;
+    margin-bottom: 32px;
     bottom: 0px;
     left: 0px;
     right: 0px;
 }
+ .hs-logo{
+     margin-bottom: -15px;
+ }
 
 /*+++++++++++++++++++/
   Add Poster Style
