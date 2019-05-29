@@ -3,12 +3,11 @@
     <!-- <Form @add-Story="addStory"></Form> -->
     <div class="back-button" v-on:click="backStep()">Back</div>
     <div class="topic">
-      <p class="text-block">Schreibe etwas über deinen
-        <span class="link" v-on:click="nextStep('tell', 1)">Professor</span> <br>
-        oder das
-        <span class="link" v-on:click="nextStep('tell', 2)" >Essen in der Mensa</span> <br>
-        oder deine
-        <span class="link" v-on:click="nextStep('tell', 3)" >letzte Klausur</span> <br>
+      <p class="text-block">Tell a story about
+        <span class="link" v-on:click="nextStep('tell', 'Professor')">your professor,</span> <br> the
+        <span class="link" v-on:click="nextStep('tell', 'Food in the cafeteria')" > food in the cafeteria</span> <br>
+        or your
+        <span class="link" v-on:click="nextStep('tell', 'Latest party')" >latest party</span> <br>
       </p>
     </div>
   </div>

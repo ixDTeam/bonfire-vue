@@ -19,10 +19,10 @@
         <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
         <div class="story" v-bind:class="{ show: storyShow }">
           <p class='content' ref="text" v-html="localContent">{{localContent}}</p>
-          <span class="headline">Freaky Friday</span>
-          <span class="created">vor 2 Tagen</span>
-          <span class="location">Osnabrück</span>
-          <span class="emoji"></span>
+          <span class="headline">{{story.topic}}</span>
+          <span class="created">{{completeDate}}</span>
+          <span class="location">{{story.locationName}}</span>
+          <span class="emoji"><Emotion :emotion="story.emotion"></Emotion></span>
         </div>
     </div>
 
@@ -36,11 +36,15 @@
 import firebase from 'firebase/app'
 import {db} from '@/config/db.js'
 
+import Emotion from '@/components/Emotion.vue'
+
 export default {
   name: 'giveaway',
   components: {
+    Emotion
   },
   data: function(){
+    var dataDate = new Date();
     return {
         story: {},
         storie: [],
@@ -53,6 +57,7 @@ export default {
         localContent: 'Placeholder',
         maxItems: Number,
         totalSeconds: 0,
+        completeDate: String
       };
   },
   firestore: {
@@ -117,6 +122,11 @@ export default {
         console.log(postedTime);
         var postedTimeDate = postedTime.toDate();
         console.log(postedTimeDate);
+
+        // Datum für Anzeige aufbereiten
+        this.completeDate = postedTimeDate.getDate() + "." + (postedTimeDate.getMonth() + 1) + "." + postedTimeDate.getFullYear();
+
+
         var now = new Date();
         postedTimeDate.setSeconds(postedTimeDate.getSeconds() + this.maxSeconds);
         this.time = postedTimeDate - now;

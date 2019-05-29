@@ -12,7 +12,7 @@
     </div>
 
     <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
-    <div :disabled="disableButton " class="button" v-on:click="askLocation()">Next</div>
+    <div :disabled="buttonDisabled " class="button" v-on:click="askLocation()"><span v-if="buttonDisabled">Waiting...</span><span v-else>Next</span></div>
     <div  v-if="allowLocation" class="button sec fixed" v-on:click="noLocation()">Ne Lass mal</div>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
       max_char: 10,
       remain_char: 10,
       status: false,
+      buttonDisabled: false
     };
   },
   computed:{
@@ -67,6 +68,7 @@ export default {
        this.allowLocation = false;
      },
      askLocation() {
+       this.buttonDisabled = true;
        var self = this
        if (this.allowLocation){
          this.$getLocation()
@@ -79,7 +81,23 @@ export default {
              console.log(location);
              this.$store.commit('setLocation', location);
              console.log("Store wurde aktualisiert auf "+ this.$store.getters.getLocation);
-             this.$router.push({path: 'summary'});
+
+             this.$geocoder.setDefaultMode('lat-lng');
+
+             this.$geocoder.send(location, response => {
+
+               if(response.results == 0) {
+                 alert("Leider haben wir deine Stadt nicht gefunden. Versuche es erneut.");
+               } else {
+                 console.log(response)
+                 var location = response.results[0].address_components[3].long_name+", "+response.results[0].address_components[5].long_name;
+                 console.log(location);
+                 this.$store.commit('setLocationName', location);
+                 this.buttonDisabled = false;
+                 this.$router.push({path: 'summary'});
+               }
+             })
+
 
            }).catch(function(err) {
              alert('Leider hat das nicht funktioniert. Probier es doch bitte nochmal.');
@@ -90,6 +108,7 @@ export default {
             city: this.city,
         }
         //this.$store.commit('setLocationName', this.city);
+        this.$geocoder.setDefaultMode('address');
         this.$geocoder.send(addressObj, response => {
           console.log(response);
           if(response.results == 0) {
@@ -100,6 +119,7 @@ export default {
             console.log(response.results[0].geometry.location);
             this.$store.commit('setLocationName', response.results[0].formatted_address);
             this.$store.commit('setLocation', response.results[0].geometry.location);
+            this.buttonDisabled = false;
             this.$router.push({path: 'summary'});
           }
 

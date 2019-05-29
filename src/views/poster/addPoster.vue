@@ -24,7 +24,7 @@
                 </g>
             </g>
         </svg>
-      <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id"> </Story>
+      <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :created="story.created"> </Story>
   </div>
 </template>
 

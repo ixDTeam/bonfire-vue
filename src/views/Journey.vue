@@ -8,7 +8,7 @@
       <b-container fluid id="feed">
         <swiper id="story-swiper" :options="swiperOption" ref="mySwiper" @slideChange="changeSlide">
             <swiper-slide v-for="story in stories" :key="story.id">
-              <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" > </Story>
+              <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :topic="story.topic"  :created="story.created"> </Story>
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>

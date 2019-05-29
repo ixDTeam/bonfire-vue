@@ -10,8 +10,8 @@
        </countdown>
       </div>-->
 
-    <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :time="time" :id="poster.id">
-      
+    <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :topic="story.topic" :created="story.created" :time="time" :id="poster.id">
+
     </Poster>
 </div>
 </template>
