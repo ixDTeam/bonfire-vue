@@ -24,9 +24,6 @@ export default {
     methods: {
 
       setPathCookie(){
-        var cookieID = this.$cookies.get('id');
-
-        if (!cookieID){
           console.log("Kein Cookie gefunden!");
 
           this.$cookies.set('id', this.localID);
@@ -36,16 +33,6 @@ export default {
           console.log(" Cookie gesetzt! Variable wurde geändert auf " +this.localID);
           console.log("Store wurde aktualisiert auf "+ this.$store.getters.getID);
 
-        } else if (cookieID){
-          console.log("Cookie gefunden! ID ist " +this.$cookies.get('id'));
-
-          this.localID = cookieID;
-          this.access = true;
-          this.$store.commit('setID', this.localID);
-
-          console.log("Variable wurde geändert auf " +this.$store.getters.getID);
-          console.log("Store wurde aktualisiert auf "+ this.$store.getters.getID)
-        }
         if(this.access){
           this.$router.replace('/');
           console.log('Access granted')
