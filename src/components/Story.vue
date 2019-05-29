@@ -1,7 +1,7 @@
 <template>
   <div class='story' :data-id=id>
     <span class='date'></span>
-    <div class="your-story">Your Story</div>
+    <div v-if="yourStory" class="your-story">Your Story</div>
     <p class='content'>{{content}}</p>
     <span class='headline'>{{topic}}</span>
     <span class='created'>{{completeDate}}</span>
@@ -40,6 +40,14 @@ export default {
     created: Object
   },
   computed: {
+    yourStory: function() {
+      if(this.id == $cookies.get('ownStoryID')){
+        return true
+      } else {
+        return false
+      }
+
+    },
     completeDate: function () {
       var postedTime = new firebase.firestore.Timestamp(this.created.seconds, this.created.nanoseconds);
       var postedTimeDate = postedTime.toDate();

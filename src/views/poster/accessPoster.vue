@@ -1,6 +1,9 @@
 <template>
 <div class="fullscreen">
+<<<<<<< HEAD
       
+=======
+>>>>>>> b62da57e470b74db1d643977a29848a31eb77c63
     <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :topic="poster.topic" :created="poster.created" :city="poster.locationName" :time="time" :id="poster.id">
     </Poster>
 
