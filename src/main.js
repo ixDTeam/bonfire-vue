@@ -26,6 +26,11 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import Geocoder from "@pderas/vue2-geocoder";
 
+import NProgress from 'vue-nprogress'
+import Notifications from 'vue-notification'
+
+import '../node_modules/nprogress/nprogress.css'
+
 import 'swiper/dist/css/swiper.css'
 import './assets/style/style.css'
 
