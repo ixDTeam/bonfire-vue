@@ -9,6 +9,15 @@
     <swiper-slide class="tutorial-page">I'm Slide 2</swiper-slide>
     <swiper-slide class="tutorial-page">I'm Slide 3</swiper-slide>
     <swiper-slide class="tutorial-page">
+      <span v-if="!allowAccess">
+      <h1>Your are not part of the gift!</h1>
+      <p>You need to scan the qr-code on your giveaway to get access to the stories.<br> When you don't have a giveaway head over to the Universtiy of applied sciences Osnabrück and get yours!</p>
+    </span>
+    <span v-else>
+      <h1>Share your story!</h1>
+      <p>You need to scan the qr-code on your giveaway to get access to the stories.<br> When you don't have a giveaway head over to the Universtiy of applied sciences Osnabrück and get yours!</p>
+
+    </span>
       <button :disabled="!allowAccess" class="button button-main button-tutorial" v-on:click="startJourney">Los gehts!</button>
     </swiper-slide>
     <!-- Optional controls -->
