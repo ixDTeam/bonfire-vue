@@ -5,7 +5,7 @@
     <div class="flex fullscreen column pad-t pad-l pad-r h-left" v-if="checkStory">
         <h1>Danke!</h1>
         <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
-        <div class="button button-main">Sieh dir alle Storys an</div>
+        <div class="button button-main" v-if="checkStory" v-on:click="nextStep('journey')" >Sieh dir alle Storys an</div>
     </div>
 
     <div class="flex column pad-l pad-r" v-if="!checkStory">
@@ -81,9 +81,7 @@ export default {
      this.storyShow = !this.storyShow;
    },
    nextStep(n){
-     if (this.checkStory){
           this.$router.push({path: n});
-     }
    }
   },
   mounted: function(){
