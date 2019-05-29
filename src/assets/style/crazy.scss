@@ -818,6 +818,23 @@ $countdown-fsize: 75px;
             left: 80px;
             top: 25px;
         }
+
+        &.seconds{
+           width: auto;
+           padding-right: 20px;
+           .description{
+               margin-left: 10px;
+               position: relative;
+               top: inherit;
+               left: inherit;
+           }
+           .countdown-timer{
+               position: relative;
+           }
+           div{
+               display: inline;
+           }
+        }
     }
 
     animation: pulse 1000ms ease-in-out infinite;
