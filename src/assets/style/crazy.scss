@@ -285,8 +285,8 @@ textarea{
 }
 
 .tutorial-page{
-    padding-top: 20vh;
-    padding-left: 32px;
+    display: flex;
+    flex-direction: column;
 }
 
 .swiper-button-disabled{
@@ -309,6 +309,10 @@ textarea{
     &:hover{
         transform: scale(1.2);
     }
+}
+
+.button-tutorial{
+    margin-bottom: 70px !important;
 }
 
 /*+++++++++++++++++++/
