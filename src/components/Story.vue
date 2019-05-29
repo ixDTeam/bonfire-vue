@@ -5,7 +5,7 @@
     <span class='headline'>Goofy Professor</span>
     <span class='created'>vor 3 Tagen</span>
     <span class='location'>Osnabrück</span>
-    <Emotion :emotion="emotion"></Emotion>
+    <span class="emoji"><Emotion :emotion="emotion"></Emotion></span>
     <div class="delete" @click="$emit('delete-members', id )">X</div>
   </div>
 </template>

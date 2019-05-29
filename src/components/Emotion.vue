@@ -1,6 +1,6 @@
 <template>
 
-  <span class='emoji'>
+  <span>
     <span v-if="emotion == 1">&#x1F60D</span>
     <span v-if="emotion == 2">&#x1F603</span>
     <span v-if="emotion == 3">&#x1F602</span>
