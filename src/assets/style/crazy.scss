@@ -286,10 +286,29 @@ textarea{
 
 .tutorial-page{
     padding-top: 20vh;
+    padding-left: 32px;
 }
 
 .swiper-button-disabled{
     display: none;
+}
+
+.swiper-path{
+    stroke: lighten($bg-color, 6);
+}
+
+.swiper-button-next{
+    background-image: none;
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
+.swiper-button-prev{
+    background-image: none;
+    &:hover{
+        transform: scale(1.2);
+    }
 }
 
 /*+++++++++++++++++++/
