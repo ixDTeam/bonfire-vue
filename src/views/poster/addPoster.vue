@@ -1,7 +1,7 @@
 <template>
   <div class="add-poster fullscreen color-primary flex column v-center">
     <div class="drag-target">
-      <span>Place your Story here</span>
+      <span v-on:click="postStory">Place your Story here</span>
     </div>
         <svg id="rect1" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

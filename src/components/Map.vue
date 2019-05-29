@@ -24,10 +24,10 @@
     </svg>
   </gmap-custom-marker>
 
-  <gmap-custom-marker :marker="{ lat: lat, lng: lng }" :offsetY="7">
+  <gmap-custom-marker class="marker_active" style="z-index: 1000"  :marker="{ lat: lat, lng: lng }" :offsetY="7">
 
     <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g class="map-marker" transform="translate(-287.000000, -185.000000)" fill="#FD74BC" stroke="#0A2465" stroke-width="2">
+            <g class="map-marker" transform="translate(-287.000000, -185.000000)" fill="#000" stroke="#0A2465" stroke-width="2">
                 <circle id="Oval" cx="295" cy="193" r="7"></circle>
             </g>
         </g>
@@ -317,3 +317,12 @@ export default {
     }
   }
 </script>
+
+
+<style>
+.marker_active{
+  z-index: 200!important;
+}
+
+
+</style>
