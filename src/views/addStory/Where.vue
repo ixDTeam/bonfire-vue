@@ -11,9 +11,10 @@
       <p>Erklärung hier warum wir das Brauchen. Wir speichern nicht etc.</p>
     </div>
 
-    <textarea v-if="!allowLocation" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
-    <div :disabled="buttonDisabled " class="button button-main button-where" v-on:click="askLocation()"><span v-if="buttonDisabled">Waiting...</span><span v-else>Next</span></div>
-    <div  v-if="allowLocation" class="button sec fixed" v-on:click="noLocation()">Ne Lass mal</div>
+    <textarea v-if="!allowLocation" v-validate="'max:240|min:2'" data-vv-as="field" name="max_field" v-model="city" placeholder="Enter Your City..." class="input-location"></textarea><br>
+    <button :disabled="buttonDisabled" class="button button-main button-where" v-on:click="askLocation()"><span v-if="buttonDisabled">Waiting...</span><span v-else>Next</span></button>
+    <button :disabled="checkButton()" class="button button-main button-where" v-on:click="askLocation()"><span v-if="buttonDisabled">Waiting...</span><span v-else>Next</span></button>
+    <div  v-if="allowLocation && !buttonDisabled"  class="button sec fixed" v-on:click="noLocation()">Ne Lass mal</div>
   </div>
 </template>
 
@@ -53,8 +54,13 @@ export default {
   methods: {
     checkContent(){
     },
-    checkButton(){
-
+   checkButton(){
+      if(this.content.length > 2){
+        return true;
+      }
+      else if(this.content.length <= 2){
+        return false;
+      }
     },
      nextStep(n){
        this.$router.push({path: n});
