@@ -59,7 +59,8 @@
       </label>
     </div>
     <div class="back-button" v-on:click="backStep()">Back</div>
-    <div class="button button-main" v-on:click="nextStep('where')" :disabled="checkButton()">Next</div>
+    <button class="button button-main" v-on:click="nextStep('where')" v-if="checkButton()" :disabled="checkButton()">Select your emotion</button>
+    <button class="button button-main" v-on:click="nextStep('where')" v-if="!checkButton()" :disabled="checkButton()">Next</button>
     </div>
 </template>
 
