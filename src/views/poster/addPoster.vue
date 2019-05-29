@@ -24,7 +24,7 @@
                 </g>
             </g>
         </svg>
-        <swiper @slideChange="slideChange" :options="swiperOption" ref="mySwiper" id="story-poster">
+        <swiper @slideChange="postStory" :options="swiperOption" ref="mySwiper" id="story-poster">
           <swiper-slide>
             <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :created="story.created"> </Story>
           </swiper-slide>
@@ -33,7 +33,7 @@
             </div>
           </swiper-slide>
         </swiper>
-      
+
   </div>
 </template>
 

@@ -1,15 +1,15 @@
 <template>
   <div class='poster' :data-id=id>
     <div class="top">
-      <span class='poster-emoji'>{{emotion}}</span>
-      <span class='b l'>Osnabrück</span>
-      <countdown class="b r" :time="time" :interval="100" tag="span">
+      <span class='poster-emoji'><Emotion :emotion="emotion"></Emotion></span>
+      <span class='b l'>{{city}}</span>
+      <countdown class="b r" :time="time" :interval="1000" tag="span">
          <template slot-scope="props">Noch {{ props.seconds }} Sekunden</template>
        </countdown>
     </div>
-       
+
     <div class="bottom">
-      <span class='poster-headline'>Goofy Professor</span>
+      <span class='poster-headline'>{{topic}}</span>
       <p class='poster-content'>{{content}}</p>
       <div class="poster-logo">
 
@@ -75,24 +75,27 @@
         </svg>
       </div>
     </div>
-    
+
   </div>
 
 </template>
 
 <script>
 
-
-
+import Emotion from '@/components/Emotion.vue'
 
 export default {
   name: 'Poster',
+  components: {
+    Emotion
+  },
   props: {
     content: String,
     emotion: Number,
     id: String,
     city: String,
-    time: Number
+    time: Number,
+    topic: String
   }
 }
 </script>
