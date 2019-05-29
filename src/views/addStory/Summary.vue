@@ -3,68 +3,68 @@
     <div class="back-button" v-on:click="backStep()">Back</div>
     <div class="summary-card">
       <textarea id="summary-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" placeholder="Schreibe deine Geschichte"></textarea>
-      <span class="t-r">Goofy Professor</span>
-      <span class="t-l">Osnabrück</span>
-      <span class="d-r">😅</span>
+      <span class="t-r">{{topic}}</span>
+      <span class="t-l">{{locationName}}</span>
+      <span class="d-r"><Emotion :emotion="emotion"></Emotion></span>
       <span class="d-l">{{remain_char}}</span>
     </div>
     <div class="emoji-edit hide">
       <div class="grid-9x9">
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="1" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="2" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="3" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="4" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" checked v-model="emotion" name="emotion" value="5" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="6" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="7" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="8" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-      <label>
-        <input class="radio-hide" v-model="emotion" name="emotion" value="9" type="radio">
-        <div class="emoji">
-          <span>😂</span>
-        </div>
-      </label>
-    </div>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="1" type="radio">
+          <div class="emoji">
+            <span>&#x1F60D</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="2" type="radio">
+          <div class="emoji">
+            <span>&#x1F603</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="3" type="radio">
+          <div class="emoji">
+            <span>&#x1F602</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="4" type="radio">
+          <div class="emoji">
+            <span>&#x1F92A</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" checked v-model="emotion" name="emotion" value="5" type="radio">
+          <div class="emoji">
+            <span>&#x1F973</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="6" type="radio">
+          <div class="emoji">
+            <span>&#x1F641</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="7" type="radio">
+          <div class="emoji">
+            <span>&#x1F929</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="8" type="radio">
+          <div class="emoji">
+            <span>&#x1F60E</span>
+          </div>
+        </label>
+        <label>
+          <input class="radio-hide" v-model="emotion" name="emotion" value="9" type="radio">
+          <div class="emoji">
+            <span>&#x1F913</span>
+          </div>
+        </label>
+      </div>
     </div>
     <button class="button button-main" v-on:click="addStory()">Publish</button>
   </div>
@@ -76,12 +76,12 @@ import firebase from 'firebase/app'
 import {db} from '@/config/db.js'
 import VueRouter from 'vue-router'
 
-
+import Emotion from '@/components/Emotion.vue'
 
 export default {
   name: 'Summary',
   components: {
-
+    Emotion
   },
   data() {
     return {

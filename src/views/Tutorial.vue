@@ -9,7 +9,7 @@
     <swiper-slide class="tutorial-page">I'm Slide 2</swiper-slide>
     <swiper-slide class="tutorial-page">I'm Slide 3</swiper-slide>
     <swiper-slide class="tutorial-page">
-      <button class="button button-main button-tutorial" v-on:click="startJourney">Los gehts!</button>
+      <button :disabled="!allowAccess" class="button button-main button-tutorial" v-on:click="startJourney">Los gehts!</button>
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -29,7 +29,7 @@
                   <polyline id="Path-5" transform="translate(338.863961, 408.792893) rotate(-45.000000) translate(-338.863961, -408.792893) " points="327.863961 419.792893 349.863961 419.792893 349.863961 397.792893"></polyline>
               </g>
           </g>
-      </svg>  
+      </svg>
     </div>
     <div class="swiper-pagination" slot="pagination"></div>
   </swiper>
@@ -62,11 +62,16 @@ export default {
   computed: {
       swiper() {
         return this.$refs.mySwiper.swiper
+      },
+      allowAccess(){
+        return this.$store.getters.getAccess
       }
   },
   methods: {
     startJourney: function(){
-        this.$router.push({path: 'new'})
+      if(this.allowAccess){
+          this.$router.push({path: 'new'})
+      }
     }
   },
   mounted() {

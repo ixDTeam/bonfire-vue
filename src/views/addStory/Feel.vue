@@ -6,55 +6,55 @@
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="1" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F60D</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="2" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F603</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="3" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F602</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="4" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F92A</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" checked v-model="emotion" name="emotion" value="5" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F973</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="6" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F641</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="7" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F929</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="8" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F60E</span>
         </div>
       </label>
       <label>
         <input class="radio-hide" v-model="emotion" name="emotion" value="9" type="radio">
         <div class="emoji">
-          <span>😂</span>
+          <span>&#x1F913</span>
         </div>
       </label>
     </div>

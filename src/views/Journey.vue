@@ -1,14 +1,14 @@
 <template>
   <div class="Journey">
     <div>
-      <Map v-bind:locations="storiesLocation" v-bind:stories="stories" v-bind:lat="latCenter"  v-bind:lng="lngCenter">
+      <Map  v-bind:locations="storiesLocation" v-bind:stories="stories" v-bind:lat="latCenter" :panLat="panLat" :panLng="panLng"  v-bind:lng="lngCenter">
       </Map>
       <div id="fader-feed-map">
       </div>
       <b-container fluid id="feed">
         <swiper id="story-swiper" :options="swiperOption" ref="mySwiper" @slideChange="changeSlide">
             <swiper-slide v-for="story in stories" :key="story.id">
-              <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" > </Story>
+              <Story @delete-members="deleteMember" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :topic="story.topic"  :created="story.created"> </Story>
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
@@ -33,7 +33,6 @@ export default {
   data() {
     var lStoryID = $cookies.get('ownStoryID');
     var lownStoryIndex = $cookies.get('storyIndex');
-
         return {
             stories: [],
             storiesLocation: [],
@@ -48,15 +47,16 @@ export default {
             }
           },
         swiperSlides: [1, 2, 3, 4, 5],
-        latCenter: Number,
-        lngCenter: Number,
+        latCenter: 50,
+        lngCenter: 30,
+        panLat: 50,
+        panLng: 30,
         ownStoryID: lStoryID,
         ownStoryIndex: lownStoryIndex
         };
     },
     firestore() {
       var stories = db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
-
         return {
           stories
         };
@@ -68,12 +68,6 @@ export default {
     },
     methods: {
 
-      setLocations(){
-
-
-
-      },
-
       scrollToStory() {
         console.log(this.ownStoryIndex);
         this.swiper.slideTo(this.ownStoryIndex -1);
@@ -84,30 +78,39 @@ export default {
        },
 
        changeSlide(){
-         let n = this.swiper.realIndex;
-         var location = this.stories[n].location;
-         this.latCenter = location.latitude;
-         this.lngCenter = location.longitude;
-       }
+             let n = this.swiper.realIndex;
+             var location = this.stories[n].location;
+             this.panLat = location.latitude;
+             this.panLng = location.longitude;
+         }
      },
      mounted: function(){
-       this.scrollToStory();
-
+      this.scrollToStory();
      },
      watch: {
 
-          realIndex: function(){
-            let n = this.swiper.realIndex;
-            var location = this.stories[n].location;
-            this.latCenter = location.latitude;
-            this.lngCenter = location.longitude;
-          },
+          // swiper.realIndex: {
+          //   handler: function () {
+          //     console.log("Test");
+          //     let n = this.swiper.realIndex;
+          //     var location = this.stories[n].location;
+          //     this.latCenter = location.latitude;
+          //     this.lngCenter = location.longitude;
+          //   }
+          // },
 
         	stories: function(newVal, oldVal) {
             immediate: true; // watch it
             let self = this;
             var stories = db.collection("object/"+this.$cookies.get('id')+"/story").orderBy('created', 'asc')
             stories.get().then(function(querySnapshot) {
+
+              let n = self.swiper.realIndex;
+              var location = self.stories[n].location;
+              console.log(location)
+              self.latCenter = location.latitude;
+              self.lngCenter = location.longitude;
+
               self.storiesLocation = [];
               querySnapshot.forEach(function (documentSnapshot) {
               var data = documentSnapshot.data().location;

@@ -3,10 +3,11 @@
     <!-- <Form @add-Story="addStory"></Form> -->
     <div class="back-button" v-on:click="backStep()">Back</div>
     <div class="topic">
-      <p class="text-block">Schreibe etwas über deinen
-        <span class="link" v-on:click="nextStep('tell', 1)">Professor</span>, das
-        <span class="link" v-on:click="nextStep('tell', 2)" >Essen in der Mensa</span> oder die
-        <span class="link" v-on:click="nextStep('tell', 3)" >letzte Klausur</span> <br>
+      <p class="text-block">Tell a story about
+        <span class="link" v-on:click="nextStep('tell', 'Professor')">your professor,</span> <br> the
+        <span class="link" v-on:click="nextStep('tell', 'Food in the cafeteria')" > food in the cafeteria</span> <br>
+        or your
+        <span class="link" v-on:click="nextStep('tell', 'Latest party')" >latest party</span> <br>
       </p>
     </div>
   </div>
@@ -52,3 +53,12 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.topic .link:hover{
+  transition: all 0.5;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fd8dc8 0%);
+}
+
+</style>

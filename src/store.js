@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     storeID: '',
-    access: '',
+    access: false,
     sTopic: 0,
     sContent: '',
     sEmotion: 0,
