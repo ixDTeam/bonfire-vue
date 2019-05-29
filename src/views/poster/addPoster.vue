@@ -3,27 +3,29 @@
     <div class="drag-target">
       <span v-on:click="postStory">Place your Story here</span>
     </div>
-        <svg id="rect1" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <div class="flex column animation-tri">
+      <svg id="rect1" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g transform="translate(-171.000000, -213.000000)" fill="#FD74BC">
                     <polygon id="Triangle" points="192 213.5 213 237.5 171 237.5"></polygon>
                 </g>
             </g>
-        </svg>
-        <svg id="rect2" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      </svg>
+      <svg id="rect2" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g transform="translate(-171.000000, -213.000000)" fill="#FD74BC">
                     <polygon id="Triangle" points="192 213.5 213 237.5 171 237.5"></polygon>
                 </g>
             </g>
-        </svg>
-        <svg id="rect3" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      </svg>
+      <svg id="rect3" width="42px" height="25px" viewBox="0 0 42 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g transform="translate(-171.000000, -213.000000)" fill="#FD74BC">
                     <polygon id="Triangle" points="192 213.5 213 237.5 171 237.5"></polygon>
                 </g>
             </g>
-        </svg>
+      </svg>
+    </div>
         <swiper @slideChange="postStory" :options="swiperOption" ref="mySwiper" id="story-poster">
           <swiper-slide>
             <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :created="story.created"> </Story>
