@@ -24,7 +24,16 @@
                 </g>
             </g>
         </svg>
-      <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :created="story.created"> </Story>
+        <swiper @slideChange="slideChange" :options="swiperOption" ref="mySwiper" id="story-poster">
+          <swiper-slide>
+            <Story :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :created="story.created"> </Story>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+            </div>
+          </swiper-slide>
+        </swiper>
+      
   </div>
 </template>
 
@@ -48,6 +57,17 @@ export default {
       posterID: this.id,
       ownStoryID: String,
       posterAccess: false,
+      swiperOption: {
+        direction: 'vertical',
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+              el: '.swiper-pagination',
+              dynamicBullets: false
+        }
+      }
     };
   },
   props: ['id'],
@@ -91,7 +111,10 @@ export default {
             console.error("Error adding document: ", error);
         });
 
-      }
+      },
+      slideChange () {
+            console.log('Change');
+        }
   }
 }
 </script>

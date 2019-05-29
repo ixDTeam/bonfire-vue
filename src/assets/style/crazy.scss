@@ -1017,6 +1017,17 @@ $top-height: 30%;
         @include font('Harmonia', 700, 20px);
     }
 
+    #story-poster{
+        height: 100vh;
+        position: absolute;
+        .swiper-slide{
+            margin-bottom: 50px;
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
     .story{
         width: 90%;
         margin-top: auto;;
