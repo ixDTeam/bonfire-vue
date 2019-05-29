@@ -11,15 +11,18 @@
      :options="mapStyle"
      >
 
- <gmap-polyline v-bind:path.sync="locations" v-bind:options="{ strokeColor:'#008000'}"></gmap-polyline>
+<gmap-polyline v-bind:path.sync="locations" v-bind:options="{ strokeColor:'#FD74BC'}"></gmap-polyline>
 
-  <GmapMarker v-for="story in stories" :key="story.id"
-    :position="{lat: story.location._lat, lng: story.location._long}"
-    :clickable="true"
-    :draggable="false"
-    :animation="google.maps.Animation.DROP"
-    :icon="customIcon"
-  />
+
+  <gmap-custom-marker v-for="story in stories" :marker="{ lat: story.location._lat, lng: story.location._long }" :offsetY="7">
+    
+    <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g class="map-marker" transform="translate(-287.000000, -185.000000)" fill="#FD74BC" stroke="#0A2465" stroke-width="2">
+                <circle id="Oval" cx="295" cy="193" r="7"></circle>
+            </g>
+        </g>
+    </svg>
+  </gmap-custom-marker>
 
    </gmap-map>
 
@@ -29,6 +32,7 @@
 <script>
 
 import {gmapApi} from 'vue2-google-maps'
+import GmapCustomMarker from 'vue2-gmap-custom-marker';
 
 
 export default {
@@ -38,6 +42,9 @@ export default {
      lng: Number,
      stories: Array,
      locations: Array
+   },
+   components: {
+       'gmap-custom-marker': GmapCustomMarker
    },
 
    computed: {
@@ -55,13 +62,17 @@ export default {
         {lat: 51, lng: 23},
       ],
       customIcon: {
-        path: 'M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0',
+        path: 'cx=100 cy=50 rx=100 ry=50',
         fillColor: 'white',
         fillOpacity: 1,
         scale: 0.1,
         strokeColor: 'black',
         strokeWeight: 3
       },
+      marker: {
+                lat: 52.60229509638775,
+                lng: 0.0247059387528408
+            },
       mapStyle: {
         zoomControl: false,
 

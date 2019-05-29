@@ -437,6 +437,12 @@ textarea{
     }
   }
 
+  .map-marker{
+      fill: $bg-color;
+      stroke: $text-color-primary;
+      stroke-width: 2px;
+  }
+
 
   .vue-map-container{
     position: absolute;
