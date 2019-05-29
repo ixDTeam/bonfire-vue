@@ -1072,6 +1072,10 @@ $top-height: 30%;
         margin-top: auto;;
     }
 
+    .animation-tri{
+        margin-top: 250px;
+    }
+
     #rect1{
         margin-top: auto;
         opacity: 0;
@@ -1098,7 +1102,7 @@ $top-height: 30%;
         }
      
         100% { 
-            transform: translateY(-60px); 
+            transform: translateY(-150px); 
             opacity: 0;
         }
       }
