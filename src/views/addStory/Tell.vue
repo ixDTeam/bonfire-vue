@@ -5,11 +5,14 @@
       <div class="back-button" v-on:click="backStep()">Back</div>
       <span class="char" id="remain-char">{{remain_char}}</span>
     </div>
-       
+
       <div class="form" >
         <textarea id="new-story" autofocus v-validate="'max:240|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
-        <button class="button button-main" v-if="checkButton()" :disabled="true">Du hast nicht so viele Zeichen.</button>
-        <button class="button button-main" v-if="!checkButton()" v-on:click="nextStep('feel')" :disabled="checkButton()"  >Next</button>
+        <!-- <button class="button button-main" v-if="checkButton()" :disabled="true">Du hast nicht so viele Zeichen.</button> -->
+        <button class="button button-main" v-on:click="nextStep('feel')" :disabled="checkButton()">
+          <span v-if="checkButton()">Du hast nicht so viele Zeichen.</span>
+          <span v-else>Next</span>
+        </button>
       </div>
 
   </div>
