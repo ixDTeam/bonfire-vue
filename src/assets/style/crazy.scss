@@ -22,9 +22,9 @@ $text-color-primary: #0A2465;
 $text-color-contrast: #ffff;
 
 //>>>STORY MAP RATIO
-$story-height: 40vh;
-$map-height: 70vh;
-$fader-height: 50vh;
+$story-height: 40%;
+$map-height: 70%;
+$fader-height: 50%;
 
 @mixin font($font, $weight, $fontsize){
     font-family: $font;
@@ -38,7 +38,8 @@ body{
 }
 
 #app{
-    height: 200px;
+    height: 100%;
+    position: fixed;
 }
 
 .color-bg{
@@ -67,7 +68,7 @@ body{
 
 .fullscreen{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -275,7 +276,7 @@ textarea{
 /+++++++++++++++++++*/
 
 .tutorial{
-    height: 100vh;
+    height: 100%;
     background-color: $bg-color;
 
     font-family: 'Harmonia';
@@ -601,7 +602,7 @@ textarea{
     padding-bottom: 50px;
     background-color: $bg-color;
     position: relative;
-    height: 80vh;
+    height: 80%;
     z-index: 0;
 }
 
@@ -660,7 +661,7 @@ textarea{
 
 
 .grid-9x9{
-    margin-top: 5vh;
+    margin-top: 5%;
     max-width: 250px;
     display: flex;
     flex-wrap: wrap;
@@ -734,7 +735,7 @@ textarea{
   Summary Style
 /+++++++++++++++++++*/
 
-$card-height: 60vh;
+$card-height: 60%;
 $card-width: 90%;
 
 $card-space-left: 20px;
@@ -1061,7 +1062,7 @@ $top-height: 30%;
     }
 
     #story-poster{
-        height: 100vh;
+        height: 100%;
         width: 100%;
         position: absolute;
         .swiper-slide{

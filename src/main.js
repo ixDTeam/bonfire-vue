@@ -26,6 +26,8 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import Geocoder from "@pderas/vue2-geocoder";
 
+import Vue100vh from 'vue-div-100vh'
+
 
 
 
@@ -54,6 +56,7 @@ Vue.use(Geocoder, {
   googleMapsApiKey: 'AIzaSyC0p6rXwRKcXYuBp5IMBBMbrXeAO3a2BuI'
 });
 Vue.component(VueCountdown.name, VueCountdown);
+Vue.component(Vue100vh);
 
 
 let user;
