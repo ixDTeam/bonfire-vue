@@ -62,6 +62,7 @@ export default {
       moving: false,
       swiperOption: {
         direction: 'vertical',
+        allowTouchMove: true,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
