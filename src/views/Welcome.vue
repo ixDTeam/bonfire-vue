@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome fullscreen flex column color-primary bg-animation">
+  <div class="welcome fullscreen flex column color-primary">
     <div class="pad-t welcome-intro">
       <div class="welcome-headline">
         <h2>Share your thoughts <br> like</h2>
