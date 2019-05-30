@@ -734,6 +734,17 @@ button{
     align-items: center;
 }
 
+.topic .link
+{
+    color: $text-color-primary;
+    &:hover{
+        transition: all 0.5;
+        background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, $text-color-primary 0%);
+        color: $bg-color;
+      }
+
+}
+
 
 .pop-up{
     font-family: 'Harmonia';
