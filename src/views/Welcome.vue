@@ -9,6 +9,8 @@
         </div>
       </div>
 
+      <img class="img-blur" id="img1" src="@/assets/others/story.png"></img>
+
      
       
     </div>
