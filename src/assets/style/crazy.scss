@@ -599,6 +599,11 @@ button{
       fill: $bg-color;
       stroke: $text-color-primary;
       stroke-width: 2px;
+      &.active{
+        fill: $text-color-primary;
+        stroke: $bg-color;
+        stroke-width: 2px;
+      }
   }
 
 
