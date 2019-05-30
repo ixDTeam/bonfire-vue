@@ -47,8 +47,8 @@ export default {
     return Object.keys(this.fields).some(key => this.fields[key].dirty);
     },
   },
-  
-  
+
+
   methods: {
     charCounter(){
       var calc_char = this.max_char-this.content.length;
@@ -76,6 +76,7 @@ export default {
        this.$router.back();
      },
      fontSizeCalc(){
+        this.fontSize = 50;
        if(this.remain_char <= 180){
          this.fontSize = 45;
        }
