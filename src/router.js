@@ -14,6 +14,13 @@ const router = new Router({
       props: true
     },
     {
+        path: '/dev/:devMode',
+        name: 'devMode',
+        component: () =>
+          import ('./views/DevMode.vue'),
+        props: true
+      },
+    {
       path: '/p/:id',
       name: 'accessPoster',
       component: () =>
