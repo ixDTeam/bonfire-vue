@@ -120,6 +120,45 @@ const router = new Router({
   ]
 })
 
+
+let isFirstTransition = true;
+
+router.beforeEach((to, from, next) => {
+  var devMode = $cookies.get('devMode');
+  var step = $cookies.get('step');
+  var nextView
+  console.log(to);
+  console.log(from);
+  console.log(next);
+
+  if (step == 0 || step == undefined) {
+     nextView = 'welcome'
+     console.log("Welcome!")
+   } else if (step == 1) {
+     nextView = 'new'
+     console.log("New!")
+   } else if (step == 2){
+     nextView = 'giveaway'
+     console.log("Giveaway!")
+   } else if (step == 3){
+     nextView = 'journey'
+     console.log("Journey!")
+   }
+
+  const shouldRedirect = Boolean(
+    to.name === "welcome" &&
+    nextView
+    && isFirstTransition
+  );
+
+  if (shouldRedirect) next({ name: nextView });
+  else next();
+
+  isFirstTransition = false;
+});
+
+
+
 export default router
 
 // router.beforeEach((to, from, next) => {
