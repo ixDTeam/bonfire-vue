@@ -651,6 +651,13 @@ button{
     }
 }
 
+#tell-button{
+    width: 200px;
+    &:disabled{
+        min-width: 300px;
+    }
+}
+
 #new-story{
     width: 100%;
     height: 100%;
