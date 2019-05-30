@@ -229,7 +229,24 @@ button{
   Welcome Style
 /+++++++++++++++++++*/
 
+.img-blur{
+    filter: blur(12px);
+    opacity: 0.8;
 
+    &#img1{
+        position: absolute;
+        animation: fly-r-l 4000ms infinite;
+        top: 45%;
+    }
+   
+}
+
+@keyframes fly-r-l {
+    0% { right: -500px; opacity: 0 }
+    50% { right: 20px; opacity: 1  }
+    100% { right: 500px; opacity: 0  }
+  }
+ 
 
 .welcome-intro{
     padding-left: 32px;
