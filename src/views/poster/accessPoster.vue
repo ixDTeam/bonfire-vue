@@ -4,8 +4,9 @@
     <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :topic="poster.topic" :created="poster.created" :city="poster.locationName" :time="time" :id="poster.id">
     </Poster>
 
-  <div v-else>
-    Du darsft nicht
+  <div v-else class="no-poster">
+    <h1>Be a part!</h1>
+    <p>This is a poster from </p>
   </div> 
 
     <!-- <h1 v-else v-if="this.error">Das Plakat kennen wir leider nicht finden.<br> Magst du den QR-Code erneut einscannen?</h1>
