@@ -7,7 +7,7 @@
     </div>
 
       <div class="form" >
-        <textarea id="new-story" autofocus v-validate="'max:240|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter()' placeholder="Schreibe deine Geschichte"></textarea>
+        <textarea ref="textarea" v-bind:style="{ fontSize: fontSize + 'px' }" id="new-story" autofocus v-validate="'max:240|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter(), fontSizeCalc()' placeholder="Schreibe deine Geschichte"></textarea>
         <!-- <button class="button button-main" v-if="checkButton()" :disabled="true">Du hast nicht so viele Zeichen.</button> -->
         <button class="button button-main" id="tell-button" v-on:click="nextStep('feel')" :disabled="checkButton()">
           <span v-if="checkButton()">Du hast nicht so viele Zeichen.</span>
@@ -39,13 +39,16 @@ export default {
       min_char: 4,
       remain_char: 240,
       status: false,
+      fontSize: 50,
     };
   },
   computed: {
   isFormDirty() {
     return Object.keys(this.fields).some(key => this.fields[key].dirty);
-    }
+    },
   },
+  
+  
   methods: {
     charCounter(){
       var calc_char = this.max_char-this.content.length;
@@ -71,9 +74,24 @@ export default {
     },
      backStep(){
        this.$router.back();
+     },
+     fontSizeCalc(){
+       if(this.remain_char <= 180){
+         this.fontSize = 45;
+       }
+       if(this.remain_char <= 130){
+         this.fontSize = 40;
+       }
+      if(this.remain_char <= 100){
+         this.fontSize = 35;
+       }
+       if(this.remain_char <= 75){
+         this.fontSize = 30;
+       }
      }
    }
 }
+
 
 
 </script>
