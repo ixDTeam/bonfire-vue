@@ -149,6 +149,8 @@ router.beforeEach((to, from, next) => {
      console.log("Journey!")
    }
 
+   const dev = Boolean ( devMode == undefined || devMode == 0)
+
   const shouldRedirect = Boolean(
     to.name === "welcome" &&
     step != undefined &&
@@ -156,7 +158,7 @@ router.beforeEach((to, from, next) => {
     && isFirstTransition
   );
 
-  if (shouldRedirect) next({ name: nextView });
+  if (shouldRedirect && dev) next({ name: nextView });
   else next();
 
   isFirstTransition = false;
