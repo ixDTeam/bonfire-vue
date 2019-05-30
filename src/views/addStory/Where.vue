@@ -111,7 +111,8 @@ export default {
 
 
            }).catch(function(err) {
-             alert('Leider hat das nicht funktioniert. Probier es doch bitte nochmal.');
+              self.allowLocation = false;
+             alert('Leider hat das nicht funktioniert. Bitte trag deine Stadt manuell ein');
           });
        } else {
          console.log("Kein GPS")
