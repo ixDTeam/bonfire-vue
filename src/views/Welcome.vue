@@ -9,10 +9,10 @@
         </div>
       </div>
 
-      <img class="img-blur" id="img1" src="@/assets/others/story.png"></img>
+      <img class="img-blur" id="img1" src="@/assets/others/story.png">
 
-     
-      
+
+
     </div>
     <button class="button button-main" v-on:click="startTutorial">Los gehts!</button>
   </div>
@@ -20,7 +20,6 @@
 
 <script>
 
-import * as cookieCheck from '../cookieCheck.js';
 
 export default {
   name: 'welcome',
