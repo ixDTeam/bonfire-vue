@@ -3,10 +3,9 @@
   <div id="app">
 
 
-    <!--<transition  name="fade"
-         mode="out-in">-->
+    <transition  :name="transitionName" mode="out-in">
       <router-view></router-view>
-    <!--</transition>-->
+    </transition>
   </div>
   </Vue100vh>
 </template>
@@ -15,6 +14,11 @@
 <script>
 
 export default {
+  data() {
+    return{
+      transitionName: 'fade'
+    }
+  },
   computed: {
     isGuest() {
       return this.$user.get().role === "guest";
@@ -53,36 +57,7 @@ export default {
   },
   mounted() {
     //this.checkState()
-  }
-// watch: {
-//   routeName: function(route, oldroute){
-//     console.log(route);
-//     var step;
-//     var devMode = 0;
-//
-//     var cookieID = this.$cookies.get('id');
-//     this.$store.commit('setID', cookieID);
-//
-//     devMode = this.$cookies.get('devMode');
-//     step = this.$cookies.get('step');
-//     if(route != "accessPoster" && route != "addPoster"){
-//       if (devMode == 0 || !devMode){
-//         if (step == 0 || step == undefined){
-//           this.$router.push({path: '/'})
-//         }
-//         else if(step == 1){
-//           this.$router.push({path: 'new'})
-//         } else if (step == 2){
-//           this.$router.push({path: 'giveaway'})
-//         } else if (step == 3){
-//           this.$router.push({path: 'journey'})
-//         }
-//       }
-//     }
-//   }
-// },
-
-
+  },
 };
 </script>
 
@@ -118,7 +93,7 @@ export default {
   color: #42b983;
 }
 
-[v-cloak] {
+/* [v-cloak] {
   display: none;
-}
+} */
 </style>

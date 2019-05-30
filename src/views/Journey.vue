@@ -3,10 +3,6 @@
     <div>
       <Map  v-bind:locations="storiesLocation" v-bind:stories="stories" v-bind:lat="latCenter" :panLat="panLat" :panLng="panLng"  v-bind:lng="lngCenter">
       </Map>
-      <div class="to-poster">
-        <span>Your Poster</span>
-        <div class="notification">1</div>
-      </div>
       <div id="fader-feed-map">
       </div>
       <b-container fluid id="feed">

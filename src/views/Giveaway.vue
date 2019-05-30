@@ -15,10 +15,17 @@
           </countdown>
           <span class="description">seconds</span>
         </div>
-        <h1>Gib es weiter</h1>
-        <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
-        <div class="story" v-bind:class="{ show: storyShow }">
-          <p class='content' ref="text" v-html="localContent">{{localContent}}</p>
+
+        <span v-if="storyDestory">
+          <h1>Leider war das zu spät</h1>
+          <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
+        </span>
+        <span v-else>
+          <h1>Gib es weiter</h1>
+          <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
+        </span>
+        <div class="story" v-bind:class="{ show: storyShow, destory: storyDestory }">
+          <p class='content'>{{story.content}}</p>
           <span class="headline">{{story.topic}}</span>
           <span class="created">{{completeDate}}</span>
           <span class="location">{{story.locationName}}</span>
@@ -52,6 +59,7 @@ export default {
         time: Number,
         checkStory: false,
         storyShow: false,
+        storyDestory: false,
         destructionState: 6,
         maxSeconds: 60,
         localContent: 'Placeholder',
@@ -65,16 +73,21 @@ export default {
    story: db.collection("object/"+$cookies.get('id')+"/story").doc($cookies.get('ownStoryID'))
   },
   computed:{
-
+    self
   },
   methods: {
 
     handleCountdownProgress(data) {
 
       this.totalSeconds = data.totalSeconds
-      if(data.totalSeconds < 60){ // Nur noch eine Minute
+      console.log("Sekunden noch: "+totalSeconds)
 
+      if(totalSeconds <= 0){
+        this.storyDestory = true;
+      } else {
+        this.storyDestory = false;
       }
+
     },
 
    toggleStory: function(){
@@ -88,30 +101,6 @@ export default {
 
   },
   watch: {
-
-    totalSeconds: {
-      immediate: true, // watch it
-      handler: function (totalSeconds, oldTotalseconds) {
-
-               var destruction = 0;
-               if(totalSeconds == 0){
-                 destruction = 10;
-               }
-
-               for (var loop = 0; loop < destruction; loop++){
-               function getRandomInt(min, max) {
-                   min = Math.ceil(min);
-                   max = Math.floor(max);
-                   return Math.floor(Math.random() * (max - min + 1)) + min;
-               }
-               var id = getRandomInt(1, 10)
-               console.log(id);
-               console.log(document.getElementById("Text_"+id));
-
-               document.getElementById("Text_"+id).classList.add("blocked");
-             }
-           }
-         },
 
 
     story: function(story, oldstory){
@@ -129,18 +118,10 @@ export default {
         this.time = postedTimeDate - now;
         console.log(this.time);
 
-
-        console.log(this.story.content);
-        var lcontent = this.story.content
-        var regex = /\S+/g;
-        var id = 0;
-        var result = lcontent.replace(regex, function(a, b, c) {
-            return "<span id=Text_" + (++id) + ">" + a + "</span>";
-        });
-        this.maxItems = id;
-        this.localContent = result;
-
-
+        if(this.time <= 0){
+          console.log("Vorbei");
+          this.storyDestory = true;
+        }
       },
 
     storie: function(){
@@ -175,6 +156,11 @@ export default {
 </script>
 
 <style>
+
+.story.destory{
+  opacity: 0;
+  transition: all 3s;
+}
 
 .content span{
   transition: all 1s;
