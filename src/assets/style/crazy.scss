@@ -165,6 +165,10 @@ textarea{
     cursor: pointer;
     transition: 300ms;
 
+    :focus{
+        outline: none !important;
+    }
+
     &.sec{
         box-shadow: none;
         background: none;
@@ -207,6 +211,12 @@ textarea{
 
 
     
+}
+
+button{
+    &:focus{
+        outline: none !important;
+    }
 }
 
 
