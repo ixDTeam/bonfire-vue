@@ -12,7 +12,7 @@
       <span class='poster-headline'>{{topic}}</span>
       <p class='poster-content'>{{content}}</p>
       <div class="poster-logo">
-      <button class="poster-path-button" >Show story journey</button>
+      <button v-if="ownStory" v-on:click="nextStep('journey')" class="poster-path-button" >Show story journey</button>
 
         <svg class="hs-logo" width="143px" height="19px" viewBox="0 0 143 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -97,6 +97,22 @@ export default {
     city: String,
     time: Number,
     topic: String
+  },
+  computed: {
+    ownStory: function() {
+      var lStoryID = $cookies.get('ownStoryID');
+      if (lStoryID != undefined){
+        return true
+      } else {
+        return false
+      }
+    }
+  },
+  methods: {
+    nextStep(n){
+      console.log(n);
+           this.$router.push({name: n});
+    }
   }
 }
 </script>

@@ -127,9 +127,6 @@ router.beforeEach((to, from, next) => {
   var devMode = $cookies.get('devMode');
   var step = $cookies.get('step');
   var nextView
-  console.log(to);
-  console.log(from);
-  console.log(next);
 
   if (step == 0 || step == undefined) {
      nextView = 'welcome'
@@ -147,6 +144,7 @@ router.beforeEach((to, from, next) => {
 
   const shouldRedirect = Boolean(
     to.name === "welcome" &&
+    step != undefined &&
     nextView
     && isFirstTransition
   );

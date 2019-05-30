@@ -53,7 +53,7 @@ export default {
   },
   mounted() {
     //this.checkState()
-  },
+  }
 // watch: {
 //   routeName: function(route, oldroute){
 //     console.log(route);

@@ -94,7 +94,6 @@ export default {
       handler: function (totalSeconds, oldTotalseconds) {
 
                var destruction = 0;
-               console.log("JAAAAA MACH ENGLISCH")
                if(totalSeconds == 0){
                  destruction = 10;
                }
