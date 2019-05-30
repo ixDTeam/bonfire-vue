@@ -115,6 +115,8 @@ h2{
 }
 p{
     text-align: left;
+    
+
 }
 
 textarea{
@@ -303,6 +305,69 @@ button{
 .tutorial-page{
     display: flex;
     flex-direction: column;
+    .tutorial-content{
+        padding: 32px;
+        padding-top: 64px;
+        h1{
+            line-height: 1;
+        }
+        p{
+            @include font('Harmonia', 700, 20px);
+    color: $text-color-primary;
+    line-height: 1;
+        }
+
+        .tutorial-h1{
+            @include font('Harmonia', 700, 26px);
+            color: $bg-color;
+            background:$text-color-primary;
+            padding: 5px 12px 0px 12px;
+            margin: 12px;
+            display: table;
+        }
+        .body{
+            &.m-t-10{
+                margin-top: 10px;
+            }
+            &.m-t-20{
+                margin-top: 20px;
+            }
+            &.m-t-30{
+                margin-top: 30px;
+            }
+            &.m-t-40{
+                margin-top: 40px;
+            }
+            &.m-t-50{
+                margin-top: 50px;
+            }
+            &.m-t-60{
+                margin-top: 60px;
+            }
+            &.m-t-70{
+                margin-top: 70px;
+            }
+            &.m-t-80{
+                margin-top: 80px;
+            }
+
+            margin-top: 30px;
+        }
+    }  
+    #t1{
+        margin-left: 62px;
+        margin-top: 32px;
+        transform: rotate(7deg);
+    }
+    #t2{
+        margin-left: 52px;
+        margin-top: 32px;
+        transform: rotate(-4deg);
+    }
+    #t3{
+        margin-left: 84px;
+        margin-top: 32px;
+    }
 }
 
 .swiper-button-disabled{
