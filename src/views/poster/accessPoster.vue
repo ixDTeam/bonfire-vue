@@ -6,7 +6,9 @@
 
   <div v-else class="no-poster">
     <h1>Be a part!</h1>
-    <p>This is a poster from </p>
+    <p>This could be your poster! <br>
+      Simply visit the University of Applied Sciences in Osnabrück and get your access to this space!
+    </p>
   </div> 
 
     <!-- <h1 v-else v-if="this.error">Das Plakat kennen wir leider nicht finden.<br> Magst du den QR-Code erneut einscannen?</h1>
