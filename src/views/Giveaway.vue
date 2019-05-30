@@ -80,9 +80,9 @@ export default {
     handleCountdownProgress(data) {
 
       this.totalSeconds = data.totalSeconds
-      console.log("Sekunden noch: "+totalSeconds)
+      console.log("Sekunden noch: "+this.totalSeconds)
 
-      if(totalSeconds <= 0){
+      if(this.totalSeconds <= 0){
         this.storyDestory = true;
       } else {
         this.storyDestory = false;

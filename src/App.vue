@@ -28,35 +28,9 @@ export default {
     }
   },
   methods: {
-    checkState(){
-      var step;
-      var devMode = 0;
 
-      var cookieID = this.$cookies.get('id');
-      this.$store.commit('setID', cookieID);
-
-      devMode = this.$cookies.get('devMode');
-      step = this.$cookies.get('step');
-      // console.log(this.routeName);
-      // console.log(this.$route.name);
-      if(this.routeName != "accessPoster" && this.routeName != "addPoster"){
-        if (devMode == 0 || !devMode){
-          if (step == 0 || step == undefined){
-            this.$router.push({path: '/'})
-          }
-          else if(step == 1){
-            this.$router.push({path: 'new'})
-          } else if (step == 2){
-            this.$router.push({path: 'giveaway'})
-          } else if (step == 3){
-            this.$router.push({path: 'journey'})
-          }
-        }
-      }
-    }
   },
   mounted() {
-    //this.checkState()
   },
 };
 </script>
