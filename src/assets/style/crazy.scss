@@ -1304,5 +1304,8 @@ $top-height: 30%;
 //iPhone 5
 
 @media (max-height: 600px) { 
+    html{
+        font-size: 12px;
+    }
    
  }
