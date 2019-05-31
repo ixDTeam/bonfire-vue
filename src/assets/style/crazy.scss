@@ -16,10 +16,17 @@
 
 
 //>>>COLORS
-$bg-color: #FD74BC;
+// $bg-color: #FD74BC;
 
-$text-color-primary: #0A2465;
-$text-color-contrast: #ffff;
+// $text-color-primary: #0A2465;
+// $text-color-contrast: #ffff;
+
+
+
+$bg-color: #ABFAA9;
+
+$text-color-primary: #E75A7C;
+$text-color-contrast: black;
 
 //>>>STORY MAP RATIO
 $story-height: 40%;
@@ -44,7 +51,14 @@ body{
 #app{
     height: 100%;
     position: fixed;
-}
+    background-color: $bg-color;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: $text-color-primary;
+  }
+
 
 .color-bg{
     background-color: $bg-color;
@@ -133,11 +147,12 @@ textarea{
 }
 
 .back-button{
-    position: absolute;
+    position: initial;
     left: 0rem;
     top: 2rem;
     text-align: left;
     padding-left: 2rem;
+    margin-bottom: 0.5rem;
     width: 100%;
     border: none;
     appearance: none;

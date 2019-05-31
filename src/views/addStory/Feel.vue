@@ -1,5 +1,6 @@
 <template>
   <div class="feel fullscreen color-bg pad-t pad-b">
+  <div class="back-button" v-on:click="backStep()">Back</div>
   <h1 class="pad-l pad-r">How did you feel back then?</h1>
     <!-- <Form @add-Story="addStory"></Form> -->
     <div class="grid-9x9">
@@ -58,7 +59,7 @@
         </div>
       </label>
     </div>
-    <div class="back-button" v-on:click="backStep()">Back</div>
+    
     <button class="button button-main" v-on:click="nextStep('where')" :disabled="checkButton()">
       <span v-if="checkButton()">Select your emotion</span>
       <span v-else>Next</span>
