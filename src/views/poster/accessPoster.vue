@@ -1,15 +1,17 @@
 <template>
 <div class="fullscreen bshadow">
-      
+
     <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :topic="poster.topic" :created="poster.created" :city="poster.locationName" :time="time" :id="poster.id">
     </Poster>
 
   <div v-else class="no-poster">
-    <h1>Be a part!</h1>
-    <p>This could be your poster! <br>
-      Simply visit the University of Applied Sciences in Osnabrück and get your access to this space!
+    <h1>This poster is empty!</h1>
+    <h2>&#x1F62D</h2>
+    <p>
+      But it could be your space... <br> Simply visit the University of Applied Sciences in Osnabrück and post your story here for everyone.
     </p>
-  </div> 
+    <button class="button button-main" v-on:click="nextStep('welcome')">Learn more...</button>
+  </div>
 
     <!-- <h1 v-else v-if="this.error">Das Plakat kennen wir leider nicht finden.<br> Magst du den QR-Code erneut einscannen?</h1>
     <h1 v-else v-if="!poster.occupied && !this.error">Hier hängt noch nichts! Erzähl deine Geschichte! Lass dir dazu ein Geschenk schenken!</h1> -->
@@ -55,6 +57,10 @@ export default {
     }
   },
   methods: {
+    nextStep(n){
+      this.$router.push({name: n});
+      console.log("Store wurde aktualisiert auf "+ this.$store.getters.getContent);
+    },
   },
   watch: {
     immediate: true,
@@ -104,3 +110,23 @@ export default {
   },
 }
 </script>
+
+<style>
+
+.no-poster h1{
+  font-size: 60px;
+  line-height: 0.9;
+  margin-bottom: 20px;
+}
+
+.no-poster h2{
+  text-align: center;
+  margin: 60px auto;
+  font-size: 120px;
+}
+
+.no-poster .button.button-main{
+    margin-top: 20px;
+}
+
+</style>
