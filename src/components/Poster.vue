@@ -4,7 +4,7 @@
       <span class='poster-emoji'><Emotion :emotion="emotion"></Emotion></span>
       <span class='b l'>{{city}}</span>
       <countdown class="b r" :time="time" :interval="1000" tag="span">
-         <template slot-scope="props">Noch {{ props.seconds }} Sekunden</template>
+         <template slot-scope="props">{{ props.seconds }} seconds left</template>
        </countdown>
     </div>
 
@@ -12,8 +12,8 @@
       <span class='poster-headline'>{{topic}}</span>
       <p class='poster-content'>{{content}}</p>
       <div class="poster-logo">
-      <button v-if="ownStory" v-on:click="nextStep('journey')" class="poster-path-button" >Show story journey</button>
-
+        <button v-if="ownStory" v-on:click="nextStep('journey')" class="poster-path-button" >Show story journey</button>
+        <div>
         <svg class="hs-logo" width="143px" height="19px" viewBox="0 0 143 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="iPhone-8-Copy-6" transform="translate(-116.000000, -624.000000)" fill="#FD74BC">
@@ -75,6 +75,7 @@
             </g>
         </svg>
       </div>
+      </div>
     </div>
 
   </div>
@@ -119,5 +120,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.poster-path-button{
+  float: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+}
 
 </style>
