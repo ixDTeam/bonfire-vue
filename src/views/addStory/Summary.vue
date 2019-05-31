@@ -65,7 +65,7 @@
         </label>
       </div>
     </div>
-    <button class="button button-main" v-on:click="addStory()">Publish</button>
+    <button class="button button-main" v-on:click="addStory()">Share your story!</button>
   </div>
 </template>
 

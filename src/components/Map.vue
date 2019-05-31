@@ -69,7 +69,7 @@ export default {
 
      return{
        lZoom: 8,
-       maxZoom: 11,
+       maxZoom: 13,
        minZoom: 2,
        path: [
         {lat: 50, lng: 20},

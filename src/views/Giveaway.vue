@@ -3,9 +3,9 @@
     <div class="color-bg fullscreen">
 
     <div class="flex fullscreen column pad-t pad-l pad-r h-left" v-if="checkStory">
-        <h1>Danke!</h1>
-        <div class="giveaway-alert success" v-if="checkStory">Deine Story wurde weitergegeben!</div>
-        <div class="button button-main" v-if="checkStory" v-on:click="nextStep('journey')" >Sieh dir alle Storys an</div>
+        <h1>Nice! <br> Your story was passed on.</h1>
+        <div class="giveaway-alert success" v-if="checkStory">You now have full access to all other stories of the journey.</div>
+        <div class="button button-main" v-if="checkStory" v-on:click="nextStep('journey')" >Look at the other stories</div>
     </div>
 
     <div class="flex column pad-l pad-r" v-if="!checkStory">
@@ -17,12 +17,12 @@
         </div>
 
         <span v-if="storyDestory">
-          <h1>Leider war das zu spät</h1>
-          <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
+          <h1>You are too late.</h1>
+          <p class="instruction">With that the journey of your gift is unfortunately over. But you can start a new journey. Just head over to the Universiy of Applied Scieneces Osnabrück and start over.</p>
         </span>
         <span v-else>
-          <h1>Gib es weiter</h1>
-          <p class="instruction">Gib dein Geschenk an jemanden weiter und bitte um eine weitere Geschichte <br> Dann kannst du alle Geschichten sehen!</p>
+          <h1>Give away your gift!</h1>
+          <p class="instruction">You now have a limited time to pass your gift to the next person. <br> Then you can experience what stories the others have told.</p>
         </span>
         <div class="story" v-bind:class="{ show: storyShow, destory: storyDestory }">
           <p class='content'>{{story.content}}</p>
