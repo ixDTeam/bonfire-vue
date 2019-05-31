@@ -161,14 +161,14 @@ textarea{
     align-items: center;
 
     margin-top: 2rem;
-    padding: 0.5rem 1.2rem 0rem 1.2rem;
+    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
 
     margin-left: auto;
     margin-right: auto;
 
     z-index: 20;
 
-    @include font("Harmonia", 700, 1rem);
+    @include font("Harmonia", 700, 1.2rem);
 
     box-shadow: 0px 2px 8px rgba(lighten(#000000,20),.3);
     cursor: pointer;
@@ -680,7 +680,7 @@ button{
     .link{
         background-image: linear-gradient(180deg,rgba(255,255,255,0) 50%, lighten($bg-color, 5) 50%);
         color: $text-color-primary;
-        font-size: 50px;
+        font-size: 3rem;
         font-weight: 900;  
         text-decoration: underline;
         text-decoration-style: solid;
@@ -798,7 +798,7 @@ button{
 }
 
 .emoji{
-    font-size: 50px;
+    font-size: 3rem;
     display: flex;
     align-items: center;
     text-align: center;
@@ -1005,7 +1005,7 @@ $countdown-fsize: 75px;
 
     .description{
         position: absolute;
-        font-size: 20px;
+        font-size: 1.2rem;
 
         bottom: 5px;
         left: 0;
@@ -1019,7 +1019,7 @@ $countdown-fsize: 75px;
         padding-left: 20px;
         .description{
             position: absolute;
-            font-size: 40px;
+            font-size: 2.5rem;
             left: 80px;
             top: 25px;
         }
@@ -1089,7 +1089,7 @@ $countdown-fsize: 75px;
         width: 100%;
     }
     .emoji-giveaway{
-        font-size: 140px;
+        font-size: 8.75rem;
         align-self: center;
         line-height: 1.5;
         background-color: transparent;
@@ -1151,7 +1151,7 @@ $top-height: 30%;
         align-items: center;
         justify-content: center;
         height: $top-height;
-        font-size: 50px;
+        font-size: 3rem;
         position: relative;
         @include font('Harmonia', 700, 3rem);
         line-height: 1;
@@ -1303,7 +1303,6 @@ $top-height: 30%;
 
 @media (max-height: 600px) { 
     h1{
-        font-size: 35px;
         margin-bottom: 5px;
     }
 
@@ -1313,6 +1312,5 @@ $top-height: 30%;
 
     .giveaway .emoji-giveaway{
         line-height: 1.5;
-        font-size: 100px;
     }
  }
