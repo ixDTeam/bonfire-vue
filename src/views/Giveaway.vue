@@ -4,7 +4,9 @@
 
     <div class="flex fullscreen column pad-t pad-l pad-r h-left" v-if="checkStory">
         <h1>Nice! <br> Your story was passed on.</h1>
+         <h2 class="emoji-giveaway">&#x1F60D</h2>
         <div class="giveaway-alert success" v-if="checkStory">You now have full access to all other stories of the journey.</div>
+       
         <div class="button button-main" v-if="checkStory" v-on:click="nextStep('journey')" >Look at the other stories</div>
     </div>
 
