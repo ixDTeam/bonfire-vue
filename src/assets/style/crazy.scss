@@ -232,6 +232,12 @@ button{
   Welcome Style
 /+++++++++++++++++++*/
 
+#welcome-fullscreen{
+    width: 100%;
+    height: 100%;
+    background-color: $text-color-primary;
+}
+
 .img-blur{
     filter: blur(12px);
     opacity: 0.8;

@@ -1,4 +1,5 @@
 <template>
+<div id="welcome-fullscreen">
   <div class="welcome fullscreen flex column color-primary">
     <div class="pad-t welcome-intro">
       <div class="welcome-headline">
@@ -15,6 +16,7 @@
 
     </div>
     <button class="button button-main" v-on:click="startTutorial">Los gehts!</button>
+  </div>
   </div>
 </template>
 
