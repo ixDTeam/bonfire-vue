@@ -67,7 +67,9 @@ body{
   }
 
 .fullscreen{
-    width: 100vw;
+    //width: 100vw;
+    max-width: 600px;
+    margin: 0px auto;
     height: 100%;
     overflow: hidden;
 }
