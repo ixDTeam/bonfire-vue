@@ -1144,6 +1144,19 @@ $top-height: 30%;
 
 .bshadow{
     box-shadow: 0.3rem 0rem 3rem rgba($text-color-primary, 0.8);
+    animation: flowshadow 5000ms ease-in-out infinite; 
+
+    @keyframes flowshadow {
+        0% { 
+            box-shadow: 0.3rem 0rem 3rem rgba($text-color-primary, 0.8);
+        }
+        50% { 
+            box-shadow: 0.6rem 0rem 10rem rgba($text-color-primary, 0.2);
+        }
+        100% { 
+            box-shadow: 0.3rem 0rem 3rem rgba($text-color-primary, 0.8);
+        }
+      }
 }
 
 .poster{
