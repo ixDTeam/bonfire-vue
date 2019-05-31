@@ -37,13 +37,29 @@ export default {
             stories: [],
             storiesLocation: [],
             swiperOption: {
+              centeredSlides: true,
               slidesPerView: 1.2,
               spaceBetween: 2,
-              centeredSlides: true,
             pagination: {
               el: '.swiper-pagination',
               dynamicBullets: true,
               clickable: true
+            },
+            breakpointsInverse: true,
+            breakpoints: {
+              // when window width is <= 640px
+              640: {
+                slidesPerView: 1.7,
+                spaceBetween: 2,
+              },
+              1000: {
+                slidesPerView: 2.5,
+                spaceBetween: 25,
+              },
+              1200: {
+                slidesPerView: 3.5,
+                spaceBetween: 25,
+              }
             }
           },
         swiperSlides: [1, 2, 3, 4, 5],
