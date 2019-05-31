@@ -40,7 +40,7 @@ export default {
       min_char: 4,
       remain_char: 240,
       status: false,
-      fontSize: 50,
+      fontSize: 4,
     };
   },
   computed: {
@@ -84,18 +84,21 @@ export default {
        this.$router.back();
      },
      fontSizeCalc(){
-        this.fontSize = 60;
+        this.fontSize = 4;
        if(this.remain_char <= 180){
-         this.fontSize = 45;
+         this.fontSize = 3.2;
        }
        if(this.remain_char <= 130){
-         this.fontSize = 40;
+         this.fontSize = 3;
        }
       if(this.remain_char <= 100){
-         this.fontSize = 35;
+         this.fontSize = 2.6;
        }
        if(this.remain_char <= 75){
-         this.fontSize = 30;
+         this.fontSize = 2.4;
+       }
+       if(this.remain_char <= 35){
+         this.fontSize = 2.2;
        }
      }
    }
