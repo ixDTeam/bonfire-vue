@@ -9,7 +9,7 @@
     </div>
 
     <div class="flex column pad-l pad-r" v-if="!checkStory">
-        <div class="countdown vertical seconds" >
+        <div v-bind:class="{ animationpulse: checkCountdown }" class="countdown vertical seconds" >
           <countdown tag="div" class="countdown-timer" @progress="handleCountdownProgress" :emit-events="true" :time="time" :interval="1000">
             <template slot-scope="props">{{ props.seconds }}</template>
           </countdown>
@@ -18,6 +18,7 @@
 
         <span v-if="storyDestory">
           <h1>You are too late.</h1>
+          <img class="emoji-animation" src="@/assets/others/emoji.gif">
           <p class="instruction">With that the journey of your gift is unfortunately over. But you can start a new journey. Just head over to the Universiy of Applied Scieneces Osnabrück and start over.</p>
         </span>
         <span v-else>
@@ -73,9 +74,18 @@ export default {
    story: db.collection("object/"+$cookies.get('id')+"/story").doc($cookies.get('ownStoryID'))
   },
   computed:{
-    self
+    checkCountdown(){
+      if(this.totalSeconds > 0){
+        console.log("Hide Countdown");
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   methods: {
+
+    
 
     handleCountdownProgress(data) {
 

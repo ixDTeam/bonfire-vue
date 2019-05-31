@@ -7,7 +7,7 @@
   <div v-else class="no-poster flex column">
     <h1>This poster is empty!</h1>
 
-    <img id="emoji-animation" src="@/assets/others/emoji.gif">
+    <img class="emoji-animation" src="@/assets/others/emoji.gif">
     <p>
       But it could be your space... <br> Simply visit the University of Applied Sciences in Osnabrück and post your story here for everyone.
     </p>
