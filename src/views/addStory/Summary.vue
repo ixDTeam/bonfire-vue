@@ -3,9 +3,9 @@
     <div class="back-button" v-on:click="backStep()">Back</div>
     <div class="summary-card">
       <textarea id="summary-story" autofocus v-validate="'max:10|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" placeholder="Schreibe deine Geschichte"></textarea>
-      <span class="t-r">{{topic}}</span>
-      <span class="t-l">{{locationName}}</span>
-      <span class="d-r"><Emotion :emotion="emotion"></Emotion></span>
+      <span class="t-l">{{topic}}</span>
+      <span class="t-r"><Emotion :emotion="emotion"></Emotion></span>
+      <span class="d-r">{{locationName}}</span>
     </div>
     <div class="emoji-edit hide">
       <div class="grid-9x9">
