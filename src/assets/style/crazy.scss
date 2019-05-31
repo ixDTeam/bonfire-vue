@@ -867,6 +867,7 @@ button{
     color: $text-color-primary;
     @include font('Harmonia', 900, 3rem);
     padding-left: 2rem;
+    padding-right: 2rem;
     width: 100%;
     line-height: 1.2;
     &::placeholder{
