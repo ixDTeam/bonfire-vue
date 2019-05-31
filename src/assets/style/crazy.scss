@@ -530,6 +530,19 @@ button{
     }
 }
 
+@media (min-width: 1000px) { 
+    .swiper-slide-next{
+        .story{
+            transform: scale(0.8) translateX(0);
+        }
+    }
+    .swiper-slide-prev{
+        .story{
+            transform: scale(0.8) translateX(0);
+        }
+    }
+ }
+
 .swiper-container{
     overflow: inherit;
 }
