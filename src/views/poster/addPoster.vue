@@ -28,7 +28,7 @@
     </div>
         <swiper @touchStart="isMoving" @touchEnd="notMoving" @slideChange="postStory" :options="swiperOption" ref="mySwiper" id="story-poster">
           <swiper-slide>
-            <Story v-bind:class="{ moving: moving }" :key="story.id" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :city="story.locationName" :created="story.created"> </Story>
+            <Story v-bind:class="{ moving: moving }" :key="story.id" v-bind:topic="story.topic" v-bind:content="story.content" v-bind:emotion="story.emotion" v-bind:id="story.id" :city="story.locationName" :created="story.created"> </Story>
           </swiper-slide>
           <swiper-slide>
             <div>
