@@ -14,7 +14,7 @@
 <gmap-polyline v-bind:path.sync="locations" v-bind:options="{ strokeColor:'#FD74BC'}"></gmap-polyline>
 
 
-  <gmap-custom-marker v-for="story in stories" :marker="{ lat: story.location._lat, lng: story.location._long }" :offsetY="7">
+  <gmap-custom-marker v-for="story in stories" :marker="{ lat: story.location._lat, lng: story.location._long }" :offsetY="8">
 
     <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g class="map-marker" transform="translate(-287.000000, -185.000000)" fill="#FD74BC" stroke="#0A2465" stroke-width="2">
