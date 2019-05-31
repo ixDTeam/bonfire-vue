@@ -149,19 +149,19 @@ textarea{
 }
 
 .button{
-    height: 60px;
-    min-width: 200px;
+    height: 3.75rem;
+    min-width: 12.5rem;
     background: $text-color-primary;
     color: $text-color-contrast;
-    border-radius: 20px;
+    border-radius: 1.2rem;
     border: 0px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-top: 30px;
-    padding: 5px 20px 0px 20px;
+    margin-top: 2rem;
+    padding: 0.5rem 1.2rem 0rem 1.2rem;
 
     margin-left: auto;
     margin-right: auto;
@@ -186,7 +186,7 @@ textarea{
 
     &.fixed{
         position: fixed;
-        bottom: 40px;
+        bottom: 2.5rem;
         left: 0;
         right: 0;
         margin-left: auto;
@@ -196,13 +196,13 @@ textarea{
     
 
     &.button-main{
-        min-width: 200px;
+        min-width: 12.5rem;
         margin-top: auto;
         align-self: center;
-        margin-bottom: 32px;
+        margin-bottom: 2rem;
 
         &.button-where{
-            margin-bottom: 120px;
+            margin-bottom: 7.5rem;
         }
 
       
@@ -290,7 +290,7 @@ button{
         @include font('Harmonia', 700, 1.2rem);
         line-height: 1;
         #number-user{
-            font-size: 130px;
+            font-size: 7rem;
             font-weight: 900;
             line-height: 0.7;
         }
