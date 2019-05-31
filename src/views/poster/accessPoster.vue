@@ -1,16 +1,17 @@
 <template>
-<div class="fullscreen bshadow">
+<div class="fullscreen bshadow ">
 
     <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :topic="poster.topic" :created="poster.created" :city="poster.locationName" :time="time" :id="poster.id">
     </Poster>
 
-  <div v-else class="no-poster">
+  <div v-else class="no-poster flex column">
     <h1>This poster is empty!</h1>
-    <h2>&#x1F62D</h2>
+
+    <img id="emoji-animation" src="@/assets/others/emoji.gif">
     <p>
       But it could be your space... <br> Simply visit the University of Applied Sciences in Osnabrück and post your story here for everyone.
     </p>
-    <button class="button button-main" v-on:click="nextStep('welcome')">Learn more...</button>
+    <button class="button button-main self-end" v-on:click="nextStep('welcome')">Learn more...</button>
   </div>
 
     <!-- <h1 v-else v-if="this.error">Das Plakat kennen wir leider nicht finden.<br> Magst du den QR-Code erneut einscannen?</h1>
@@ -113,20 +114,5 @@ export default {
 
 <style>
 
-.no-poster h1{
-  font-size: 60px;
-  line-height: 0.9;
-  margin-bottom: 20px;
-}
-
-.no-poster h2{
-  text-align: center;
-  margin: 60px auto;
-  font-size: 120px;
-}
-
-.no-poster .button.button-main{
-    margin-top: 20px;
-}
 
 </style>

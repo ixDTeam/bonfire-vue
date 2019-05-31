@@ -189,6 +189,8 @@ textarea{
         margin-right: auto;
     }
 
+    
+
     &.button-main{
         min-width: 200px;
         margin-top: auto;
@@ -198,6 +200,8 @@ textarea{
         &.button-where{
             margin-bottom: 120px;
         }
+
+      
 
       
     }
@@ -1113,6 +1117,7 @@ $top-height: 30%;
     color: $text-color-primary;
     line-height: 1 !important;
     text-align: left;
+    height: 100%;
 }
 
 .bshadow{
@@ -1177,6 +1182,14 @@ $top-height: 30%;
     line-height: 1;
 
     @include font('Harmonia', 700, 14px);
+}
+
+#emoji-animation{
+    width: 120px;
+    position: relative;
+    margin: 40px auto;
+    display: block;
+
 }
 
 .poster-headline{
