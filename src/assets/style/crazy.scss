@@ -97,17 +97,17 @@ body{
 }
 
 .pad-t{
-    padding-top: 80px;
+    padding-top: 5rem;
 }
 
 .pad-l{
-    padding-left: 32px;
+    padding-left: 2rem;
 }
 .pad-r{
-    padding-right: 32px;
+    padding-right: 2rem;
 }
 .pad-b{
-    padding-bottom: 32px;
+    padding-bottom: 2rem;
 }
 
 h1{
@@ -135,9 +135,9 @@ textarea{
 .back-button{
     position: absolute;
     left: 0px;
-    top: 32px;
+    top: 2rem;
     text-align: left;
-    padding-left: 32px;
+    padding-left: 2rem;
     width: 100%;
     border: none;
     appearance: none;
@@ -266,7 +266,7 @@ button{
  
 
 .welcome-intro{
-    padding-left: 32px;
+    padding-left: 2rem;
     
 }
 
@@ -340,7 +340,7 @@ button{
     display: flex;
     flex-direction: column;
     .tutorial-content{
-        padding: 32px;
+        padding: 2rem;
         padding-top: 64px;
         h1{
             line-height: 1;
@@ -390,17 +390,17 @@ button{
     }  
     #t1{
         margin-left: 62px;
-        margin-top: 32px;
+        margin-top: 2rem;
         transform: rotate(7deg);
     }
     #t2{
         margin-left: 52px;
-        margin-top: 32px;
+        margin-top: 2rem;
         transform: rotate(-4deg);
     }
     #t3{
         margin-left: 84px;
-        margin-top: 32px;
+        margin-top: 2rem;
     }
 }
 
@@ -437,8 +437,8 @@ button{
 //>>>Journey
 .to-poster{
     position: absolute;
-    top: 32px;
-    left: 32px;
+    top: 2rem;
+    left: 2rem;
     background-color: $bg-color;
     color: $text-color-primary;
     @include font('Harmonia', 700, 1rem);
@@ -603,7 +603,7 @@ button{
   .map-zoom-button{
       position: absolute;
       z-index: 100;
-      top: 32px;
+      top: 2rem;
       right: 8px;
     .zbtn{
         margin: 10px 0px;
@@ -674,7 +674,7 @@ button{
     line-height: 1.2;
     color: $text-color-primary;
     .text-block{
-        padding: 32px;
+        padding: 2rem;
     }
 
     .link{
@@ -701,7 +701,7 @@ button{
     width: 100%;
     height: 100%;
     border: 0px;
-    padding: 32px;
+    padding: 2rem;
    
 
     @include font('Harmonia', 900, 3rem);
@@ -731,7 +731,7 @@ button{
     width: 100%;
     min-height: 60px;
 
-    padding-top: 32px;
+    padding-top: 2rem;
     background-color: $bg-color;
 }
 
@@ -749,8 +749,8 @@ button{
 
 #remain-char{
     position: absolute;
-    top: 32px;
-    right: 32px;
+    top: 2rem;
+    right: 2rem;
 
     z-index: 100;
 
@@ -866,7 +866,7 @@ button{
     border: none;
     color: $text-color-primary;
     @include font('Harmonia', 900, 3rem);
-    padding-left: 32px;
+    padding-left: 2rem;
     width: 100%;
     line-height: 1.2;
     &::placeholder{
@@ -1125,9 +1125,9 @@ $top-height: 30%;
 }
 
 .no-poster{
-    padding-left: 32px;
-    padding-top: 32px;
-    padding-right: 32px;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-right: 2rem;
     @include font('Harmonia', 700, 1.2rem);
     color: $text-color-primary;
     line-height: 1 !important;
@@ -1223,7 +1223,7 @@ $top-height: 30%;
     width: 100%;
     background-color: $text-color-primary;
     position: absolute;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -1302,15 +1302,5 @@ $top-height: 30%;
 //iPhone 5
 
 @media (max-height: 600px) { 
-    h1{
-        margin-bottom: 5px;
-    }
-
-    .pad-t{
-        padding-top: 32px;
-    }
-
-    .giveaway .emoji-giveaway{
-        line-height: 1.5;
-    }
+   
  }
