@@ -7,11 +7,12 @@
     </div>
 
       <div class="form" >
-        <textarea ref="textarea" v-bind:style="{ fontSize: fontSize + 'px' }" id="new-story" autofocus v-validate="'max:240|min:4'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter(), fontSizeCalc()' placeholder="Schreibe deine Geschichte"></textarea>
+        <textarea ref="textarea" v-bind:style="{ fontSize: fontSize + 'px' }" id="new-story" autofocus v-validate="'max:240'"  data-vv-as="field" name="max_field"  class="content input" v-model="content" @keyup='charCounter(), fontSizeCalc()' placeholder="Tell your story"></textarea>
         <!-- <button class="button button-main" v-if="checkButton()" :disabled="true">Du hast nicht so viele Zeichen.</button> -->
-        <button class="button button-main" id="tell-button" v-on:click="nextStep('feel')" :disabled="checkButton()">
-          <span v-if="checkButton()">Du hast nicht so viele Zeichen.</span>
-          <span v-else>Next</span>
+        <button class="button button-main" id="tell-button" v-on:click="nextStep('feel')" :disabled="checkButton() || tooLong()">
+          <span v-if="checkButton()">You need to write something.</span>
+          <span v-if="tooLong()">Sorry, that's too much.</span>
+          <span v-if="!tooLong() && !checkButton()">Next</span>
         </button>
       </div>
 
@@ -63,10 +64,17 @@ export default {
       if(this.errors.items.length == 0 && !this.isFormDirty &&  this.content.length > this.min_char){
         return false;
       }
-      else if(this.errors.items.length != 0 || this.content.length <= this.min_char){
+      else if(this.content.length <= this.min_char){
         return true;
       }
-    },
+      },
+      tooLong(){
+        if(this.errors.items.length != 0){
+          return true;
+        } else {
+          return false;
+        }
+      },
     nextStep(n){
       this.$router.push({path: n});
       this.$store.commit('setContent', this.content);
@@ -76,7 +84,7 @@ export default {
        this.$router.back();
      },
      fontSizeCalc(){
-        this.fontSize = 50;
+        this.fontSize = 60;
        if(this.remain_char <= 180){
          this.fontSize = 45;
        }
