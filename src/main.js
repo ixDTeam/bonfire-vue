@@ -51,7 +51,7 @@ Vue.use(VueAwesomeSwiper)
 Vue.use(VueGeolocation);
 Vue.use(Geocoder, {
   // defaultCountryCode: 'DE', // e.g. 'CA'
-  defaultLanguage: 'de', // e.g. 'en'
+  defaultLanguage: 'en', // e.g. 'en'
   defaultMode: 'adress', // or 'lat-lng'
   googleMapsApiKey: 'AIzaSyC0p6rXwRKcXYuBp5IMBBMbrXeAO3a2BuI'
 });
