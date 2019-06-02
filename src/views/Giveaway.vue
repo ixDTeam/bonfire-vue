@@ -6,7 +6,7 @@
         <h1>Nice! <br> Your story was passed on.</h1>
          <h2 class="emoji-giveaway">&#x1F60D</h2>
         <div class="giveaway-alert success" v-if="checkStory">You now have full access to all other stories of the journey.</div>
-       
+
         <div class="button button-main" v-if="checkStory" v-on:click="nextStep('journey')" >Look at the other stories</div>
     </div>
 
@@ -21,7 +21,7 @@
         <span v-if="storyDestory">
           <h1>You are too late.</h1>
           <img class="emoji-animation" src="@/assets/others/emoji.gif">
-          <p class="instruction">With that the journey of your gift is unfortunately over. But you can start a new journey. Just head over to the Universiy of Applied Scieneces Osnabrück and start over.</p>
+          <p class="instruction">The journey of your gift is over. But you can start a new journey. Just head over to the Universiy of Applied Sciences Osnabrück and start over.</p>
         </span>
         <span v-else>
           <h1>Give away your gift!</h1>
@@ -87,7 +87,7 @@ export default {
   },
   methods: {
 
-    
+
 
     handleCountdownProgress(data) {
 

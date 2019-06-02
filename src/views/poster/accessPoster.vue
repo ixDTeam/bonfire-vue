@@ -9,7 +9,7 @@
 
     <img class="emoji-animation" src="@/assets/others/emoji.gif">
     <p>
-      But it could be your space... <br> Simply visit the University of Applied Sciences in Osnabrück and post your story here for everyone.
+      But it could be your space... <br> Simply visit the University of Applied Sciences in Osnabrück and post your story here for everyone to see.
     </p>
     <button class="button button-main self-end" v-on:click="nextStep('welcome')">Learn more...</button>
   </div>

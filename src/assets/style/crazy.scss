@@ -15,18 +15,17 @@
 }
 
 
-//>>>COLORS
-// $bg-color: #FD74BC;
+// >>>COLORS
+$bg-color: #FD74BC;
+$text-color-primary: #0A2465;
+$text-color-contrast: #ffff;
 
-// $text-color-primary: #0A2465;
-// $text-color-contrast: #ffff;
+// var(--bg-color)
 
-
-
-$bg-color: #ABFAA9;
-
-$text-color-primary: #E75A7C;
-$text-color-contrast: black;
+//
+// $bg-color: #ABFAA9;
+// $text-color-primary: #E75A7C;
+// $text-color-contrast: black;
 
 //>>>STORY MAP RATIO
 $story-height: 40%;
@@ -67,7 +66,7 @@ body{
         animation: gradient 15000ms ease-in-out infinite 100ms;
         background-size: 200% 200%;
     }
-    
+
 }
 .color-primary{
     background-color: $text-color-primary;
@@ -136,7 +135,7 @@ h2{
 }
 p{
     text-align: left;
-    
+
 
 }
 
@@ -208,7 +207,7 @@ textarea{
         margin-right: auto;
     }
 
-    
+
 
     &.button-main{
         min-width: 12.5rem;
@@ -220,9 +219,9 @@ textarea{
             margin-bottom: 7.5rem;
         }
 
-      
 
-      
+
+
     }
 
     &:disabled{
@@ -230,7 +229,7 @@ textarea{
         cursor: inherit;
         background: darken($bg-color,6);
         color: lighten($bg-color,10);
-       
+
     }
     &:focus{
         outline: none;
@@ -238,7 +237,7 @@ textarea{
 
 
 
-    
+
 }
 
 button{
@@ -270,7 +269,7 @@ button{
         animation: fly-r-l 4000ms infinite;
         top: 45%;
     }
-   
+
 }
 
 @keyframes fly-r-l {
@@ -278,11 +277,11 @@ button{
     50% { right: 1.25rem; opacity: 1  }
     100% { right: 500px; opacity: 0  }
   }
- 
+
 
 .welcome-intro{
     padding-left: 2rem;
-    
+
 }
 
 .welcome-headline{
@@ -402,7 +401,7 @@ button{
 
             margin-top: 2rem;
         }
-    }  
+    }
     #t1{
         margin-left: 3rem;
         margin-top: 2rem;
@@ -560,7 +559,7 @@ button{
     }
 }
 
-@media (min-width: 1000px) { 
+@media (min-width: 1000px) {
     .swiper-slide-next{
         .story{
             transform: scale(0.8) translateX(0);
@@ -586,18 +585,18 @@ button{
         transition: 300ms;
         box-shadow: 0rem 0rem 0.6rem 0.1rem #0000005c;
       }
-    
+
 }
 
   //>>Pagination Dots
   .swiper-pagination-bullet{
       background: $text-color-contrast;
-    
+
   }
   .swiper-pagination-bullet-active{
     background: $bg-color;
 }
-  
+
 
 
 
@@ -698,12 +697,12 @@ button{
         background-image: linear-gradient(180deg,rgba(255,255,255,0) 50%, lighten($bg-color, 5) 50%);
         color: $text-color-primary;
         font-size: 3rem;
-        font-weight: 900;  
+        font-weight: 900;
         text-decoration: underline;
         text-decoration-style: solid;
 
 
-       
+
     }
 }
 
@@ -719,7 +718,7 @@ button{
     height: 100%;
     border: 0rem;
     padding: 2rem;
-   
+
 
     @include font('Harmonia', 900, 3rem);
     line-height: 1.2;
@@ -889,7 +888,7 @@ button{
     line-height: 1.2;
     &::placeholder{
         color: rgba( $text-color-primary, .4 );
-        
+
     }
 }
 
@@ -965,7 +964,7 @@ $card-font-size-s: 1rem;
     padding: calc( #{$card-space-top} + 0.6rem) $card-space-right $card-space-bottom $card-space-left;
     background-color: transparent;
     z-index: 20;
-   
+
 
     @include font('Harmonia', 900, $card-font-size-l);
     line-height: 1.2;
@@ -1060,7 +1059,7 @@ $countdown-fsize: 4.5rem;
         }
     }
 
-    
+
 
 }
 
@@ -1123,7 +1122,7 @@ $countdown-fsize: 4.5rem;
     }
 
 }
-    
+
 /*+++++++++++++++++++/
   Poster Style
 /+++++++++++++++++++*/
@@ -1159,16 +1158,16 @@ $top-height: 30%;
 
 .bshadow{
     box-shadow: 0.3rem 0rem 3rem rgba($text-color-primary, 0.8);
-    animation: flowshadow 5000ms ease-in-out infinite; 
+    animation: flowshadow 5000ms ease-in-out infinite;
 
     @keyframes flowshadow {
-        0% { 
+        0% {
             box-shadow: 0.3rem 0rem 3rem rgba($text-color-primary, 0.8);
         }
-        50% { 
+        50% {
             box-shadow: 0.6rem 0rem 10rem rgba($text-color-primary, 0.2);
         }
-        100% { 
+        100% {
             box-shadow: 0.3rem 0rem 3rem rgba($text-color-primary, 0.8);
         }
       }
@@ -1179,7 +1178,7 @@ $top-height: 30%;
     width: 100%;
     height: 100%;
     background-color: $bg-color;
-    
+
 
     .top{
         display: flex;
@@ -1319,16 +1318,16 @@ $top-height: 30%;
     }
 
     @keyframes swoosh {
-        0% { 
-            transform: translateY(0px); 
+        0% {
+            transform: translateY(0px);
             opacity: 0;
         }
-        30% { 
+        30% {
             opacity: 1;
         }
-     
-        100% { 
-            transform: translateY(-9rem); 
+
+        100% {
+            transform: translateY(-9rem);
             opacity: 0;
         }
       }
@@ -1336,9 +1335,9 @@ $top-height: 30%;
 
 //iPhone 5
 
-@media (max-height: 600px) { 
+@media (max-height: 600px) {
     html{
         font-size: 12px;
     }
-   
+
  }
