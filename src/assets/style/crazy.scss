@@ -350,6 +350,27 @@ button{
     }
 }
 
+.fill-bg-color{
+    fill: $bg-color;
+}
+
+.fill-bg-color-light{
+    fill: lighten($bg-color, 6);
+}
+
+.stroke-bg-color{
+    stroke: $bg-color;
+}
+
+.fill-dark{
+    fill: $text-color-primary;
+}
+
+.stroke-dark{
+    stroke: $text-color-primary;
+}
+
+
 .tutorial-page{
     display: flex;
     flex-direction: column;
