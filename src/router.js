@@ -7,123 +7,129 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   routes: [{
-    path: '/q/:id',
-    name: 'qr',
-    component: () =>
-      import('./views/QR.vue'),
-    props: true
-  },
-  {
-    path: '/dev/:devMode',
-    name: 'devMode',
-    component: () =>
-      import('./views/DevMode.vue'),
-    props: true
-  },
-  {
-    path: '/p/:id',
-    name: 'accessPoster',
-    component: () =>
-      import('./views/poster/accessPoster.vue'),
-    props: true
-  },
-  {
-    path: '/p/:id/add',
-    name: 'addPoster',
-    component: () =>
-      import('./views/poster/addPoster.vue'),
-    props: true
-  },
-  {
-    path: '/',
-    name: 'welcome',
-    component: Welcome,
-  },
-  {
-    path: '*',
-    name: '404',
-    component: Welcome
-  },
-  {
-    path: '/tutorial',
-    name: 'tutorial',
-    component: () =>
-      import('./views/Tutorial.vue'),
-  },
-  {
-    path: '/journey',
-    name: 'journey',
-    component: () =>
-      import('./views/Journey.vue'),
-  },
-  {
-    path: '/giveaway',
-    name: 'giveaway',
-    component: () =>
-      import('./views/Giveaway.vue'),
-  },
-  {
-    path: '/new',
-    name: 'new',
-    component: () =>
-      import('./views/addStory/New.vue')
-  },
-  {
-    path: '/tell',
-    name: 'tell',
-    component: () =>
-      import('./views/addStory/Tell.vue')
-  },
-  {
-    path: '/feel',
-    name: 'feel',
-    component: () =>
-      import('./views/addStory/Feel.vue')
-  },
-  {
-    path: '/where',
-    name: 'where',
-    component: () =>
-      import('./views/addStory/Where.vue')
-  },
-  {
-    path: '/summary',
-    name: 'summary',
-    component: () =>
-      import('./views/addStory/Summary.vue')
-  },
-  {
-    path: '/start/:id',
-    name: 'start',
-    component: () =>
-      import('./views/Start.vue'),
-    props: true
-  },
-  {
-    path: '/start',
-    name: 'start',
-    component: () =>
-      import('./views/Start.vue')
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () =>
-      import( /* webpackChunkName: "about" */ './views/About.vue'),
-    meta: {
-      permissions: [{
-        role: "guest",
-        access: false,
-        redirect: ""
+      path: '/q/:id',
+      name: 'qr',
+      component: () =>
+        import ('./views/QR.vue'),
+      props: true
+    },
+    {
+        path: '/dev/:devMode',
+        name: 'devMode',
+        component: () =>
+          import ('./views/DevMode.vue'),
+        props: true
       },
       {
-        role: "registered",
-        access: true,
-        redirect: "/about"
+          path: '/reset',
+          name: 'resetCookie',
+          component: () =>
+            import ('./views/CookieReset.vue')
+        },
+    {
+      path: '/p/:id',
+      name: 'accessPoster',
+      component: () =>
+        import ('./views/poster/accessPoster.vue'),
+      props: true
+    },
+    {
+      path: '/p/:id/add',
+      name: 'addPoster',
+      component: () =>
+        import ('./views/poster/addPoster.vue'),
+      props: true
+    },
+    {
+      path: '/',
+      name: 'welcome',
+      component: Welcome
+    },
+    {
+      path: '*',
+      name: '404',
+      component: Welcome
+    },
+    {
+      path: '/tutorial',
+      name: 'tutorial',
+      component: () =>
+        import ('./views/Tutorial.vue'),
+    },
+    {
+      path: '/journey',
+      name: 'journey',
+      component: () =>
+        import ('./views/Journey.vue'),
+    },
+    {
+      path: '/giveaway',
+      name: 'giveaway',
+      component: () =>
+        import ('./views/Giveaway.vue'),
+    },
+    {
+      path: '/new',
+      name: 'new',
+      component: () =>
+        import ('./views/addStory/New.vue')
+    },
+    {
+      path: '/tell',
+      name: 'tell',
+      component: () =>
+        import ('./views/addStory/Tell.vue')
+    },
+    {
+      path: '/feel',
+      name: 'feel',
+      component: () =>
+        import ('./views/addStory/Feel.vue')
+    },
+    {
+      path: '/where',
+      name: 'where',
+      component: () =>
+        import ('./views/addStory/Where.vue')
+    },
+    {
+      path: '/summary',
+      name: 'summary',
+      component: () =>
+        import ('./views/addStory/Summary.vue')
+    },
+    {
+      path: '/start/:id',
+      name: 'start',
+      component: () =>
+        import ('./views/Start.vue'),
+      props: true
+    },
+    {
+      path: '/start',
+      name: 'start',
+      component: () =>
+        import ('./views/Start.vue')
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () =>
+        import ( /* webpackChunkName: "about" */ './views/About.vue'),
+      meta: {
+        permissions: [{
+            role: "guest",
+            access: false,
+            redirect: ""
+          },
+          {
+            role: "registered",
+            access: true,
+            redirect: "/about"
+          }
+        ]
       }
-      ]
     }
-  }
   ]
 })
 
@@ -136,20 +142,20 @@ router.beforeEach((to, from, next) => {
   var nextView
 
   if (step == 0 || step == undefined) {
-    nextView = 'welcome'
-    console.log("Welcome!")
-  } else if (step == 1) {
-    nextView = 'new'
-    console.log("New!")
-  } else if (step == 2) {
-    nextView = 'giveaway'
-    console.log("Giveaway!")
-  } else if (step == 3) {
-    nextView = 'journey'
-    console.log("Journey!")
-  }
+     nextView = 'welcome'
+     console.log("Welcome!")
+   } else if (step == 1) {
+     nextView = 'new'
+     console.log("New!")
+   } else if (step == 2){
+     nextView = 'giveaway'
+     console.log("Giveaway!")
+   } else if (step == 3){
+     nextView = 'journey'
+     console.log("Journey!")
+   }
 
-  const dev = Boolean(devMode == undefined || devMode == 0)
+   const dev = Boolean ( devMode == undefined || devMode == 0)
 
   const shouldRedirect = Boolean(
     to.name === "welcome" &&
