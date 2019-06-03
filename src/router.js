@@ -20,6 +20,12 @@ const router = new Router({
           import ('./views/DevMode.vue'),
         props: true
       },
+      {
+          path: '/reset',
+          name: 'resetCookie',
+          component: () =>
+            import ('./views/CookieReset.vue')
+        },
     {
       path: '/p/:id',
       name: 'accessPoster',
