@@ -1,5 +1,5 @@
 <template>
-  <div class="new color-bg fullscreen">
+  <div class="new color-bg fullscreen pad-t">
     <!-- <Form @add-Story="addStory"></Form> -->
     <div class="back-button" v-on:click="backStep()">Back</div>
     <div class="topic">

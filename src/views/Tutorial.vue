@@ -89,11 +89,11 @@
                                 <circle id="Oval" class="fill-dark" cx="38" cy="136" r="5"></circle>
                                 <path d="M6.5,119.5 L69.5,119.5" id="Path-7" class="stroke-dark"></path>
                                 <path d="M6.5,21 L69.5,21" id="Path-7-Copy" class="stroke-dark"></path>
-                                <text id="PHOTO" font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr"  font-size="4" font-weight="700" class="fill-dark">
+                                <text id="PHOTO" font-family="Harmonia"  font-size="4" font-weight="700" class="fill-dark">
                                     <tspan x="31.364" y="128">PHOTO</tspan>
                                 </text>
                             </g>
-                            <text id="Scan-it"  transform="translate(64.500000, 21.000000) rotate(-5.000000) translate(-64.500000, -21.000000) " font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="32" font-weight="700" class="stroke-dark fill-dark">
+                            <text id="Scan-it"  transform="translate(64.500000, 21.000000) rotate(-5.000000) translate(-64.500000, -21.000000) " font-family="Harmonia" font-size="32" font-weight="700" class="stroke-dark fill-dark">
                                 <tspan x="13.044" y="28">Scan it</tspan>
                             </text>
                         </g>
@@ -321,11 +321,11 @@
                                     <rect id="Rectangle-Copy-28"   x="3.38666667" y="30.5866667" width="2.29333333" height="2.29333333"></rect>
                                 </g>
                             </g>
-                            <text id="Break-it" transform="translate(160.423310, 26.286991) rotate(-311.000000) translate(-160.423310, -26.286991) " font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="12" font-weight="700" class="fill-dark">
+                            <text id="Break-it" transform="translate(160.423310, 26.286991) rotate(-311.000000) translate(-160.423310, -26.286991) " font-family="Harmonia" font-size="12" font-weight="700" class="fill-dark">
                                 <tspan x="138.63731" y="29.2869908">Break it</tspan>
                             </text>
                         </g>
-                        <text id="Share-it" transform="translate(849.000000, 475.000000) rotate(-15.000000) translate(-849.000000, -475.000000) " font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="42" font-weight="700" class="fill-dark">
+                        <text id="Share-it" transform="translate(849.000000, 475.000000) rotate(-15.000000) translate(-849.000000, -475.000000) " font-family="Harmonia" font-size="42" font-weight="700" class="fill-dark">
                             <tspan x="772.434" y="485">Share it</tspan>
                         </text>
                     </g>
@@ -351,14 +351,14 @@
                             <path d="M172.4,71 C175.2,166.2 193.2,230.6 226.4,264.2" id="Path-9" class="stroke-dark" stroke-width="4.8"></path>
                             <circle id="Oval" class="stroke-bg-color fill-dark" stroke-width="3.6" cx="42.4" cy="165.4" r="14"></circle>
                             <circle id="Oval-Copy-2" class="stroke-bg-color fill-dark" stroke-width="3.6"  cx="229.6" cy="267.4" r="14"></circle>
-                            <text id="Osnabrück" font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="16" font-weight="700" class="fill-dark">
+                            <text id="Osnabrück" font-family="Harmonia" font-size="16" font-weight="700" class="fill-dark">
                                 <tspan x="0.076" y="194">Osnabrück</tspan>
                             </text>
                             <rect id="Rectangle" class="fill-bg-color" x="150" y="84" width="52" height="22"></rect>
-                            <text id="Berlin" font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="16" font-weight="700" class="fill-dark">
+                            <text id="Berlin" font-family="Harmonia" font-size="16" font-weight="700" class="fill-dark">
                                 <tspan x="154.04" y="102">Berlin</tspan>
                             </text>
-                            <text id="Rome" font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="16" font-weight="700" class="fill-dark">
+                            <text id="Rome" font-family="Harmonia" font-size="16" font-weight="700" class="fill-dark">
                                 <tspan x="208.676" y="295">Rome</tspan>
                             </text>
                             <circle id="Oval-Copy" class="stroke-bg-color fill-dark" stroke-width="3.6" cx="175.8" cy="74.2" r="14"></circle>
@@ -446,12 +446,12 @@
                               <rect id="Rectangle-Copy-9"    x="2.11666667" y="13.45" width="1.43333333" height="1.43333333"></rect>
                               <rect id="Rectangle-Copy-28"    x="2.11666667" y="19.1166667" width="1.43333333" height="1.43333333"></rect>
                           </g>
-                          <text id="POSTER" font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="16" font-weight="700" class="fill-dark">
+                          <text id="POSTER" font-family="Harmonia" font-size="16" font-weight="700" class="fill-dark">
                               <tspan x="1755.088" y="208">POSTER</tspan>
                           </text>
                           <g id="Group-7" transform="translate(1751.000000, 486.000000) rotate(-348.000000) translate(-1751.000000, -486.000000) translate(1695.000000, 430.000000)">
                               <rect id="Rectangle" class="fill-dark" x="0" y="0" width="112" height="112" rx="10"></rect>
-                              <text id="Your-Story" font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="16" font-weight="700" class="fill-bg-color">
+                              <text id="Your-Story" font-family="Harmonia" font-size="16" font-weight="700" class="fill-bg-color">
                                   <tspan x="17.528" y="29">Your Story</tspan>
                               </text>
                               <text id="🥳" font-family="AppleColorEmoji, Apple Color Emoji" font-size="36" font-weight="normal" class="fill-bg-color">
@@ -482,7 +482,7 @@
                             <text id="Days" font-family="HarmoniaSansProCyr-Bold, Harmonia Sans Pro Cyr" font-size="16" font-weight="bold" class="fill-dark">
                                 <tspan x="2127.28" y="404">Days</tspan>
                             </text>
-                            <text id="7" font-family="HarmoniaSansProCyr-Black, Harmonia Sans Pro Cyr" font-size="116" font-weight="700" class="fill-dark">
+                            <text id="7" font-family="Harmonia" font-size="116" font-weight="700" class="fill-dark">
                                 <tspan x="2111.36" y="373">7</tspan>
                             </text>
                         </g>

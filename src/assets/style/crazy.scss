@@ -17,8 +17,19 @@
 
 // >>>COLORS
 $bg-color: #FD74BC;
+$light-bg-color: #fd8dc8;
+$darken-bg-color: #fd56ad;
+
 $text-color-primary: #0A2465;
+$light-color-primary: #0c2c7c;
+$darken-color-primary: #09215c;
+
 $text-color-contrast: #ffff;
+$darken-white: #cccccc;
+
+$mix-bg-text: #844c91;
+
+
 
 // var(--bg-color)
 
@@ -70,11 +81,7 @@ body{
 }
 .color-primary{
     background-color: $text-color-primary;
-    &.bg-animation{
-        background-image: linear-gradient(-40deg,  lighten($text-color-primary,3) 30%, $text-color-primary 30%);
-        animation: gradient 15000ms ease-in-out infinite 100ms;
-        background-size: 200% 200%;
-    }
+  
 }
 
 @keyframes gradient {
