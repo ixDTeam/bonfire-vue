@@ -847,6 +847,12 @@ button{
     align-items: center;
 }
 
+.button-main{
+    &.m-b-1-5{
+        margin-bottom: 1rem;
+    }
+}
+
 .emoji{
     font-size: 3rem;
     display: flex;

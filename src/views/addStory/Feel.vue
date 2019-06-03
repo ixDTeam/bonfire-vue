@@ -60,7 +60,7 @@
       </label>
     </div>
     
-    <button class="button button-main" v-on:click="nextStep('where')" :disabled="checkButton()">
+    <button class="button button-main m-b-1-5" v-on:click="nextStep('where')" :disabled="checkButton()">
       <span v-if="checkButton()">Select your emotion</span>
       <span v-else>Next</span>
     </button>
