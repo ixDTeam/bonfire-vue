@@ -506,6 +506,7 @@
           <span v-else>
             <h1>Share your story!</h1>
             <p>Select a topic and share your experience and pass on the gift!</p>
+            <h1 class="tutorial-emoji">&#x1F60A</h1>
 
           </span>
         </div>
