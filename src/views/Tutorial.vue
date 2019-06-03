@@ -479,7 +479,7 @@
                     <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="Artboard" transform="translate(-2088.000000, -264.000000)">
                             <rect id="Rectangle" class="fill-bg-color-light" x="2088" y="264" width="113" height="156" rx="15"></rect>
-                            <text id="Days" font-family="HarmoniaSansProCyr-Bold, Harmonia Sans Pro Cyr" font-size="16" font-weight="bold" class="fill-dark">
+                            <text id="Days" font-family="Harmonia" font-size="16" font-weight="bold" class="fill-dark">
                                 <tspan x="2127.28" y="404">Days</tspan>
                             </text>
                             <text id="7" font-family="Harmonia" font-size="116" font-weight="700" class="fill-dark">
