@@ -107,3 +107,10 @@ export default {
 
 
 </script>
+
+<style>
+.header .back-button{
+  position: absolute;
+}
+
+</style>

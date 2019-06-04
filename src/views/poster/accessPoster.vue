@@ -1,5 +1,5 @@
 <template>
-<div class="fullscreen bshadow ">
+<div class="fullscreen">
 
     <Poster v-if="poster.occupied" :key="poster.id" :content="poster.content" :emotion="poster.emotion" :topic="poster.topic" :created="poster.created" :city="poster.locationName" :time="time" :id="poster.id">
     </Poster>
@@ -105,7 +105,6 @@ export default {
             }
           }
         }
-
       }
     }
   },

@@ -24,8 +24,8 @@
           </p>
           <div class="body m-t-50">
 
-            
-            
+
+
             <svg width="119px" height="282px" viewBox="0 0 119 282" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Artboard" transform="translate(-406.000000, -218.000000)">
@@ -112,7 +112,7 @@
               if you shared the gift successfully!
             </p>
           <div class="body m-t-80">
-            
+
             <svg width="215px" height="312px" viewBox="0 0 215 312" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Artboard" transform="translate(-724.000000, -191.000000)">
@@ -331,7 +331,7 @@
                     </g>
                 </g>
             </svg>
-            
+
           </div>
         </div>
       </swiper-slide>
@@ -341,8 +341,8 @@
               <h1>See how your gift travels</h1>
               <p>around the world and unites people.</p>
             <div class="body">
-              
-              
+
+
               <svg width="253px" height="296px" viewBox="0 0 253 296" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Artboard" transform="translate(-1143.000000, -206.000000)">
@@ -385,10 +385,10 @@
                 </g>
               </svg>
             </div>
-  
+
           </div>
         </swiper-slide>
-      
+
         <swiper-slide class="tutorial-page">
             <div class="tutorial-content">
                 <h1>Find a poster</h1>
@@ -464,7 +464,7 @@
                   </g>
                 </svg>
               </div>
-    
+
             </div>
           </swiper-slide>
 
@@ -488,13 +488,13 @@
                         </g>
                     </g>
                   </svg>
-                  
-                  
+
+
                 </div>
-      
+
               </div>
             </swiper-slide>
-        
+
 
       <swiper-slide class="tutorial-page">
         <div class="tutorial-content">
@@ -510,8 +510,7 @@
 
           </span>
         </div>
-        <button :disabled="!allowAccess" class="button button-main button-tutorial" v-on:click="startJourney">Los
-          gehts!</button>
+        <button :disabled="!allowAccess" class="button button-main button-tutorial" v-on:click="startJourney">Let's start!</button>
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>

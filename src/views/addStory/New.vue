@@ -33,16 +33,16 @@ export default {
       max_char: 10,
       remain_char: 10,
       status: false,
-      topic: 0,
+      topic: '',
     };
   },
   methods: {
     nextStep(n, v){
-      this.$router.push({path: n});
       this.topic = v;
       this.$store.commit('setTopic', v);
       this.$cookies.set('step', 1);
       console.log("Store wurde aktualisiert auf "+ this.$store.getters.getTopic);
+      this.$router.push({path: n});
     },
     backStep(){
       this.$router.back();
