@@ -81,7 +81,7 @@ body{
 }
 .color-primary{
     background-color: $text-color-primary;
-  
+
 }
 
 @keyframes gradient {
@@ -287,8 +287,8 @@ button{
 
 
 .welcome-intro{
-    padding-left: 2rem;
-
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .welcome-headline{
@@ -302,9 +302,7 @@ button{
         top: 0;
     }
     .number{
-        position: absolute;
-        top: 3.75rem;
-        left: 4rem;
+
         display: flex;
         flex-direction: column;
         color: $bg-color;

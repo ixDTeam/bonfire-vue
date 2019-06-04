@@ -5,9 +5,9 @@
 
       <swiper-slide class="tutorial-page">
         <div class="tutorial-content">
-          <h2>Welcome to bonfire</h2>
+          <h2>Welcome to shäre</h2>
           <div class="body">
-            <p>Share an experience about</p>
+            <p>Share an experience about deffenrent topics</p>
             <span class="tutorial-h1" id="t1">Topic 1</span>
             <span class="tutorial-h1" id="t2">Topic 2</span>
             <span class="tutorial-h1" id="t3">Topic 3</span>
@@ -582,8 +582,6 @@
       }
     },
     mounted() {
-      // current swiper instance
-      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
       console.log('this is current swiper instance object', this.swiper)
     }
   }
