@@ -53,7 +53,7 @@ Vue.use(Geocoder, {
   // defaultCountryCode: 'DE', // e.g. 'CA'
   defaultLanguage: 'en', // e.g. 'en'
   defaultMode: 'adress', // or 'lat-lng'
-  googleMapsApiKey: 'AIzaSyC0p6rXwRKcXYuBp5IMBBMbrXeAO3a2BuI'
+  googleMapsApiKey: 'AIzaSyBjZceEco779NRdrv0vyA3viaJmnpNv3oM'
 });
 Vue.component(VueCountdown.name, VueCountdown);
 Vue.component(Vue100vh);
@@ -66,7 +66,7 @@ let cookieID = window.$cookies.get('id');
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyC0p6rXwRKcXYuBp5IMBBMbrXeAO3a2BuI",
+    key: "AIzaSyBjZceEco779NRdrv0vyA3viaJmnpNv3oM",
   }
 });
 
