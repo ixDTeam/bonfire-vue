@@ -63,10 +63,10 @@ export default {
             }
           },
         swiperSlides: [1, 2, 3, 4, 5],
-        latCenter: 50,
-        lngCenter: 30,
-        panLat: 50,
-        panLng: 30,
+        latCenter: 51.672756,
+        lngCenter: 10.318538,
+        panLat: 51.672756,
+        panLng: 10.318538,
         ownStoryID: lStoryID,
         ownStoryIndex: lownStoryIndex
         };
