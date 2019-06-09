@@ -7,10 +7,10 @@
         <div class="tutorial-content">
           <h2>Welcome to shäre</h2>
           <div class="body">
-            <p>Share an experience about deffenrent topics</p>
-            <span class="tutorial-h1" id="t1">Topic 1</span>
-            <span class="tutorial-h1" id="t2">Topic 2</span>
-            <span class="tutorial-h1" id="t3">Topic 3</span>
+            <p>Share an experience about different topics</p>
+            <span class="tutorial-h1" id="t1">Topic</span>
+            <span class="tutorial-h1" id="t2">Topic</span>
+            <span class="tutorial-h1" id="t3">Topic</span>
             <p><br>and read stories from others!</p>
           </div>
         </div>
